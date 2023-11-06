@@ -2,7 +2,7 @@ import React from 'react'
 import '../../css/PreLoader.css';
 function PreLoader() {
     return (
-        <div id="js-preloader" class="js-preloader">
+        <div class="js-preloader">
             <div class="preloader-inner">
                 <span class="dot"></span>
                 <div class="dots">

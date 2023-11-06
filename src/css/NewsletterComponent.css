@@ -1,9 +1,12 @@
+/*-----------------------------------*\
+  #NEWSLETTERS
+\*-----------------------------------*/
 #newsletter {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     align-items: center;
-    background-image: url("../images/b14.png");
+    background-image: url("../images/bg-newsletters.png");
     background-repeat: no-repeat;
     background-position: 20% 30%;
     background-color: #041e42;
@@ -49,3 +52,36 @@
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
 }
+
+
+
+/*-----------------------------------*\
+  #MEDIA QUERIES
+\*-----------------------------------*/
+
+/**
+ * responsive for larger than 575px screen
+*/
+
+@media (min-width: 575px) {}
+
+
+/**
+   * responsive for larger than 768px screen
+*/
+
+@media (min-width: 768px) {}
+
+
+/**
+   * responsive for larger than 992px screen
+*/
+
+@media (min-width: 992px) {}
+
+
+/**
+   * responsive for larger than 1200px screen
+*/
+
+@media (min-width: 1200px) {}

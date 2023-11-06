@@ -1,4 +1,6 @@
-/* Header */
+/*-----------------------------------*\
+  #HEADER
+\*-----------------------------------*/
 #header {
     display: flex;
     align-items: center;
@@ -42,3 +44,34 @@
     bottom: -4px;
     left: 20px;
 }
+
+/*-----------------------------------*\
+  #MEDIA QUERIES
+\*-----------------------------------*/
+
+/**
+ * responsive for larger than 575px screen
+*/
+
+@media (min-width: 575px) {}
+
+
+/**
+   * responsive for larger than 768px screen
+*/
+
+@media (min-width: 768px) {}
+
+
+/**
+   * responsive for larger than 992px screen
+*/
+
+@media (min-width: 992px) {}
+
+
+/**
+   * responsive for larger than 1200px screen
+*/
+
+@media (min-width: 1200px) {}

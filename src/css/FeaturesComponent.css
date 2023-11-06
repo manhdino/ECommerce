@@ -1,3 +1,7 @@
+/*-----------------------------------*\
+  #FEATURES SERVICES 
+\*-----------------------------------*/
+
 .features {
     display: flex;
     align-items: center;
@@ -23,13 +27,42 @@
     font-size: 18px;
     font-weight: 600;
     margin: 15px 10px;
-    font-family: "Spartan", sans-serif;
 }
 
 .featureDesc {
     color: gray;
     width: 50%;
     height: 100px;
-    font-family: "Spartan", sans-serif;
     font-size: 14px;
 }
+
+/*-----------------------------------*\
+  #MEDIA QUERIES
+\*-----------------------------------*/
+
+/**
+ * responsive for larger than 575px screen
+*/
+
+@media (min-width: 575px) {}
+
+
+/**
+   * responsive for larger than 768px screen
+*/
+
+@media (min-width: 768px) {}
+
+
+/**
+   * responsive for larger than 992px screen
+*/
+
+@media (min-width: 992px) {}
+
+
+/**
+   * responsive for larger than 1200px screen
+*/
+
+@media (min-width: 1200px) {}

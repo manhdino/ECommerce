@@ -5,16 +5,12 @@
     right: 0;
     bottom: 0;
     background-color: #fff;
-    display: -webkit-box;
     display: flex;
-    -webkit-box-align: center;
     align-items: center;
-    -webkit-box-pack: center;
     justify-content: center;
     opacity: 1;
     visibility: visible;
     z-index: 9999;
-    -webkit-transition: opacity 0.25s ease;
     transition: opacity 0.25s ease;
 }
 
@@ -26,28 +22,24 @@
 
 @-webkit-keyframes dot {
     50% {
-        -webkit-transform: translateX(96px);
         transform: translateX(96px);
     }
 }
 
 @keyframes dot {
     50% {
-        -webkit-transform: translateX(96px);
         transform: translateX(96px);
     }
 }
 
 @-webkit-keyframes dots {
     50% {
-        -webkit-transform: translateX(-31px);
         transform: translateX(-31px);
     }
 }
 
 @keyframes dots {
     50% {
-        -webkit-transform: translateX(-31px);
         transform: translateX(-31px);
     }
 }
@@ -67,9 +59,7 @@
     left: 15px;
     background: #fe3f40;
     border-radius: 50%;
-    -webkit-transform: translateX(0);
     transform: translateX(0);
-    -webkit-animation: dot 2.8s infinite;
     animation: dot 2.8s infinite;
 }
 

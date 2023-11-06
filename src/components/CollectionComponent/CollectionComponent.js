@@ -3,14 +3,14 @@ import React from 'react'
 import '../../css/CollectionComponent.css';
 import img_collection_1 from '../../images/shoe3.jpg';
 import img_collection_2 from '../../images/shoe2.jpg';
-import img_collection_3 from '../../images/sport2.webp';
+import img_collection_3 from '../../images/shoe6.jpg';
 import img_collection_4 from '../../images/shoe1-2.jpg';
 import { NavLink } from 'react-router-dom';
 function CollectionComponent() {
     return (
         <section class="section collection" aria-label="collection" data-section>
             <div class="container">
-                <h2 class="h2-large section-title">Popular Sales</h2>
+                <h2 class="section-title">Popular Sales</h2>
                 <ul class="collection-list">
 
                     <li>
