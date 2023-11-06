@@ -137,7 +137,12 @@ body {
     justify-content: center;
     align-items: center;
     gap: 20px;
+    flex-direction: column;
+}
 
+.container>.section-title {
+    font-size: 36px;
+    font-weight: 600;
 }
 
 .section {
@@ -176,17 +181,19 @@ body {
     color: var(--white);
     font-size: 24px;
     margin-left: -15px;
+    font-weight: 620;
+    font-size: 22px;
     /* background-color: yellow; */
 }
 
 .collection-card .card-text {
-    margin-top: -8px;
-    margin-left: -15px;
+    margin-top: -6px;
+    margin-left: -12px;
     color: var(--black);
     font-size: var(--fs-6);
     font-weight: var(--fw-600);
     margin-bottom: auto;
-    font-size: 16px;
+    font-size: 15px;
     /* background-color: red; */
 }
 

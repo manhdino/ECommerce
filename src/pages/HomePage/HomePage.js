@@ -5,6 +5,7 @@ import ImgSlider2 from '../../images/slider_2.jpg';
 import ImgSlider3 from '../../images/slider_4.jpg';
 import CollectionComponent from '../../components/CollectionComponent/CollectionComponent';
 import FeaturesComponent from '../../components/FeaturesComponent/FeaturesComponent';
+import DiscoverComponent from '../../components/DiscoverComponent/DiscoverComponent';
 
 function HomePage() {
 
@@ -13,6 +14,7 @@ function HomePage() {
             <SliderCompoent arrImages={[ImgSlider1, ImgSlider2, ImgSlider3]} />
             <CollectionComponent />
             <FeaturesComponent />
+            <DiscoverComponent />
         </>
     )
 }

@@ -10,11 +10,11 @@ function CollectionComponent() {
     return (
         <section class="section collection" aria-label="collection" data-section>
             <div class="container">
-
+                <h2 class="h2-large section-title">Popular Sales</h2>
                 <ul class="collection-list">
 
                     <li>
-                        <div class="collection-card has-before hover:shine">
+                        <NavLink to='/shop' className="collection-card has-before hover:shine">
 
                             <h2 class="h2 card-title">Nike Air Force</h2>
 
@@ -30,15 +30,15 @@ function CollectionComponent() {
                             }}>
                             </div>
 
-                        </div>
+                        </NavLink>
                     </li>
 
                     <li>
-                        <div class="collection-card has-before hover:shine">
+                        <NavLink to='/shop' className="collection-card has-before hover:shine">
 
                             <h2 class="h2 card-title">Sneakers</h2>
 
-                            <p class="card-text">Starting at $129.99</p>
+                            <p class="card-text">Starting at $87.99</p>
 
                             <NavLink to='/shop' className="btn-link">
                                 <span class="span">Shop Now</span>
@@ -51,15 +51,14 @@ function CollectionComponent() {
                             }}>
                             </div>
 
-                        </div>
+                        </NavLink>
                     </li>
 
                     <li>
-                        <div class="collection-card has-before hover:shine">
-
+                        <NavLink to='/shop' className="collection-card has-before hover:shine">
                             <h2 class="h2 card-title">Sports</h2>
 
-                            <p class="card-text">Starting at $7.99</p>
+                            <p class="card-text">Starting at $17.99</p>
 
                             <NavLink to='/shop' className="btn-link">
                                 <span class="span">Shop Now</span>
@@ -71,14 +70,14 @@ function CollectionComponent() {
                             }}>
                             </div>
 
-                        </div>
+                        </NavLink>
                     </li>
                     <li>
-                        <div class="collection-card has-before hover:shine">
+                        <NavLink to='/shop' className="collection-card has-before hover:shine">
 
                             <h2 class="h2 card-title">Adidas</h2>
 
-                            <p class="card-text">Starting at $17.99</p>
+                            <p class="card-text">Starting at $47.99</p>
 
                             <NavLink to='/shop' className="btn-link">
                                 <span class="span">Shop Now</span>
@@ -91,7 +90,7 @@ function CollectionComponent() {
                             }}>
                             </div>
 
-                        </div>
+                        </NavLink>
                     </li>
 
 
