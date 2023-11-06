@@ -4,7 +4,7 @@ import ImgSlider1 from '../../images/slider_1.jpg';
 import ImgSlider2 from '../../images/slider_2.jpg';
 import ImgSlider3 from '../../images/slider_4.jpg';
 import CollectionComponent from '../../components/CollectionComponent/CollectionComponent';
-import FeaturesComponent from '../../components/Features/FeaturesComponent';
+import FeaturesComponent from '../../components/FeaturesComponent/FeaturesComponent';
 
 function HomePage() {
 
