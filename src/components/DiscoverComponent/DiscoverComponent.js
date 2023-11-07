@@ -6,23 +6,23 @@ import '../../css/DiscoverComponent.css';
 import { NavLink } from 'react-router-dom';
 export default function DiscoverComponent() {
     return (
-        <section class="section blog" id="blog" aria-label="blog" data-section>
-            <div class="container">
+        <section class="blog-wrap" id="blog" aria-label="blog" data-section>
+            <div class="blog-container">
 
                 <h2 class="h2-large section-title">More to Discover</h2>
 
-                <ul class="flex-list">
+                <ul class="flex-list-discover">
 
-                    <li class="flex-item">
+                    <li class="flex-item-discover">
                         <NavLink to='/contact' className="blog-card">
 
-                            <figure class="card-banner img-holder has-before hover:shine">
-                                <img src={imgBlog1} width="500" height="400" loading="lazy" alt="Find a Store"
+                            <figure class="card-banner img-holder has-before hover:shine" >
+                                <img src={imgBlog1} loading="lazy" alt="Find a Store"
                                     class="img-cover" />
                             </figure>
 
                             <h3 class="h3">
-                                <a href="/" class="card-title">Find a Store</a>
+                                <a href="/" class="card-title-discover">Find a Store</a>
                             </h3>
 
                             <a href="/" class="btn-link">
@@ -34,17 +34,16 @@ export default function DiscoverComponent() {
                         </NavLink>
                     </li>
 
-                    <li class="flex-item">
+                    <li class="flex-item-discover">
                         <NavLink to='/blog' className="blog-card">
 
-                            <figure class="card-banner img-holder has-before hover:shine"
-                            >
-                                <img src={imgBlog2} width="500" height="400" loading="lazy" alt="Find a Store"
+                            <figure class="card-banner img-holder has-before hover:shine" >
+                                <img src={imgBlog2} loading="lazy" alt="From Our Blog"
                                     class="img-cover" />
                             </figure>
 
                             <h3 class="h3">
-                                <a href="/" class="card-title">Want to know more?</a>
+                                <a href="/" class="card-title-discover">Want to know more?</a>
                             </h3>
 
                             <a href="/" class="btn-link">
@@ -56,16 +55,16 @@ export default function DiscoverComponent() {
                         </NavLink>
                     </li>
 
-                    <li class="flex-item">
+                    <li class="flex-item-discover">
                         <NavLink to='/contact' className="blog-card">
 
-                            <figure class="card-banner img-holder has-before hover:shine">
-                                <img src={imgBlog3} width="500" height="400" loading="lazy" alt="Find a Store"
+                            <figure class="card-banner img-holder has-before hover:shine"  >
+                                <img src={imgBlog3} loading="lazy" alt="Our Story"
                                     class="img-cover" />
                             </figure>
 
                             <h3 class="h3">
-                                <a href="/" class="card-title">Why should choose us?</a>
+                                <a href="/" class="card-title-discover">Why should choose us?</a>
                             </h3>
 
                             <a href="/" class="btn-link">
@@ -81,5 +80,6 @@ export default function DiscoverComponent() {
 
             </div>
         </section>
+
     )
 }

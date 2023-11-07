@@ -11,7 +11,7 @@ function HomePage() {
 
     return (
         <>
-            <SliderCompoent arrImages={[ImgSlider1, ImgSlider2, ImgSlider3]} />
+            {/* <SliderCompoent arrImages={[ImgSlider1, ImgSlider2, ImgSlider3]} /> */}
             <CollectionComponent />
             <FeaturesComponent />
             <DiscoverComponent />

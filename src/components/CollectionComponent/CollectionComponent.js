@@ -8,27 +8,28 @@ import img_collection_4 from '../../images/shoe1-2.jpg';
 import { NavLink } from 'react-router-dom';
 function CollectionComponent() {
     return (
-        <section class="section collection" aria-label="collection" data-section>
-            <div class="container">
+        <section class="collection-wrap">
+            <div class="collection-container">
                 <h2 class="section-title">Popular Sales</h2>
                 <ul class="collection-list">
 
                     <li>
                         <NavLink to='/shop' className="collection-card has-before hover:shine">
 
-                            <h2 class="h2 card-title">Nike Air Force</h2>
+                            <h2 class="card-title-collection">Nike Air Force</h2>
 
-                            <p class="card-text">Starting at $17.99</p>
+                            <p class="card-text-collection">Starting at $17.99</p>
+
                             <NavLink to='/shop' className="btn-link">
                                 <span class="span">Shop Now</span>
 
                                 <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
                             </NavLink>
 
+
                             <div class="has-bg-image" style={{
                                 backgroundImage: `url(${img_collection_1})`
-                            }}>
-                            </div>
+                            }}></div>
 
                         </NavLink>
                     </li>
@@ -36,9 +37,8 @@ function CollectionComponent() {
                     <li>
                         <NavLink to='/shop' className="collection-card has-before hover:shine">
 
-                            <h2 class="h2 card-title">Sneakers</h2>
-
-                            <p class="card-text">Starting at $87.99</p>
+                            <h2 class="card-title-collection">Sneakers</h2>
+                            <p class="card-text-collection">Starting at $87.99</p>
 
                             <NavLink to='/shop' className="btn-link">
                                 <span class="span">Shop Now</span>
@@ -48,36 +48,36 @@ function CollectionComponent() {
 
                             <div class="has-bg-image" style={{
                                 backgroundImage: `url(${img_collection_2})`
-                            }}>
-                            </div>
+                            }}></div>
 
                         </NavLink>
                     </li>
 
                     <li>
                         <NavLink to='/shop' className="collection-card has-before hover:shine">
-                            <h2 class="h2 card-title">Sports</h2>
 
-                            <p class="card-text">Starting at $17.99</p>
+                            <h2 class="card-title-collection">Sports</h2>
+
+                            <p class="card-text-collection">Starting at $87.99</p>
 
                             <NavLink to='/shop' className="btn-link">
                                 <span class="span">Shop Now</span>
 
                                 <ion-icon name="arrow-forward" aria-hidden="true"></ion-icon>
                             </NavLink>
+
                             <div class="has-bg-image" style={{
                                 backgroundImage: `url(${img_collection_3})`
-                            }}>
-                            </div>
+                            }}></div>
 
                         </NavLink>
                     </li>
                     <li>
                         <NavLink to='/shop' className="collection-card has-before hover:shine">
 
-                            <h2 class="h2 card-title">Adidas</h2>
+                            <h2 class="card-title-collection">Adidas</h2>
 
-                            <p class="card-text">Starting at $47.99</p>
+                            <p class="card-text-collection">Starting at $87.99</p>
 
                             <NavLink to='/shop' className="btn-link">
                                 <span class="span">Shop Now</span>
@@ -87,17 +87,17 @@ function CollectionComponent() {
 
                             <div class="has-bg-image" style={{
                                 backgroundImage: `url(${img_collection_4})`
-                            }}>
-                            </div>
+                            }}></div>
 
                         </NavLink>
                     </li>
 
 
+
                 </ul>
+
             </div>
         </section>
-
     )
 }
 

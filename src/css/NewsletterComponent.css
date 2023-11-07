@@ -34,7 +34,7 @@
 }
 
 #newsletter input {
-    height: 3.125rem;
+    background-color: white;
     padding: 0 1.25rem;
     font-size: 14px;
     width: 100%;
@@ -43,6 +43,8 @@
     outline: none;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
+    height: 5.1rem;
+
 }
 
 #newsletter button {
