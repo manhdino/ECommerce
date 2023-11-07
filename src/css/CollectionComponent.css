@@ -205,11 +205,21 @@
     /**
      * REUSED STYLE
      */
+    .collection-container .section-title {
+        font-size: 24px;
+        font-weight: 600;
+    }
 
     .collection-container {
         max-width: 540px;
         width: 100%;
         margin-inline: auto;
+
+    }
+
+    .collection-list {
+
+        gap: 20px;
     }
 
     .collection-container {
@@ -243,6 +253,10 @@
     /**
      * REUSED STYLE
      */
+    .collection-container .section-title {
+        font-size: 30px;
+        font-weight: 600;
+    }
 
     .collection-container {
         max-width: 730px;
@@ -296,6 +310,10 @@
     /**
      * REUSED STYLE
      */
+    .collection-container .section-title {
+        font-size: 32px;
+        font-weight: 600;
+    }
 
     .collection-container {
         max-width: 960px;

@@ -1,13 +1,16 @@
 /*-----------------------------------*\
   #FEATURES SERVICES 
 \*-----------------------------------*/
+.features-container {
+    margin: 0 auto;
+    padding: 25px;
+}
 
 .features {
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 80px;
-    gap: 50px;
 }
 
 .feature {
@@ -41,28 +44,59 @@
 \*-----------------------------------*/
 
 /**
- * responsive for larger than 575px screen
+ * responsive for larger than 580px screen
 */
+@media (min-width: 375px) {
 
-@media (min-width: 575px) {}
+    .features {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .features-container {
+        max-width: 350px;
+    }
+}
+
+@media (min-width:768px) {
+    .features {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .features-container {
+        max-width: 730px;
+    }
+}
 
 
 /**
-   * responsive for larger than 768px screen
+ * responsive for larger than 1200px screen
 */
 
-@media (min-width: 768px) {}
+@media (min-width: 992px) {
+    .features {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px;
+    }
 
+    .features-container {
+        max-width: 960px;
+    }
+}
 
-/**
-   * responsive for larger than 992px screen
-*/
+@media (min-width: 1200px) {
+    .features {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        /* gap: 150px; */
+        gap: 50px;
+    }
 
-@media (min-width: 992px) {}
-
-
-/**
-   * responsive for larger than 1200px screen
-*/
-
-@media (min-width: 1200px) {}
+    .features-container {
+        max-width: 1300px;
+    }
+}
