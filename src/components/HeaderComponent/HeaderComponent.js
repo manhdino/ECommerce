@@ -19,22 +19,29 @@ function HeaderComponent({ children }) {
 
                 <a href="/"><img src={logo} class="logo" alt="" /></a>
                 <div id="mobile">
-                    <NavLink className={({ isActive }) => (isActive ? 'active nav' : 'nav')} to='/cart'><i class="fa-solid fa-cart-shopping"></i></NavLink>
                     <i id="bar" class="fa-solid fa-bars" onClick={openMenu}></i>
                 </div>
 
 
                 <ul id="navbar" class={menuOpen ? "open center" : "close center"}>
-                    <li><NavLink className={({ isActive }) => (isActive ? 'active nav' : 'nav')} to='/'>Home</NavLink></li>
-                    <li><NavLink className={({ isActive }) => (isActive ? 'active nav' : 'nav')} to='/shop'>Shop</NavLink></li>
-                    <li><NavLink className={({ isActive }) => (isActive ? 'active nav' : 'nav')} to='/blog'>Blog</NavLink></li>
-                    <li><NavLink className={({ isActive }) => (isActive ? 'active nav' : 'nav')} to='/services'>Services</NavLink></li>
-                    <li><NavLink className={({ isActive }) => (isActive ? 'active nav' : 'nav')} to='/contact'>Contact</NavLink></li>
-                    <li><NavLink className={({ isActive }) => (isActive ? 'active nav' : 'nav')} to='/cart'><i id="cart" class="fa-solid fa-cart-shopping"></i></NavLink> </li>
+                    <li><NavLink className={({ isActive }) => (isActive ? 'active nav' : 'nav')} onClick={closeMenu} to='/'>Home</NavLink></li>
+                    <li><NavLink className={({ isActive }) => (isActive ? 'active nav' : 'nav')} onClick={closeMenu} to='/shop'>Shop</NavLink></li>
+                    <li><NavLink className={({ isActive }) => (isActive ? 'active nav' : 'nav')} onClick={closeMenu} to='/blog'>Blog</NavLink></li>
+                    <li><NavLink className={({ isActive }) => (isActive ? 'active nav' : 'nav')} onClick={closeMenu} to='/services'>Services</NavLink></li>
+                    <li><NavLink className={({ isActive }) => (isActive ? 'active nav' : 'nav')} onClick={closeMenu} to='/contact'>Contact</NavLink></li>
+                    {/* <li>
+                        <li><NavLink className={({ isActive }) => (isActive ? 'active nav' : 'nav')} onClick={closeMenu} to='/shop'><ion-icon id="cart" name="search-sharp"></ion-icon></NavLink> </li>
+                        <li><NavLink className={({ isActive }) => (isActive ? 'active nav' : 'nav')} onClick={closeMenu} to='/login'><ion-icon id="cart" name="person-sharp"></ion-icon></NavLink> </li>
+                        <li><NavLink className={({ isActive }) => (isActive ? 'active nav' : 'nav')} onClick={closeMenu} to='/cart'><ion-icon id="cart" name="bag-handle-sharp"></ion-icon></NavLink> </li>
+                    </li> */}
+                    <li><NavLink className={({ isActive }) => (isActive ? 'active nav' : 'nav')} onClick={closeMenu} to='/shop'><ion-icon id="cart" name="search-sharp"></ion-icon></NavLink> </li>
+                    <li><NavLink className={({ isActive }) => (isActive ? 'active nav' : 'nav')} onClick={closeMenu} to='/login'><ion-icon id="cart" name="person-sharp"></ion-icon></NavLink> </li>
+                    <li><NavLink className={({ isActive }) => (isActive ? 'active nav' : 'nav')} onClick={closeMenu} to='/cart'><ion-icon id="cart" name="bag-handle-sharp"></ion-icon></NavLink> </li>
+
                     <i id="close" class="fa-solid fa-xmark" onClick={closeMenu}></i>
                 </ul>
 
-            </section>
+            </section >
             {children}
         </>
     )

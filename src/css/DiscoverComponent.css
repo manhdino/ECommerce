@@ -184,6 +184,15 @@
 /*-----------------------------------*\
     #MEDIA QUERIES
   \*-----------------------------------*/
+@media (min-width: 370px) {
+    .blog-container .section-title {
+        font-size: 24px;
+    }
+
+    .blog-container .btn-link {
+        font-size: 14px;
+    }
+}
 
 /**
    * responsive for larger than 575px screen

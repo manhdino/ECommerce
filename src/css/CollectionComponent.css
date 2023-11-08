@@ -199,12 +199,18 @@
 /**
    * responsive for larger than 575px screen
    */
+@media (min-width: 370px) {
+    .collection-container .section-title {
+        font-size: 22px;
+        font-weight: 600;
+    }
+}
+
 
 @media (min-width: 575px) {
 
-    /**
-     * REUSED STYLE
-     */
+
+
     .collection-container .section-title {
         font-size: 24px;
         font-weight: 600;

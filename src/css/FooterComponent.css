@@ -76,25 +76,29 @@ footer .copyright {
  * responsive for larger than 575px screen
 */
 
-@media (min-width: 575px) {}
+@media (max-width: 880px) {
+
+    #newsletter .form {
+        margin-top: 10px;
+        width: 60%;
+    }
+}
 
 
 /**
    * responsive for larger than 768px screen
 */
 
-@media (min-width: 768px) {}
+@media (max-width: 658px) {
+    #newsletter .form {
+        width: 90%;
+    }
 
+    #newsletter {
+        padding: 40px 20px;
+    }
 
-/**
-   * responsive for larger than 992px screen
-*/
-
-@media (min-width: 992px) {}
-
-
-/**
-   * responsive for larger than 1200px screen
-*/
-
-@media (min-width: 1200px) {}
+    footer .copyright {
+        text-align: start;
+    }
+}
