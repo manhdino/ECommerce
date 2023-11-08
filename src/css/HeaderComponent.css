@@ -60,6 +60,7 @@
     align-items: center;
 }
 
+
 /*-----------------------------------*\
   #MEDIA QUERIES
 \*-----------------------------------*/
@@ -69,6 +70,10 @@
 */
 
 @media (max-width: 799px) {
+    #header {
+        padding: 20px 20px;
+    }
+
     #navbar {
         display: flex;
         flex-direction: column;
@@ -92,11 +97,12 @@
     #mobile {
         display: flex;
         align-items: center;
-
+        margin-left: 60px;
     }
 
     #navbar.open {
         right: 0px;
+        height: auto;
     }
 
     /* #navbar.open #cart {
@@ -105,12 +111,14 @@
 
     #mobile i {
         color: #1a1a1a;
-        font-size: 24px;
+        font-size: 30px;
         padding-left: 20px;
+
     }
 
     #navbar.close {
         right: -300px;
+        height: auto;
     }
 
     #close {

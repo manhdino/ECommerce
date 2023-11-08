@@ -12,8 +12,14 @@
 }
 
 .collection-container .section-title {
-    font-size: 36px;
-    font-weight: 600;
+    border-bottom: 1px solid var(--cultured);
+    letter-spacing: 0.4px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 5px;
+    margin-bottom: 30px;
 }
 
 .collection-wrap {
@@ -137,7 +143,9 @@
     gap: 30px;
 }
 
-
+.collection-list li {
+    border-radius: 10px;
+}
 
 
 
@@ -176,6 +184,7 @@
     height: 320px;
     display: flex;
     flex-direction: column;
+    border-radius: var(--border-radius-md);
 }
 
 
@@ -188,6 +197,10 @@
     font-weight: var(--fw-600);
     margin-bottom: auto;
     font-size: 15px;
+}
+
+.collection-card:hover {
+    box-shadow: 0 0 10px hsla(0, 0%, 0%, 0.1);
 }
 
 
@@ -317,8 +330,8 @@
      * REUSED STYLE
      */
     .collection-container .section-title {
-        font-size: 32px;
-        font-weight: 600;
+        font-size: 28px;
+        font-weight: 700;
     }
 
     .collection-container {

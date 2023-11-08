@@ -29,6 +29,15 @@
   --black_10: hsla(0, 0%, 0%, 0.1);
   --black_5: hsla(0, 0%, 0%, 0.05);
   --black_90: hsla(0, 0%, 0%, 0.9);
+  -spanish-gray: hsl(0, 0%, 60%);
+  --sonic-silver: hsl(0, 0%, 47%);
+  --eerie-black: hsl(0, 0%, 13%);
+  --salmon-pink: hsl(353, 100%, 78%);
+  --sandy-brown: hsl(29, 90%, 65%);
+  --ocean-green: hsl(152, 51%, 52%);
+  --davys-gray: hsl(0, 0%, 33%);
+
+
 
   --gradient: linear-gradient(to right, transparent 50%, var(--white_30) 100%);
 
@@ -43,6 +52,16 @@
   --fs-7: 1.5rem;
   --fs-8: 1.4rem;
   --fs-9: 1.3rem;
+  --fs-10: 1rem;
+  --fs-11: 0.85rem;
+  --fs-12: 0.813rem;
+  --fs-13: 0.75rem;
+
+  /* 
+  --fs-5: 1rem; */
+  /* --fs-7: 0.875rem; */
+  /* --fs-8: 0.813rem;
+  --fs-9: 0.75rem; */
 
   --fw-400: 400;
   --fw-500: 500;
@@ -61,6 +80,18 @@
   --transition-2: 0.5s ease;
   --cubic-in: cubic-bezier(0.51, 0.03, 0.64, 0.28);
   --cubic-out: cubic-bezier(0.33, 0.85, 0.4, 0.96);
+  /**
+   * border-radius
+   */
+
+  --border-radius-md: 10px;
+  --border-radius-sm: 5px;
+
+  /**
+  * transition 
+  */
+
+  --transition-timing: 0.2s ease;
 }
 
 
@@ -105,6 +136,7 @@ button {
   background: none;
   border: none;
   font: inherit;
+  cursor: pointer;
 }
 
 input {
@@ -125,6 +157,7 @@ html {
   scroll-behavior: smooth;
   font-family: var(--ff-spartan);
   font-size: 10px;
+  overscroll-behavior: contain;
 }
 
 body {
@@ -199,4 +232,23 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+body::-webkit-scrollbar {
+  width: 15px;
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--white);
+  border-left: 1px solid var(--cultured);
+}
+
+body::-webkit-scrollbar-thumb {
+  background: hsl(0, 0%, 80%);
+  border: 3px solid var(--white);
+  border-radius: 10px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: hsl(0, 0%, 70%);
 }

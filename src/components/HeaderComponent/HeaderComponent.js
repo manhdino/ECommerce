@@ -36,7 +36,7 @@ function HeaderComponent({ children }) {
                     </li> */}
                     <li><NavLink className={({ isActive }) => (isActive ? 'active nav' : 'nav')} onClick={closeMenu} to='/shop'><ion-icon id="cart" name="search-sharp"></ion-icon></NavLink> </li>
                     <li><NavLink className={({ isActive }) => (isActive ? 'active nav' : 'nav')} onClick={closeMenu} to='/login'><ion-icon id="cart" name="person-sharp"></ion-icon></NavLink> </li>
-                    <li><NavLink className={({ isActive }) => (isActive ? 'active nav' : 'nav')} onClick={closeMenu} to='/cart'><ion-icon id="cart" name="bag-handle-sharp"></ion-icon></NavLink> </li>
+
 
                     <i id="close" class="fa-solid fa-xmark" onClick={closeMenu}></i>
                 </ul>

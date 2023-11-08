@@ -3,6 +3,7 @@ import CollectionComponent from '../../components/CollectionComponent/Collection
 import FeaturesComponent from '../../components/FeaturesComponent/FeaturesComponent';
 import DiscoverComponent from '../../components/DiscoverComponent/DiscoverComponent';
 import HeroComponent from '../../components/HeroComponent/HeroComponent';
+import ProductsComponent from '../../components/ProductsComponent/ProductsComponent';
 
 function HomePage() {
 
@@ -10,6 +11,7 @@ function HomePage() {
         <>
             <HeroComponent />
             <CollectionComponent />
+            <ProductsComponent />
             <FeaturesComponent />
             <DiscoverComponent />
         </>
