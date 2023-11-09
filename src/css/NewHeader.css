@@ -310,7 +310,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 .menu-top .menu-title {
     color: var(--salmon-pink);
-    font-size: 1.1.25rem;
+    font-size: 27px;
     font-weight: var(--weight-600);
 }
 
@@ -437,6 +437,10 @@ body::-webkit-scrollbar-thumb:hover {
     border-radius: var(--border-radius-md);
 }
 
+.menu-social-container .social-link:hover {
+    background-color: var(--salmon-pink);
+    color: white;
+}
 
 /*-----------------------------------*\
   #RESPONSIVE
@@ -752,6 +756,7 @@ body::-webkit-scrollbar-thumb:hover {
         text-transform: uppercase;
         padding: 15px 0;
         transition: var(--transition-timing);
+        margin: 0;
     }
 
     .desktop-menu-category-list .menu-category>.menu-title:hover {

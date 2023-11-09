@@ -1,10 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 import logo from '../../images/logo.svg';
 import '../../css/NewHeader.css';
 function NewHeader({ children }) {
+
+    const [menu, setMenuOpen] = useState(false);
+    const [subCategory, setSubCategory] = useState(false);
+    const [subCategory2, setSubCategory2] = useState(false);
+    const [subCategory3, setSubCategory3] = useState(false);
+    const [sideBarLanguage, setSideBarLanguage] = useState(false);
+    const [sideBarCurrency, setSideCurrency] = useState(false);
+    const openMenu = (state) => {
+        const className = 'mobile-navigation-menu has-scrollbar';
+        if (state) {
+            return className + ' active';
+        } else {
+            return className;
+        }
+    }
+
+
     return (
         <>
-            <div class="overlay"></div>
+            <div class={menu ? "overlay active" : "overlay"}></div>
             <header>
 
                 <div class="header-top">
@@ -41,7 +58,7 @@ function NewHeader({ children }) {
 
                         <div class="header-alert-news">
                             <p>
-                                <b>Free Shipping</b>
+                                <b>Free Shipping </b>
                                 This Week Order Over - $55
                             </p>
                         </div>
@@ -244,15 +261,14 @@ function NewHeader({ children }) {
 
                                 </div>
                             </li>
-
+                            <li class="menu-category">
+                                <a href="/" class="menu-title">About</a>
+                            </li>
                             <li class="menu-category">
                                 <a href="/" class="menu-title">Stores</a>
                             </li>
                             <li class="menu-category">
                                 <a href="/" class="menu-title">Services</a>
-                            </li>
-                            <li class="menu-category">
-                                <a href="/" class="menu-title">About</a>
                             </li>
                             <li class="menu-category">
                                 <a href="/" class="menu-title">Blog</a>
@@ -269,7 +285,7 @@ function NewHeader({ children }) {
 
                 <div class="mobile-bottom-navigation">
 
-                    <button class="action-btn" data-mobile-menu-open-btn>
+                    <button class="action-btn" onClick={() => { setMenuOpen(true) }}>
                         <ion-icon name="menu-outline"></ion-icon>
                     </button>
 
@@ -295,12 +311,12 @@ function NewHeader({ children }) {
 
                 </div>
 
-                <nav class="mobile-navigation-menu  has-scrollbar">
+                <nav class={openMenu(menu)} >
 
                     <div class="menu-top">
                         <h2 class="menu-title">Menu</h2>
 
-                        <button class="menu-close-btn" data-mobile-menu-close-btn>
+                        <button class="menu-close-btn" onClick={() => setMenuOpen(!menu)}>
                             <ion-icon name="close-outline"></ion-icon>
                         </button>
                     </div>
@@ -313,16 +329,19 @@ function NewHeader({ children }) {
 
                         <li class="menu-category">
 
-                            <button class="accordion-menu" data-accordion-btn>
+                            <button class={subCategory ? "accordion-menu active" : "accordion-menu"}
+                                onClick={() => {
+                                    setSubCategory(!subCategory)
+                                }}>
                                 <p class="menu-title">Dress Shoes</p>
 
                                 <div>
-                                    <ion-icon name="add-outline" class="add-icon"></ion-icon>
+                                    <ion-icon name="add-outline" class="add-icon" ></ion-icon>
                                     <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
                                 </div>
                             </button>
 
-                            <ul class="submenu-category-list" data-accordion>
+                            <ul class={subCategory ? "submenu-category-list active" : "submenu-category-list"} >
 
                                 <li class="submenu-category">
                                     <a href="/" class="submenu-title">Oxford</a>
@@ -346,16 +365,19 @@ function NewHeader({ children }) {
 
                         <li class="menu-category">
 
-                            <button class="accordion-menu" data-accordion-btn>
-                                <p class="menu-title">Sport Shoes</p>
+                            <button class={subCategory2 ? "accordion-menu active" : "accordion-menu"}
+                                onClick={() => {
+                                    setSubCategory2(!subCategory2)
+                                }}>
+                                <p class="menu-title">Sports Shoes</p>
 
                                 <div>
-                                    <ion-icon name="add-outline" class="add-icon"></ion-icon>
+                                    <ion-icon name="add-outline" class="add-icon" ></ion-icon>
                                     <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
                                 </div>
                             </button>
 
-                            <ul class="submenu-category-list" data-accordion>
+                            <ul class={subCategory2 ? "submenu-category-list active" : "submenu-category-list"} >
 
                                 <li class="submenu-category">
                                     <a href="/" class="submenu-title">Running</a>
@@ -379,15 +401,20 @@ function NewHeader({ children }) {
 
                         <li class="menu-category">
 
-                            <button class="accordion-menu" data-accordion-btn>
+                            <button class={subCategory3 ? "accordion-menu active" : "accordion-menu"}
+                                onClick={() => {
+                                    setSubCategory3(!subCategory3)
+                                }}>
                                 <p class="menu-title">Collection</p>
+
                                 <div>
-                                    <ion-icon name="add-outline" class="add-icon"></ion-icon>
+                                    <ion-icon name="add-outline" class="add-icon" ></ion-icon>
                                     <ion-icon name="remove-outline" class="remove-icon"></ion-icon>
                                 </div>
                             </button>
 
-                            <ul class="submenu-category-list" data-accordion>
+
+                            <ul class={subCategory3 ? "submenu-category-list active" : "submenu-category-list"} >
 
                                 <li class="submenu-category">
                                     <a href="/" class="submenu-title">Premium Line</a>
@@ -411,7 +438,7 @@ function NewHeader({ children }) {
 
                         <li class="menu-category">
 
-                            <button class="accordion-menu" data-accordion-btn>
+                            <button class="accordion-menu">
                                 <p class="menu-title">About</p>
                             </button>
                         </li>
@@ -432,37 +459,36 @@ function NewHeader({ children }) {
 
                             <li class="menu-category">
 
-                                <button class="accordion-menu" data-accordion-btn>
+                                <button class={sideBarLanguage ? "accordion-menu active" : "accordion-menu "} onClick={() => { setSideBarLanguage(!sideBarLanguage) }}>
                                     <p class="menu-title">Language</p>
 
                                     <ion-icon name="caret-back-outline" class="caret-back"></ion-icon>
                                 </button>
 
-                                <ul class="submenu-category-list" data-accordion>
+                                <ul class={sideBarLanguage ? "submenu-category-list active" : "submenu-category-list"}>
 
                                     <li class="submenu-category">
                                         <a href="/" class="submenu-title">English</a>
                                     </li>
 
                                     <li class="submenu-category">
-                                        <a href="/" class="submenu-title">Espa&ntilde;ol</a>
+                                        <a href="/" class="submenu-title">France</a>
                                     </li>
 
-                                    <li class="submenu-category">
-                                        <a href="/" class="submenu-title">Fren&ccedil;h</a>
-                                    </li>
 
                                 </ul>
 
                             </li>
 
                             <li class="menu-category">
-                                <button class="accordion-menu" data-accordion-btn>
+                                <button class={sideBarCurrency ? "accordion-menu active" : "accordion-menu"} onClick={() => {
+                                    setSideCurrency(!sideBarCurrency);
+                                }}>
                                     <p class="menu-title">Currency</p>
                                     <ion-icon name="caret-back-outline" class="caret-back"></ion-icon>
                                 </button>
 
-                                <ul class="submenu-category-list" data-accordion>
+                                <ul class={sideBarCurrency ? "submenu-category-list active" : "submenu-category-list"}>
                                     <li class="submenu-category">
                                         <a href="/" class="submenu-title">USD &dollar;</a>
                                     </li>
@@ -507,7 +533,7 @@ function NewHeader({ children }) {
 
                 </nav>
 
-            </header>
+            </header >
             {children}
         </>
     )

@@ -9,7 +9,7 @@ function HomePage() {
 
     return (
         <>
-            <HeroComponent />
+            {/* <HeroComponent /> */}
             <CollectionComponent />
             <ProductsComponent />
             <FeaturesComponent />
