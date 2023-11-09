@@ -7,6 +7,7 @@ import { routes } from './routes/index'
 import HeaderComponent from './components/HeaderComponent/HeaderComponent';
 import NewsletterComponent from './components/NewsletterComponent/NewsletterComponent';
 import FooterComponent from './components/FooterComponent/FooterComponent';
+import NewHeader from './components/NewHeader/NewHeader';
 function App() {
   const [isLoading, setIsLoading] = useState(true);
 
@@ -25,7 +26,7 @@ function App() {
         <Routes>
           {routes.map((route) => {
             const Page = route.page;
-            const Layout = route.isShowHeader ? HeaderComponent : Fragment;
+            const Layout = route.isShowHeader ? NewHeader : Fragment;
             return (
               <Route path={route.path} element={
                 <Layout>

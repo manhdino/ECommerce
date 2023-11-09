@@ -372,12 +372,20 @@
      */
 
     .collection-container {
-        max-width: 1300px;
+        max-width: 1200px;
     }
 
+    /* .collection-wrap {
+        max-width: 1200px;
+    } */
+
     .collection-list {
+        background-color: yellow;
+        margin: 0 auto;
         grid-template-columns: repeat(4, 1fr);
         gap: 25px;
+        max-width: 1200;
+        max-height: 400;
     }
 
 }

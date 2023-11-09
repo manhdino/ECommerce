@@ -155,7 +155,7 @@ ion-icon {
 
 html {
   scroll-behavior: smooth;
-  font-family: var(--ff-spartan);
+  font-family: "Poppins", sans-serif;
   font-size: 10px;
   overscroll-behavior: contain;
 }
