@@ -10,22 +10,27 @@
     background-repeat: no-repeat;
     background-position: 20% 30%;
     background-color: #041e42;
+    padding: 30px 60px;
 }
 
 #newsletter h4 {
     font-size: 22px;
     font-weight: 700;
     color: #fff;
+
 }
+
+
 
 #newsletter p {
     font-size: 14px;
     font-weight: 600;
-    color: #818ea0
+    color: #818ea0;
 }
 
 #newsletter p span {
     color: #ffbd27;
+    margin-left: 5px;
 }
 
 #newsletter .form {
@@ -43,7 +48,7 @@
     outline: none;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
-    height: 5.1rem;
+    /* height: 5.1rem; */
 
 }
 
@@ -65,25 +70,21 @@
  * responsive for larger than 575px screen
 */
 
-@media (min-width: 575px) {}
+@media (min-width: 470px) {
+    #newsletter p {
+        display: flex;
+    }
+
+}
 
 
-/**
-   * responsive for larger than 768px screen
-*/
-
-@media (min-width: 768px) {}
 
 
-/**
-   * responsive for larger than 992px screen
-*/
+@media (min-width: 1200px) {
 
-@media (min-width: 992px) {}
+    #newsletter p span {
+        margin-left: 5px;
+    }
 
 
-/**
-   * responsive for larger than 1200px screen
-*/
-
-@media (min-width: 1200px) {}
+}

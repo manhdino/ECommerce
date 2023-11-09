@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import logo from '../../images/logo.svg';
+import logo from '../../images/logo.png';
 import '../../css/NewHeader.css';
 function NewHeader({ children }) {
 
@@ -490,7 +490,7 @@ function NewHeader({ children }) {
 
                                 <ul class={sideBarCurrency ? "submenu-category-list active" : "submenu-category-list"}>
                                     <li class="submenu-category">
-                                        <a href="/" class="submenu-title">USD &dollar;</a>
+                                        <a href="/" class="submenu-title">USD $</a>
                                     </li>
 
                                     <li class="submenu-category">
