@@ -3,7 +3,7 @@ import ServicesPage from "../pages/ServicesPage/AboutPage";
 import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
 import ShopPage from "../pages/ShopPage/ShopPage";
 import CartPage from "../pages/CartPage/ProductsPage";
-import ContactPage from "../pages/ContacgPage/ContactPage";
+import ContactPage from "../pages/ContactPage/ContactPage";
 import BlogPage from "../pages/BlogPage/BlogPage";
 export const routes = [
     {

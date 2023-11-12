@@ -142,7 +142,7 @@ function NewHeader({ children }) {
                                 {/* <a href="/" class="menu-title">Categories</a> */}
                                 {/* <NavLink className='menu-title' to='/shop'>Categories</NavLink> */}
                                 <NavLink className={({ isActive }) => (isActive ? 'menu-title' : 'menu-title')} to='/shop'>Categories</NavLink>
-                                <div class="dropdown-panel">
+                                {/* <div class="dropdown-panel">
 
                                     <ul class="dropdown-panel-list">
 
@@ -262,7 +262,7 @@ function NewHeader({ children }) {
                                     </ul>
 
 
-                                </div>
+                                </div> */}
                             </li>
                             <li class="menu-category">
                             <NavLink className={({ isActive }) => (isActive ? 'menu-title' : 'menu-title')} to='/services'>About</NavLink>
