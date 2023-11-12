@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import logo from '../../images/logo.png';
 import '../../css/NewHeader.css';
+import { NavLink } from 'react-router-dom';
 function NewHeader({ children }) {
 
     const [menu, setMenuOpen] = useState(false);
@@ -131,24 +132,26 @@ function NewHeader({ children }) {
                     <div class="header-container">
 
                         <ul class="desktop-menu-category-list">
-
+                   
                             <li class="menu-category">
-                                <a href="/" class="menu-title">Home</a>
+                                {/* <a href='/' class="menu-title">Home</a> */}
+                                <NavLink className={({ isActive }) => (isActive ? 'menu-title' : 'menu-title')} to='/'>Home</NavLink>
                             </li>
 
                             <li class="menu-category">
-                                <a href="/" class="menu-title">Categories</a>
-
+                                {/* <a href="/" class="menu-title">Categories</a> */}
+                                {/* <NavLink className='menu-title' to='/shop'>Categories</NavLink> */}
+                                <NavLink className={({ isActive }) => (isActive ? 'menu-title' : 'menu-title')} to='/shop'>Categories</NavLink>
                                 <div class="dropdown-panel">
 
                                     <ul class="dropdown-panel-list">
 
                                         <li class="menu-title">
-                                            <a href="/">Dress Shoes</a>
+                                           <NavLink className={({ isActive }) => (isActive ? 'menu-title' : 'menu-title')} to='/shop'>Dress Shoes</NavLink>
                                         </li>
 
                                         <li class="panel-list-item">
-                                            <a href="/">Oxford</a>
+                                        <NavLink className={({ isActive }) => (isActive ? 'menu-title' : 'menu-title')} to='/shop'>Oxford</NavLink>
                                         </li>
 
                                         <li class="panel-list-item">
@@ -262,19 +265,19 @@ function NewHeader({ children }) {
                                 </div>
                             </li>
                             <li class="menu-category">
-                                <a href="/" class="menu-title">About</a>
+                            <NavLink className={({ isActive }) => (isActive ? 'menu-title' : 'menu-title')} to='/services'>About</NavLink>
                             </li>
                             <li class="menu-category">
-                                <a href="/" class="menu-title">Stores</a>
+                            <NavLink className={({ isActive }) => (isActive ? 'menu-title' : 'menu-title')} to='/contact'>Contact</NavLink>
                             </li>
                             <li class="menu-category">
-                                <a href="/" class="menu-title">Services</a>
+                            <NavLink className={({ isActive }) => (isActive ? 'menu-title' : 'menu-title')} to='/blog'>Blog</NavLink>
                             </li>
                             <li class="menu-category">
-                                <a href="/" class="menu-title">Blog</a>
+                            <NavLink className={({ isActive }) => (isActive ? 'menu-title' : 'menu-title')} to='/contact'>Stores</NavLink>
                             </li>
                             <li class="menu-category">
-                                <a href="/" class="menu-title">Hot Offers</a>
+                            <NavLink className={({ isActive }) => (isActive ? 'menu-title' : 'menu-title')} to='/services'>Hot Offers</NavLink>
                             </li>
 
                         </ul>
@@ -439,7 +442,10 @@ function NewHeader({ children }) {
                         <li class="menu-category">
 
                             <button class="accordion-menu">
-                                <p class="menu-title">About</p>
+                                {/* <p class="menu-title">About</p> */}
+                                <NavLink className={({ isActive }) => (isActive ? 'menu-title' : 'menu-title')} to='/shop'
+                                onClick={() => setMenuOpen(!menu)}
+                                >About</NavLink>
                             </button>
                         </li>
 

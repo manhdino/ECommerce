@@ -759,11 +759,13 @@ body::-webkit-scrollbar-thumb:hover {
         margin: 0;
     }
 
-    .desktop-menu-category-list .menu-category>.menu-title:hover {
+    .desktop-menu-category-list .menu-category>.menu-title:hover,
+    .desktop-menu-category-list .menu-category>.active{
         color: var(--salmon-pink);
     }
 
-    .desktop-menu-category-list .menu-category>.menu-title::after {
+    .desktop-menu-category-list .menu-category>.menu-title::after,
+    .desktop-menu-category-list .menu-category>.active::after  {
         content: '';
         position: absolute;
         bottom: 0;
@@ -776,8 +778,10 @@ body::-webkit-scrollbar-thumb:hover {
         transition: var(--transition-timing);
     }
 
-    .desktop-menu-category-list .menu-category>.menu-title:hover::after {
+    .desktop-menu-category-list .menu-category>.menu-title:hover::after,
+    .desktop-menu-category-list .menu-category>.active:hover::after  {
         transform: scaleX(1);
+        color: var(--onyx);
     }
 
     .dropdown-panel {

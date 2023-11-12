@@ -4,7 +4,7 @@ function NewsletterComponent() {
     return (
         <section id="newsletter">
             <div class="newstext">
-                <h4>Sign Up For NewSletters</h4>
+                <h4>Sign Up for new Updates</h4>
                 <p>Get E-mail updates about our latest shop and <span>special offers</span></p>
             </div>
             <div class="form">
