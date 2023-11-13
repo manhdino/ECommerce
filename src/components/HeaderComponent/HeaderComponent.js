@@ -141,7 +141,7 @@ function NewHeader({ children }) {
                   className={({ isActive }) =>
                     isActive ? "menu-title" : "menu-title"
                   }
-                  to="/services"
+                  to="/about"
                 >
                   About
                 </NavLink>
@@ -171,7 +171,7 @@ function NewHeader({ children }) {
                   className={({ isActive }) =>
                     isActive ? "menu-title" : "menu-title"
                   }
-                  to="/services"
+                  to="/about"
                 >
                   Hot Offers
                 </NavLink>
@@ -386,7 +386,6 @@ function NewHeader({ children }) {
 
             <li class="menu-category">
               <button class="accordion-menu">
-                {/* <p class="menu-title">About</p> */}
                 <NavLink
                   className={({ isActive }) =>
                     isActive ? "menu-title" : "menu-title"

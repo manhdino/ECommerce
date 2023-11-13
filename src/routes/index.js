@@ -1,9 +1,9 @@
 import HomePage from "../pages/HomePage/HomePage";
-import ServicesPage from "../pages/ServicesPage/AboutPage";
 import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
 import ShopPage from "../pages/ShopPage/ShopPage";
-import CartPage from "../pages/CartPage/ProductsPage";
+import CartPage from "../pages/CartPage/CartPage";
 import ContactPage from "../pages/ContactPage/ContactPage";
+import AboutPage from "../pages/AboutPage/AboutPage";
 export const routes = [
   {
     path: "/",
@@ -20,15 +20,14 @@ export const routes = [
     page: ShopPage,
     isShowHeader: true,
   },
-
-  {
-    path: "/services",
-    page: ServicesPage,
-    isShowHeader: true,
-  },
   {
     path: "/contact",
     page: ContactPage,
+    isShowHeader: true,
+  },
+  {
+    path: "/about",
+    page: AboutPage,
     isShowHeader: true,
   },
   {
