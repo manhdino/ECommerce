@@ -1,7 +1,6 @@
 import React from "react";
 import img_jacket3 from "../../../images/products/jacket-3.jpg";
 import img_jacket4 from "../../../images/products/jacket-4.jpg";
-
 function Product({ state }) {
   const handleStatus = (status) => {
     if (status === "sale") {

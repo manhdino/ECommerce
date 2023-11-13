@@ -1,6 +1,6 @@
 import React from "react";
 import "../../css/ProductsComponent.css";
-import ProductMinial from "./ProductMinimal/ProductMinial";
+import ProductMinial from "./ProductMinimal/ProductMinimal";
 import ProductSale from "./ProductSale/ProductSale";
 import Product from "./Product/Product";
 function ProductsComponent() {
