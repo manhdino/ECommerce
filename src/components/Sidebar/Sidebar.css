@@ -12,14 +12,16 @@
   visibility: hidden;
   transition: 0.5s ease;
   z-index: 20;
-  margin-top: 36px;
+  margin-top: 45px;
 }
-
+.sidebar .sidebar-menu
 .sidebar.active {
   left: 0;
   visibility: visible;
 }
-
+.sidebar-category-item{
+  margin-bottom: 15px;
+}
 .sidebar-category {
   margin-bottom: 15px;
   padding-bottom: 15px;
@@ -114,3 +116,5 @@
   letter-spacing: 0.8px;
   margin-bottom: 15px;
 }
+
+

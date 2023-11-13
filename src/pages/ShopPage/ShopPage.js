@@ -17,6 +17,14 @@ function ShopPage() {
                 <SingleProduct state="sale" />
                 <SingleProduct />
                 <SingleProduct state="new" />
+                <SingleProduct state="15%" />
+                <SingleProduct state="sale" />
+                <SingleProduct />
+                <SingleProduct state="new" />
+                <SingleProduct state="15%" />
+                <SingleProduct state="sale" />
+                <SingleProduct />
+                <SingleProduct state="new" />
               </div>
             </div>
           </div>

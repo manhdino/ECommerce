@@ -1,66 +1,25 @@
 import "./Sidebar.css";
 import BestSellerProduct from "./BestSeller/BestSellerProduct";
+import Category from "./Category/Category";
+import Price from "./Price/Price";
+import Colors from "./Colors/Colors";
 const Sidebar = () => {
   return (
     <>
       <div class="sidebar">
         <div class="sidebar-category">
-          <div class="sidebar-top">
-            <h2 class="sidebar-title">Category</h2>
-            <button class="sidebar-close-btn">
-              <ion-icon name="close-outline"></ion-icon>
-            </button>
+          <div class="sidebar-category-item">
+            <h3 class="showcase-heading">Category</h3>
+            <Category />
           </div>
-
-          <ul class="sidebar-menu-category-list">
-            <li class="sidebar-menu-category">
-              <button class="sidebar-accordion-menu" data-accordion-btn>
-                <div class="menu-title-flex">
-                  <p class="menu-title">Clothes</p>
-                </div>
-              </button>
-            </li>
-
-            <li class="sidebar-menu-category">
-              <button class="sidebar-accordion-menu" data-accordion-btn>
-                <div class="menu-title-flex">
-                  <p class="menu-title">Footwear</p>
-                </div>
-              </button>
-            </li>
-
-            <li class="sidebar-menu-category">
-              <button class="sidebar-accordion-menu" data-accordion-btn>
-                <div class="menu-title-flex">
-                  <p class="menu-title">Jewelry</p>
-                </div>
-              </button>
-            </li>
-
-            <li class="sidebar-menu-category">
-              <button class="sidebar-accordion-menu" data-accordion-btn>
-                <div class="menu-title-flex">
-                  <p class="menu-title">Perfume</p>
-                </div>
-              </button>
-            </li>
-
-            <li class="sidebar-menu-category">
-              <button class="sidebar-accordion-menu" data-accordion-btn>
-                <div class="menu-title-flex">
-                  <p class="menu-title">Cosmetics</p>
-                </div>
-              </button>
-            </li>
-
-            <li class="sidebar-menu-category">
-              <button class="sidebar-accordion-menu" data-accordion-btn>
-                <div class="menu-title-flex">
-                  <p class="menu-title">Glasses</p>
-                </div>
-              </button>
-            </li>
-          </ul>
+          <div class="sidebar-category-item">
+            <h3 class="showcase-heading">Price</h3>
+            <Price />
+          </div>
+          <div class="sidebar-category-item">
+            <h3 class="showcase-heading">Colors</h3>
+            <Colors />
+          </div>
         </div>
         <h3 class="showcase-heading">best sellers</h3>
         <BestSellerProduct />

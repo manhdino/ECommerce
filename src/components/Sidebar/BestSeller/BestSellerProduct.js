@@ -28,8 +28,8 @@ function BestSeller() {
         </div>
 
         <div class="price-box">
-          <del>$5.00</del>
           <p class="price">$4.00</p>
+          <del>$5.00</del>
         </div>
       </div>
     </div>

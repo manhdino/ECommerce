@@ -1,42 +1,17 @@
+import Input from "../Input/Input";
 import "./Category.css";
-import Input from "../../components/Input";
 
-function Category({ handleChange }) {
+function Category() {
   return (
-    <div>
-      <h2 className="sidebar-title">Category</h2>
-
-      <div>
-        <label className="sidebar-label-container">
-          <input onChange={handleChange} type="radio" value="" name="test" />
-          <span className="checkmark"></span>All
-        </label>
-        <Input
-          handleChange={handleChange}
-          value="sneakers"
-          title="Sneakers"
-          name="test"
-        />
-        <Input
-          handleChange={handleChange}
-          value="flats"
-          title="Flats"
-          name="test"
-        />
-        <Input
-          handleChange={handleChange}
-          value="sandals"
-          title="Sandals"
-          name="test"
-        />
-        <Input
-          handleChange={handleChange}
-          value="heels"
-          title="Heels"
-          name="test"
-        />
+    <section class="radio-section">
+      <div class="radio-list">
+        <Input name="category" id="category1" value="All" />
+        <Input name="category" id="category2" value="Sneakers" />
+        <Input name="category" id="category3" value="Flats" />
+        <Input name="category" id="category4" value="Sandals" />
+        <Input name="category" id="category5" value="Heels" />
       </div>
-    </div>
+    </section>
   );
 }
 

@@ -16,12 +16,15 @@
     border-radius: var(--border-radius-sm);
    }
   
-  .sidebar .showcase-content { width: -webkit-calc(100% - 90px); width: calc(100% - 90px); }
+  .sidebar .showcase-content {
+     width: calc(100% - 90px); 
+     margin-left: 10px;
+  }
   
   .sidebar .showcase-title {
     color: var(--onyx);
     font-size: 0.875rem;
-    font-weight: 400;
+    font-weight: 500;
     text-transform: capitalize;
     overflow: hidden;
     white-space: nowrap;
@@ -40,17 +43,18 @@
   .sidebar .price-box {
     display: flex;
     align-items: center;
-    gap: 15px;
   }
   
   .sidebar .price-box del {
     color: var(--sonic-silver);
     font-size: 13px;
+   
   }
   
   .sidebar .price-box .price {
     font-size: 0.875rem;
     font-weight: 600;
     color: var(--davys-gray);
+    margin: 0 5px 0 5px;
   }
   

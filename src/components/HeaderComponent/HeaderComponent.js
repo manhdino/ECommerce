@@ -92,7 +92,9 @@ function NewHeader({ children }) {
 
             <div class="header-user-actions">
               <button class="action-btn">
-                <ion-icon name="person-outline"></ion-icon>
+                <NavLink to="/contact">
+                  <ion-icon name="person-outline"></ion-icon>
+                </NavLink>
               </button>
 
               <button class="action-btn">
@@ -101,8 +103,10 @@ function NewHeader({ children }) {
               </button>
 
               <button class="action-btn">
-                <ion-icon name="bag-handle-outline"></ion-icon>
-                <span class="count">0</span>
+                <NavLink to="/cart">
+                  <ion-icon name="bag-handle-outline"></ion-icon>
+                  <span class="count">0</span>
+                </NavLink>
               </button>
             </div>
           </div>
@@ -157,9 +161,9 @@ function NewHeader({ children }) {
                   className={({ isActive }) =>
                     isActive ? "menu-title" : "menu-title"
                   }
-                  to="/contact"
+                  to="/cart"
                 >
-                  Stores
+                  Shopping Cart
                 </NavLink>
               </li>
               <li class="menu-category">

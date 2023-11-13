@@ -1,45 +1,17 @@
-import Input from "../../components/Input";
 import "./Price.css";
-
-const Price = ({ handleChange }) => {
+import Input from "../Input/Input";
+const Price = () => {
   return (
     <>
-      <div className="ml">
-        <h2 className="sidebar-title price-title">Price</h2>
-
-        <label className="sidebar-label-container">
-          <input onChange={handleChange} type="radio" value="" name="test2" />
-          <span className="checkmark"></span>All
-        </label>
-
-        <Input
-          handleChange={handleChange}
-          value={50}
-          title="$0 - 50"
-          name="test2"
-        />
-
-        <Input
-          handleChange={handleChange}
-          value={100}
-          title="$50 - $100"
-          name="test2"
-        />
-
-        <Input
-          handleChange={handleChange}
-          value={150}
-          title="$100 - $150"
-          name="test2"
-        />
-
-        <Input
-          handleChange={handleChange}
-          value={200}
-          title="Over $150"
-          name="test2"
-        />
-      </div>
+      <section class="radio-section">
+        <div class="radio-list">
+          <Input name="price" id="price1" value="All" />
+          <Input name="price" id="price2" value="$0 - 50" />
+          <Input name="price" id="price3" value="$50 - $100" />
+          <Input name="price" id="price4" value="$100 - $150" />
+          <Input name="price" id="price5" value="Over $150" />
+        </div>
+      </section>
     </>
   );
 };
