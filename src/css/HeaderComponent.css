@@ -754,9 +754,11 @@ body::-webkit-scrollbar-thumb:hover {
         font-size: 0.875rem;
         font-weight: var(--weight-600);
         text-transform: uppercase;
-        padding: 15px 0;
+        padding-top:20px;
+        padding-bottom: 7px;
         transition: var(--transition-timing);
-        margin: 0;
+        /* background-color: red; */
+        margin-bottom: 20px;
     }
 
     .desktop-menu-category-list .menu-category>.menu-title:hover,

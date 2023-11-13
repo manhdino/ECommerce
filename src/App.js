@@ -1,12 +1,12 @@
-import { Routes, Route } from 'react-router-dom'
-import './App.css';
-import React, { Fragment } from 'react';
-import PreLoader from './components/PreLoader/PreLoader';
-import { useEffect, useState } from 'react';
-import { routes } from './routes/index'
-import NewsletterComponent from './components/NewsletterComponent/NewsletterComponent';
-import FooterComponent from './components/FooterComponent/FooterComponent';
-import NewHeader from './components/NewHeader/NewHeader';
+import { Routes, Route } from "react-router-dom";
+import "./App.css";
+import React, { Fragment } from "react";
+import PreLoader from "./components/PreLoader/PreLoader";
+import { useEffect, useState } from "react";
+import { routes } from "./routes/index";
+import NewsletterComponent from "./components/NewsletterComponent/NewsletterComponent";
+import FooterComponent from "./components/FooterComponent/FooterComponent";
+import HeaderComponent from "./components/HeaderComponent/HeaderComponent";
 function App() {
   const [isLoading, setIsLoading] = useState(true);
 
@@ -25,16 +25,19 @@ function App() {
         <Routes>
           {routes.map((route) => {
             const Page = route.page;
-            const Layout = route.isShowHeader ? NewHeader : Fragment;
+            const Layout = route.isShowHeader ? HeaderComponent : Fragment;
             return (
-              <Route path={route.path} element={
-                <Layout>
-                  <Page />
-                  <NewsletterComponent />
-                  <FooterComponent />
-                </Layout>
-              } />
-            )
+              <Route
+                path={route.path}
+                element={
+                  <Layout>
+                    <Page />
+                    <NewsletterComponent />
+                    <FooterComponent />
+                  </Layout>
+                }
+              />
+            );
           })}
         </Routes>
       )}
