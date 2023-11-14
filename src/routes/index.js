@@ -4,6 +4,7 @@ import ShopPage from "../pages/ShopPage/ShopPage";
 import CartPage from "../pages/CartPage/CartPage";
 import ContactPage from "../pages/ContactPage/ContactPage";
 import AboutPage from "../pages/AboutPage/AboutPage";
+import DetailProduct from "../pages/DetailProduct/DetailProduct";
 export const routes = [
   {
     path: "/",
@@ -28,6 +29,11 @@ export const routes = [
   {
     path: "/about",
     page: AboutPage,
+    isShowHeader: true,
+  },
+  {
+    path: "/detail",
+    page: DetailProduct,
     isShowHeader: true,
   },
   {

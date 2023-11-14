@@ -1,9 +1,10 @@
 import React from "react";
 import img_shirt1 from "../../../images/products/shirt-1.jpg";
+import { NavLink } from "react-router-dom";
 
 function ProductSale() {
   return (
-    <div class="showcase-container">
+    <NavLink to="/detail" className="showcase-container">
       <div class="showcase">
         <div class="showcase-banner">
           <img
@@ -84,7 +85,7 @@ function ProductSale() {
           </div>
         </div>
       </div>
-    </div>
+    </NavLink>
   );
 }
 

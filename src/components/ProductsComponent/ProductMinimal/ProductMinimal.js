@@ -1,9 +1,10 @@
 import React from "react";
 import img_shirt1 from "../../../images/products/shirt-1.jpg";
+import { NavLink } from "react-router-dom";
 
 function ProductMinial({ title, name, prevPrice, CurPrice }) {
   return (
-    <div class="showcase">
+    <NavLink to="/detail" className="showcase">
       <a href="/" class="showcase-img-box">
         <img
           src={img_shirt1}
@@ -27,7 +28,7 @@ function ProductMinial({ title, name, prevPrice, CurPrice }) {
           <del>{prevPrice}</del>
         </div>
       </div>
-    </div>
+    </NavLink>
   );
 }
 

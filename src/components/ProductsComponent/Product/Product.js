@@ -1,6 +1,7 @@
 import React from "react";
 import img_jacket3 from "../../../images/products/jacket-3.jpg";
 import img_jacket4 from "../../../images/products/jacket-4.jpg";
+import { NavLink } from "react-router-dom";
 function Product({ state }) {
   const handleStatus = (status) => {
     if (status === "sale") {
@@ -12,7 +13,7 @@ function Product({ state }) {
     }
   };
   return (
-    <div class="showcase">
+    <NavLink to="/detail" className="showcase">
       <div class="showcase-banner">
         <img
           src={img_jacket3}
@@ -70,7 +71,7 @@ function Product({ state }) {
           <del>$75.00</del>
         </div>
       </div>
-    </div>
+    </NavLink>
   );
 }
 
