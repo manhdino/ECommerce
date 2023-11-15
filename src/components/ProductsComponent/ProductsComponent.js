@@ -24,7 +24,6 @@ function ProductsComponent() {
 
           <div class="product-main">
             <h2 class="title">New Products</h2>
-
             <div class="product-grid">
               <Product state="sale" />
               <Product />

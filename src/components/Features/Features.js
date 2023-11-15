@@ -3,7 +3,7 @@ import imgTestimonial from "../../images/testimonial-1.jpg";
 import imgCTABanner from "../../images/cta-banner.jpg";
 import iconQuote from "../../images/quotes.svg";
 import styles from "./Features.module.css";
-function FeaturesComponent() {
+function Features() {
   return (
     <div>
       <div class={styles.features}>
@@ -122,4 +122,4 @@ function FeaturesComponent() {
   );
 }
 
-export default FeaturesComponent;
+export default Features;

@@ -4,7 +4,7 @@ import imgBanner2 from "../../images/banner/banner-2.jpg";
 import imgBanner3 from "../../images/banner/banner-3.jpg";
 import styles from "./Banner.module.css";
 import { NavLink } from "react-router-dom";
-function BannerComponent() {
+function Banner() {
   return (
     <div className={styles.banner}>
       <div className={styles.container}>
@@ -82,4 +82,4 @@ function BannerComponent() {
   );
 }
 
-export default BannerComponent;
+export default Banner;

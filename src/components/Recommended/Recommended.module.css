@@ -1,9 +1,9 @@
-.recommended-flex {
+.container {
   display: flex;
   margin-bottom: 30px;
 }
 
-.recommended-title {
+.title {
   margin-top: 20px;
   font-size: 20px;
 }

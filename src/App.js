@@ -1,10 +1,10 @@
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import React, { Fragment } from "react";
-import PreLoader from "./components/PreLoader/PreLoader";
+import Loading from "./components/Loading/Loading";
 import { useEffect, useState } from "react";
 import { routes } from "./routes/index";
-import NewsletterComponent from "./components/Newsletter/Newsletter";
+import Newsletter from "./components/Newsletter/Newsletter";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 function App() {
@@ -20,7 +20,7 @@ function App() {
   return (
     <>
       {isLoading ? (
-        <PreLoader />
+        <Loading />
       ) : (
         <Routes>
           {routes.map((route) => {
@@ -32,7 +32,7 @@ function App() {
                 element={
                   <Layout>
                     <Page />
-                    <NewsletterComponent />
+                    <Newsletter />
                     <Footer />
                   </Layout>
                 }
