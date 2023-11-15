@@ -5,12 +5,12 @@ import PreLoader from "./components/PreLoader/PreLoader";
 import { useEffect, useState } from "react";
 import { routes } from "./routes/index";
 import NewsletterComponent from "./components/NewsletterComponent/NewsletterComponent";
-import FooterComponent from "./components/FooterComponent/FooterComponent";
-import HeaderComponent from "./components/HeaderComponent/HeaderComponent";
+import Footer from "./components/Footer/Footer";
+import Header from "./components/Header/Header";
 function App() {
   const [isLoading, setIsLoading] = useState(true);
 
-  // Simulate a 2-second delay
+  // Simulate a 1-second delay
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
@@ -25,7 +25,7 @@ function App() {
         <Routes>
           {routes.map((route) => {
             const Page = route.page;
-            const Layout = route.isShowHeader ? HeaderComponent : Fragment;
+            const Layout = route.isShowHeader ? Header : Fragment;
             return (
               <Route
                 path={route.path}
@@ -33,7 +33,7 @@ function App() {
                   <Layout>
                     <Page />
                     <NewsletterComponent />
-                    <FooterComponent />
+                    <Footer />
                   </Layout>
                 }
               />
