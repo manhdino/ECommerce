@@ -4,7 +4,7 @@ import React, { Fragment } from "react";
 import PreLoader from "./components/PreLoader/PreLoader";
 import { useEffect, useState } from "react";
 import { routes } from "./routes/index";
-import NewsletterComponent from "./components/NewsletterComponent/NewsletterComponent";
+import NewsletterComponent from "./components/Newsletter/Newsletter";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 function App() {

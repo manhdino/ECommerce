@@ -1,23 +1,4 @@
-/*-----------------------------------*\
-  #CUSTOM PROPERTY
-\*-----------------------------------*/
 
-:root {
-
-
-    --fs-1: 1.563rem;
-    --fs-2: 1.375rem;
-    --fs-3: 1.25rem;
-    --fs-4: 1.125rem;
-    --fs-5: 1rem;
-    --fs-6: 0.938rem;
-    --fs-7: 0.875rem;
-    --fs-8: 0.813rem;
-    --fs-9: 0.75rem;
-    --fs-10: 0.688rem;
-    --fs-11: 0.625rem;
-
-}
 
 
 
@@ -31,11 +12,33 @@
     margin: 30px 0;
 }
 
-.banner-container {
+.container {
     padding: 0 15px;
 }
+.has_scrollbar {
+    padding-bottom: 5px;
+}
 
-.slider-container {
+.has_scrollbar::-webkit-scrollbar {
+    width: 14px;
+    height: 14px;
+}
+
+.has_scrollbar::-webkit-scrollbar-thumb {
+    background: transparent;
+    border: 3px solid var(--white);
+    border-radius: 20px;
+}
+
+.has_scrollbar:hover::-webkit-scrollbar-thumb {
+    background: hsl(0, 0%, 90%);
+}
+
+.has_scrollbar::-webkit-scrollbar-thumb:hover {
+    background: hsl(0, 0%, 80%);
+}
+
+.slider_container {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -45,7 +48,7 @@
     overscroll-behavior-inline: contain;
 }
 
-.slider-item {
+.slider_item {
     position: relative;
     min-width: 100%;
     max-height: 450px;
@@ -54,14 +57,14 @@
     scroll-snap-align: start;
 }
 
-.slider-item .banner-img {
+.slider_item .banner_img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: right;
 }
 
-.banner-content {
+.banner_content {
     background: hsla(0, 0%, 100%, 0.8);
     position: absolute;
     bottom: 25px;
@@ -71,32 +74,32 @@
     border-radius: var(--border-radius-md);
 }
 
-.banner-subtitle {
+.banner_subtitle {
     color: var(--salmon-pink);
-    font-size: var(--fs-7);
+    font-size: 0.875rem;
     font-weight: var(--weight-500);
     text-transform: capitalize;
     letter-spacing: 2px;
     margin-bottom: 10px;
 }
 
-.banner-title {
+.banner_title {
     color: var(--eerie-black);
-    font-size: var(--fs-1);
+    font-size: 1.563rem;
     text-transform: uppercase;
     line-height: 1;
     margin-bottom: 10px;
 }
 
-.banner-text {
+.banner_text {
     display: none;
 }
 
-.banner-btn {
+.banner_btn {
     background: var(--salmon-pink);
     color: var(--white);
     width: max-content;
-    font-size: var(--fs-11);
+    font-size: 0.625rem;
     font-weight: var(--weight-600);
     text-transform: uppercase;
     padding: 4px 10px;
@@ -104,8 +107,9 @@
     transition: var(--transition-timing);
 }
 
-.banner-btn:hover {
-    background: var(--eerie-black);
+.banner_btn:hover {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    color: var(--white);
 }
 
 
@@ -123,66 +127,45 @@
 
 @media (min-width: 480px) {
 
-    /**
-     * #CUSTOM PROPERTY
-     */
-
-    :root {
-
-        /**
-       * typography 
-       */
-
-        --fs-1: 1.875rem;
-
+    .banner_title{
+        font-size: 1.875rem;
     }
 
-
-
-
-    /**
-     * #BANNER
-     */
-
-    .slider-item {
+    .slider_item {
         aspect-ratio: 5 / 3;
     }
 
-    .banner-content {
+    .banner_content {
         top: 50%;
         right: auto;
         bottom: auto;
-        -webkit-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
         transform: translateY(-50%);
         max-width: 320px;
     }
 
-    .banner-subtitle {
-        --fs-7: 1rem;
+    .banner_subtitle {
+        font-size: 1rem;
     }
 
-    .banner-text {
+    .banner_text {
         display: block;
         color: var(--sonic-silver);
-        font-size: var(--fs-7);
+        font-size: 0.875rem;
         font-weight: var(--weight-500);
         margin-bottom: 10px;
     }
 
-    .banner-text b {
-        font-size: var(--fs-2);
+    .banner_text b {
+        font-size: 1.375rem;
     }
 
-    .banner-btn {
+    .banner_btn {
         padding: 7px 20px;
     }
 
 
 
 }
-
-
 
 
 
@@ -193,15 +176,11 @@
 @media (min-width: 570px) {
 
 
-    /**
-     * #BANNER
-     */
-
-    .slider-item {
+    .slider_item {
         aspect-ratio: 4 / 2;
     }
 
-    .banner-content {
+    .banner_content {
         background: none;
     }
 
@@ -217,76 +196,48 @@
 
 @media (min-width: 768px) {
 
-    /**
-     * #CUSTOM PROPERTY
-     */
-
-    :root {
-
-        /**
-       * typography 
-       */
-
-        --fs-1: 2.375rem;
-
+   
+    .banner_title{
+        font-size: 2.375rem;
     }
 
-
-
-    /**
-     * #BASE 
-     */
 
     html {
         font-size: 17px;
     }
 
 
-
-    /**
-     * #REUSED STYLE 
-     */
-
-    .banner-container {
+    .container {
         max-width: 750px;
         margin: auto;
     }
 
-
-
-    /**
-     * #BANNER 
-     */
-
-    .slider-item {
+    .slider_item {
         aspect-ratio: auto;
         height: 350px;
     }
 
-    .banner-content {
+    .banner_content {
         max-width: 380px;
     }
 
-    .banner-subtitle {
-        --fs-7: 1.25rem;
+    .banner_subtitle {
+        font-size: 1.25rem;
     }
 
-    .banner-text {
-        --fs-7: 1.125rem;
+    .banner_text {
+        font-size: 1.125rem;
     }
 
-    .banner-text b {
-        --fs-2: 1.875rem;
+    .banner_text b {
+        font-size: 1.875rem;
     }
 
-    .banner-btn {
-        --fs-11: 0.75rem;
+    .banner_btn {
+        font-size: 0.75rem;
     }
 
 }
-
-
-
 
 
 /**
@@ -295,61 +246,38 @@
 
 @media (min-width: 1024px) {
 
-    /**
-     * #CUSTOM PROPERTY
-     */
-
-    :root {
-
-        /**
-       * typography 
-       */
-
-        --fs-1: 2.625rem;
-        --fs-2: 1.125rem;
-
+    .banner_title{
+        font-size: 2.265rem;
     }
 
 
-
-    /**
-     * #REUSED STYLE 
-     */
-
-    .banner-container {
+    .container {
         max-width: 980px;
     }
-
-
-
-
-    /**
-     * #BANNER 
-     */
 
     .banner {
         margin-top: 0;
     }
 
-    .slider-item {
+    .slider_item {
         height: 380px;
     }
 
-    .banner-content {
+    .banner_content {
         left: 75px;
         max-width: 400px;
     }
 
-    .banner-subtitle {
-        --fs-7: 1.625rem;
+    .banner_subtitle {
+        font-size: 1.625rem;
     }
 
-    .banner-text {
-        --fs-7: 1.375rem;
+    .banner_text {
+        font-size: 1.375rem;
     }
 
-    .banner-btn {
-        --fs-11: 0.875rem;
+    .banner_btn {
+        font-size: 0.875rem;
     }
 
 
@@ -367,25 +295,12 @@
 
 @media (min-width: 1200px) {
 
-    /**
-     * #REUSED STYLE 
-     */
-
-    .banner-container {
+  
+    .container {
         max-width: 1200px;
     }
 
-
-
-
-
-
-    /**
-     * #BANNER
-     */
-
-    .slider-item:last-child .banner-img {
-        -o-object-position: top;
+    .slider_item:last-child .banner_img {
         object-position: top;
     }
 
@@ -402,35 +317,22 @@
 
 @media (min-width: 1400px) {
 
-    /**
-     * #BASE 
-     */
-
+ 
     html {
         font-size: 18px;
     }
 
 
-
-    /**
-     * #REUSED STYLE 
-     */
-
-    .banner-container {
+    .container {
         max-width: 1350px;
     }
 
 
-
-    /**
-     * #BANNER
-     */
-
-    .slider-item {
+    .slider_item {
         height: 450px;
     }
 
-    .banner-content {
+    .banner_content {
         left: 110px;
         max-width: 460px;
     }
