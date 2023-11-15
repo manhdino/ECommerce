@@ -1,13 +1,13 @@
 import React from "react";
 import Features from "../../components/Features/Features";
-import ProductsComponent from "../../components/ProductsComponent/ProductsComponent";
+import ProductPage from "../ProductPage/ProductPage";
 import Banner from "../../components/Banner/Banner";
 
 function HomePage() {
   return (
     <>
       <Banner />
-      <ProductsComponent />
+      <ProductPage />
       <Features />
     </>
   );

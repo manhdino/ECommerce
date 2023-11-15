@@ -1,47 +1,44 @@
-/* 
 
-.card-detail-wrapper{
-    max-width: 1100px;
-    margin: 0 auto;
+
+.container{
+   padding: 30px;
+   padding-top: 20px;
+   margin: 0 auto;
+   border-top: 1px solid var(--cultured);
 }
-img{
+.product_imgs img{
     width: 100%;
     display: block;
 }
-.img-display{
+.img_display{
     overflow: hidden;
 }
-.img-showcase{
+.img_showcase{
     display: flex;
     width: 100%;
     transition: all 0.5s ease;
 }
-.img-showcase img{
-    min-width: 100%;
-}
-.img-select{
+
+.img_select{
     display: flex;
+    gap:0.3rem;
 }
-.img-item{
-    margin: 0.3rem;
+.img_item{
+    margin-top: 0.3rem;
 }
-.img-item:nth-child(1),
-.img-item:nth-child(2),
-.img-item:nth-child(3){
-    margin-right: 0;
-}
-.img-item:hover{
+
+.img_item:hover{
     opacity: 0.8;
 }
 
-.product-title{
+.product_title{
     font-size: 1.7rem;
     text-transform: capitalize;
     font-weight: 700;
     position: relative;
     color: #12263a;
 }
-.product-title::after{
+.product_title::after{
     content: "";
     position: absolute;
     left: 0;
@@ -50,7 +47,7 @@ img{
     width: 80px;
     background: #12263a;
 }
-.product-link{
+.product_link{
     text-decoration: none;
     text-transform: uppercase;
     font-weight: 400;
@@ -62,67 +59,69 @@ img{
     padding: 0 0.3rem;
     transition: all 0.5s ease;
 }
-.product-link:hover{
+.product_link:hover{
     opacity: 0.9;
 }
-.product-rating{
+.product_rating{
     color: #ffc107;
-    
+    display: flex;
+    margin-bottom: 5px;
 }
-.product-rating span{
+.product_rating span{
+    margin-left: 5px;
     font-weight: 600;
     color: #252525;
+    font-size: 1.125rem;
 }
-.product-price{
-
+.product_price{
     font-size: 1rem;
     font-weight: 700;
     display: flex;
 }
-.product-price span{
+.product_price span{
     font-weight: 400;
 }
-.last-price span{
+.last_price span{
     color: #f64749;
+    margin-left: 8px;
     text-decoration: line-through;
 }
-.new-price span{
+.new_price span{
     color: #256eff;
 }
-.product-detail h2{
+.product_detail h2{
     text-transform: capitalize;
     color: #12263a;
-   font-size: 24px;
+    font-size: 24px;
 }
-.product-detail p{
+.product_detail p{
     font-size: 0.9rem;
-    padding: 0.3rem;
-    opacity: 0.8;
 }
-.product-detail ul{
+.product_detail ul{
     margin: 1rem 0;
     font-size: 0.9rem;
 }
-.product-detail ul li{
+.product_detail ul li{
     display: flex;
     margin: 0;
     list-style: none;
-    background: url('../images/products/checked.png') left center no-repeat;
+    background: url('../../../images/products/checked.png') left center no-repeat;
     background-size: 18px;
     padding-left: 1.7rem;
     margin: 0.4rem 0;
     font-weight: 600;
     opacity: 0.9;
 }
-.product-detail ul li span{
+.product_detail ul li span{
     font-weight: 400;
+    margin-left: 5px;
 }
-.purchase-info{
+.purchase_info{
     margin: 1.5rem 0;
     display: flex;
 }
-.purchase-info input,
-.purchase-info .btn{
+.purchase_info input,
+.purchase_info .btn{
     border: 1.5px solid #ddd;
     border-radius: 25px;
     text-align: center;
@@ -131,27 +130,27 @@ img{
     font-size: 16px;
     padding: 8px;
 }
-.purchase-info input{
+.purchase_info input{
     width: 60px;
 }
-.purchase-info .btn{
+.purchase_info .btn{
     cursor: pointer;
     color: #fff;
 }
-.purchase-info .btn:first-of-type{
+.purchase_info .btn:first-of-type{
     background: #256eff;
 }
-.purchase-info .btn:last-of-type{
+.purchase_info .btn:last-of-type{
     background: #f64749;
 }
-.purchase-info .btn:hover{
+.purchase_info .btn:hover{
     opacity: 0.9;
 }
-.social-links{
+.social_links{
     display: flex;
     align-items: center;
 }
-.social-links a{
+.social_links a{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -165,30 +164,60 @@ img{
     font-size: 0.8rem;
     transition: all 0.5s ease;
 }
-.social-links a:hover{
+.social_links a:hover{
     background: #000;
     border-color: transparent;
     color: #fff;
 }
 
-@media screen and (min-width: 992px){
-    .card{
+
+
+
+
+
+/**
+ * responsive larger than 768px screen
+ */
+
+ @media (min-width: 768px) {
+
+    .container {
+      max-width: 750px;
+      margin: auto;
+    }
+  
+}
+  
+@media (min-width: 992px){
+    .grid{
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-gap: 1.5rem;
     }
-    .card-wrapper{
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .product-imgs{
+    .product_imgs{
         display: flex;
         flex-direction: column;
         justify-content: center;
     }
-    .product-content{
+    .product_content{
         padding-top: 0;
     }
-} */
+}
+  
+
+  
+  @media (min-width: 1024px) {
+  
+    .container { max-width: 980px; }
+
+  }
+  
+
+  
+  /**
+   * responsive larger than 1400px screen
+   */
+  
+  @media (min-width: 1400px) {
+    .container { max-width: 1250px; }
+  }

@@ -5,7 +5,7 @@ function ProductMinimalWrap({ title }) {
   return (
     <div class={styles.product_showcase}>
       <h2 class={styles.title}>{title}</h2>
-      <div class={styles.showcase_wrapper}>
+      <div class={`${styles.showcase_wrapper} ${styles.has_scrollbar}`}>
         <div class={styles.showcase_container}>
           <ProductMinial
             title="Relaxed Short Full Sleeve T-Shirt"
@@ -34,7 +34,7 @@ function ProductMinimalWrap({ title }) {
           />
         </div>
 
-        <div class="showcase-container">
+        <div class={styles.showcase_container}>
           <ProductMinial
             title="Relaxed Short Full Sleeve T-Shirt"
             name="Clothes"

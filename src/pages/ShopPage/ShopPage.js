@@ -2,7 +2,7 @@ import React from "react";
 import SideBar from "../../components/Sidebar/Sidebar";
 import "../../css/ShopPage.css";
 import Recommended from "../../components/Recommended/Recommended";
-import Product from "../../components/ProductsComponent/Product/Product";
+import Product from "../../components/Products/Product/Product";
 function ShopPage() {
   return (
     <>

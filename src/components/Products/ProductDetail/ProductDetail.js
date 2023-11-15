@@ -1,69 +1,70 @@
 import React from "react";
-import shoe1 from "../../images/products/shoe_1.jpg";
-import shoe2 from "../../images/products/shoe_2.jpg";
-import shoe3 from "../../images/products/shoe_3.jpg";
-import shoe4 from "../../images/products/shoe_4.jpg";
-import "../../css/DetailProduct.css";
-function DetailProduct() {
+import shoe1 from "../../../images/products/shoe_1.jpg";
+import shoe2 from "../../../images/products/shoe_2.jpg";
+import shoe3 from "../../../images/products/shoe_3.jpg";
+import shoe4 from "../../../images/products/shoe_4.jpg";
+import styles from "./ProductDetail.module.css";
+function ProductDetail() {
   return (
-    <div class="card-wrapper">
-      <div class="card">
-        <div class="product-imgs">
-          <div class="img-display">
-            <div class="img-showcase">
-              <img src={shoe1} alt="shoeimage" />
+    <div class={styles.container}>
+      <div class={styles.grid}>
+        <div class={styles.product_imgs}>
+          <div class={styles.img_display}>
+            <div class={styles.img_showcase}>
               <img src={shoe2} alt="shoeimage" />
+              <img src={shoe1} alt="shoeimage" />
               <img src={shoe3} alt="shoeimage" />
               <img src={shoe4} alt="shoeimage" />
             </div>
           </div>
-          <div class="img-select">
-            <div class="img-item">
-              <a href="/" data-id="1">
+          <div class={styles.img_select}>
+            <div class={styles.img_item}>
+              <a href="/">
                 <img src={shoe1} alt="shoeimage" />
               </a>
             </div>
-            <div class="img-item">
-              <a href="/" data-id="2">
+            <div class={styles.img_item}>
+              <a href="/">
                 <img src={shoe2} alt="shoeimage" />
               </a>
             </div>
-            <div class="img-item">
-              <a href="/" data-id="3">
+            <div class={styles.img_item}>
+              <a href="/">
                 <img src={shoe3} alt="shoeimage" />
               </a>
             </div>
-            <div class="img-item">
-              <a href="/" data-id="4">
+            <div class={styles.img_item}>
+              <a href="/">
                 <img src={shoe4} alt="shoeimage" />
               </a>
             </div>
           </div>
         </div>
-        <div class="product-content">
-          <h2 class="product-title">nike shoes</h2>
-          <a href="/" class="product-link">
+
+        <div class={styles.product_content}>
+          <h2 class={styles.product_title}>Nike shoes</h2>
+          <a href="/" class={styles.product_link}>
             visit nike store
           </a>
-          <div class="product-rating">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star-half-alt"></i>
-            <span>4.7(21)</span>
+          <div class={styles.product_rating}>
+            <ion-icon name="star"></ion-icon>
+            <ion-icon name="star"></ion-icon>
+            <ion-icon name="star"></ion-icon>
+            <ion-icon name="star-outline"></ion-icon>
+            <ion-icon name="star-outline"></ion-icon>
+            <span> 4.7(21)</span>
           </div>
 
-          <div class="product-price">
-            <p class="new-price">
+          <div class={styles.product_price}>
+            <p class={styles.new_price}>
               <span>$249.00 (5%)</span>
             </p>
-            <p class="last-price">
+            <p class={styles.last_price}>
               <span>$257.00</span>
             </p>
           </div>
 
-          <div class="product-detail">
+          <div class={styles.product_detail}>
             <h2>about this item: </h2>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo
@@ -89,18 +90,17 @@ function DetailProduct() {
             </ul>
           </div>
 
-          <div class="purchase-info">
+          <div class={styles.purchase_info}>
             <input type="number" min="0" value="1" />
-            <button type="button" class="btn">
+            <button type="button" class={styles.btn}>
               Add to Cart <i class="fas fa-shopping-cart"></i>
             </button>
-            <button type="button" class="btn">
+            <button type="button" class={styles.btn}>
               Compare
             </button>
           </div>
 
-          <div class="social-links">
-            <p>Share At: </p>
+          <div class={styles.social_links}>
             <a href="/">
               <i class="fab fa-facebook-f"></i>
             </a>
@@ -123,4 +123,4 @@ function DetailProduct() {
   );
 }
 
-export default DetailProduct;
+export default ProductDetail;
