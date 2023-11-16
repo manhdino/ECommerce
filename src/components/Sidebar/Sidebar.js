@@ -1,5 +1,5 @@
 import "./Sidebar.css";
-import BestSellerProduct from "./BestSeller/BestSellerProduct";
+import BestSellerProduct from "../Products/BestSeller/BestSellerProduct";
 import Category from "./Category/Category";
 import Price from "./Price/Price";
 import Colors from "./Colors/Colors";

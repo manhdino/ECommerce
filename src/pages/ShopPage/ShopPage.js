@@ -3,16 +3,21 @@ import SideBar from "../../components/Sidebar/Sidebar";
 import "../../css/ShopPage.css";
 import Recommended from "../../components/Recommended/Recommended";
 import Product from "../../components/Products/Product/Product";
+import styles from "./ShopPage.module.css";
+import { useProductContext } from "../../context/productContext";
+
 function ShopPage() {
+  const { name } = useProductContext();
   return (
     <>
+      {name}
       <div class="product-wrap">
-        <div class="product-container">
+        <div class={styles.container}>
           <SideBar />
-          <div class="product-box">
-            <div class="product-main">
+          <div class={styles.product_box}>
+            <div class={styles.main}>
               <Recommended />
-              <div class="product-grid">
+              <div class={styles.grid}>
                 <Product state="15%" />
                 <Product state="sale" />
                 <Product />
