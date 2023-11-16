@@ -89,7 +89,22 @@ function ProductDetail() {
               </li>
             </ul>
           </div>
-
+          <h4 className={styles.title}>Size</h4>
+          <ul class={styles.sizes}>
+            <li class={styles.size_active}>37</li>
+            <li>38</li>
+            <li>39</li>
+            <li>40</li>
+            <li>41</li>
+          </ul>
+          <h4 className={styles.title}>Color</h4>
+          <ul class={styles.colors}>
+            <li class={styles.color_active}></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
           <div class={styles.purchase_info}>
             <input type="number" min="0" value="1" />
             <button type="button" class={styles.btn}>
