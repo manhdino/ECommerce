@@ -1,4 +1,4 @@
-const Product = require("../models/product.model");
+const Product = require("../../models/product/product.model");
 
 exports.getAllProducts = async () => {
   return await Product.find().populate('category supplier');
