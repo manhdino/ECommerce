@@ -20,9 +20,9 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    role: {//Role: 1. Chưa kích hoạt, 2. Người dùng, 3: Admin
+    role: {//1. Người dùng, 2: Admin
         type: Number,
-        enum: [1, 2, 3],
+        enum: [1, 2],
         default: 1 
     },
     avatar: {
