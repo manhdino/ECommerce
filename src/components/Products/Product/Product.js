@@ -14,7 +14,7 @@ function Product({ state }) {
     }
   };
   return (
-    <NavLink to="/detail" className={styles.showcase}>
+    <NavLink to="/product/1" className={styles.showcase}>
       <div class={styles.showcase_banner}>
         <img
           src={img_jacket3}

@@ -90,7 +90,7 @@ function Header({ children }) {
 
             <div className={styles.user_actions}>
               <button className={styles.action_btn}>
-                <NavLink to="/contact">
+                <NavLink to="/account">
                   <ion-icon name="person-outline"></ion-icon>
                 </NavLink>
               </button>
@@ -120,7 +120,7 @@ function Header({ children }) {
               </li>
 
               <li className={styles.menu_category}>
-                <NavLink className={styles.menu_title} to="/shop">
+                <NavLink className={styles.menu_title} to="/category/1">
                   Categories
                 </NavLink>
               </li>

@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import styles from "./ProductSale.module.css";
 function ProductSale() {
   return (
-    <NavLink to="/detail" className={styles.showcase_container}>
+    <NavLink to="/product/3" className={styles.showcase_container}>
       <div class={styles.showcase}>
         <div class="showcase-banner">
           <img

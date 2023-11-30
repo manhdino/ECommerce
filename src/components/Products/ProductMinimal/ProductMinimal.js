@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import styles from "./ProductMinimal.module.css";
 function ProductMinial({ title, name, prevPrice, CurPrice }) {
   return (
-    <NavLink to="/detail" className={styles.showcase}>
+    <NavLink to="/product/2" className={styles.showcase}>
       <a href="/" class="showcase-img-box">
         <img
           src={img_shirt1}

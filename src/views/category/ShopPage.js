@@ -4,13 +4,10 @@ import "../../css/ShopPage.css";
 import Recommended from "../../components/Recommended/Recommended";
 import Product from "../../components/Products/Product/Product";
 import styles from "./ShopPage.module.css";
-import { useProductContext } from "../../context/productContext";
 
 function ShopPage() {
-  const { name } = useProductContext();
   return (
     <>
-      {name}
       <div class="product-wrap">
         <div class={styles.container}>
           <SideBar />
