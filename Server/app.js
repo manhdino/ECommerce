@@ -6,6 +6,7 @@ const auth = require("./modules/auth/auth.route");
 const product = require("./modules/product/product.route");
 const user = require("./modules/user/user.route");
 const cart = require("./modules/cart/cart.route")
+const order = require("./modules/order/order.route")
 
 const app = express();
 
@@ -20,6 +21,7 @@ app.use("/auth", auth);
 app.use("/product", product);
 app.use("/user", user);
 app.use("/cart", cart);
+app.use("/order", order);
 
 const PORT = process.env.PORT;
 const MONGODB_URI = process.env.MONGODB_URI;
