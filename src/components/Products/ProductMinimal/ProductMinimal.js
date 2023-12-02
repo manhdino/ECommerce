@@ -5,26 +5,20 @@ import styles from "./ProductMinimal.module.css";
 function ProductMinial({ title, name, prevPrice, CurPrice }) {
   return (
     <NavLink to="/product/2" className={styles.showcase}>
-      <a href="/" class="showcase-img-box">
-        <img
-          src={img_shirt1}
-          alt="relaxed short full sleeve t-shirt"
-          width="70"
-          class="showcase-img"
-        />
-      </a>
+      <img
+        src={img_shirt1}
+        alt="relaxed short full sleeve t-shirt"
+        width="70"
+        className="showcase-img"
+      />
 
-      <div class={styles.showcase_content}>
-        <a href="/">
-          <h4 class={styles.showcase_title}>{title}</h4>
-        </a>
+      <div className={styles.showcase_content}>
+        <h4 className={styles.showcase_title}>{title}</h4>
 
-        <a href="/" class={styles.showcase_title}>
-          {name}
-        </a>
+        <h4 className={styles.showcase_title}>{name}</h4>
 
-        <div class={styles.price_box}>
-          <p class={styles.price}>{CurPrice}</p>
+        <div className={styles.price_box}>
+          <p className={styles.price}>{CurPrice}</p>
           <del>{prevPrice}</del>
         </div>
       </div>

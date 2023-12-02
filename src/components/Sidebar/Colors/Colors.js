@@ -2,8 +2,8 @@ import "./Colors.css";
 import Input from "../Input/Input";
 const Colors = ({ handleChange }) => {
   return (
-    <section class="radio-section">
-      <div class="radio-list">
+    <section className="radio-section">
+      <div className="radio-list">
         <Input name="color" id="color1" value="All" />
         <Input name="color" id="color2" value="Black" />
         <Input name="color" id="color3" value="White" />

@@ -3,10 +3,10 @@ import ProductMinial from "./ProductMinimal";
 import styles from "./ProductMinimalCol.module.css";
 function ProductMinimalWrap({ title }) {
   return (
-    <div class={styles.product_showcase}>
-      <h2 class={styles.title}>{title}</h2>
-      <div class={`${styles.showcase_wrapper} ${styles.has_scrollbar}`}>
-        <div class={styles.showcase_container}>
+    <div className={styles.product_showcase}>
+      <h2 className={styles.title}>{title}</h2>
+      <div className={`${styles.showcase_wrapper} ${styles.has_scrollbar}`}>
+        <div className={styles.showcase_container}>
           <ProductMinial
             title="Relaxed Short Full Sleeve T-Shirt"
             name="Clothes"
@@ -34,7 +34,7 @@ function ProductMinimalWrap({ title }) {
           />
         </div>
 
-        <div class={styles.showcase_container}>
+        <div className={styles.showcase_container}>
           <ProductMinial
             title="Relaxed Short Full Sleeve T-Shirt"
             name="Clothes"

@@ -3,8 +3,8 @@ import Input from "../Input/Input";
 const Price = () => {
   return (
     <>
-      <section class="radio-section">
-        <div class="radio-list">
+      <section className="radio-section">
+        <div className="radio-list">
           <Input name="price" id="price1" value="All" />
           <Input name="price" id="price2" value="$0 - 50" />
           <Input name="price" id="price3" value="$50 - $100" />

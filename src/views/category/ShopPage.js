@@ -8,13 +8,13 @@ import styles from "./ShopPage.module.css";
 function ShopPage() {
   return (
     <>
-      <div class="product-wrap">
-        <div class={styles.container}>
+      <div className="product-wrap">
+        <div className={styles.container}>
           <SideBar />
-          <div class={styles.product_box}>
-            <div class={styles.main}>
+          <div className={styles.product_box}>
+            <div className={styles.main}>
               <Recommended />
-              <div class={styles.grid}>
+              <div className={styles.grid}>
                 <Product state="15%" />
                 <Product state="sale" />
                 <Product />

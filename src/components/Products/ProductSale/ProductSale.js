@@ -5,18 +5,18 @@ import styles from "./ProductSale.module.css";
 function ProductSale() {
   return (
     <NavLink to="/product/3" className={styles.showcase_container}>
-      <div class={styles.showcase}>
-        <div class="showcase-banner">
+      <div className={styles.showcase}>
+        <div className="showcase-banner">
           <img
             src={img_shirt1}
             alt="relaxed short full sleeve t-shirt"
             width="70"
-            class={styles.showcase_img}
+            className={styles.showcase_img}
           />
         </div>
 
-        <div class={styles.showcase_content}>
-          <div class={styles.showcase_rating}>
+        <div className={styles.showcase_content}>
+          <div className={styles.showcase_rating}>
             <ion-icon name="star"></ion-icon>
             <ion-icon name="star"></ion-icon>
             <ion-icon name="star"></ion-icon>
@@ -24,27 +24,25 @@ function ProductSale() {
             <ion-icon name="star-outline"></ion-icon>
           </div>
 
-          <a href="/">
-            <h3 class={styles.showcase_title}>
-              shampoo, conditioner & facewash packs
-            </h3>
-          </a>
+          <h3 className={styles.showcase_title}>
+            shampoo, conditioner & facewash packs
+          </h3>
 
-          <p class={styles.showcase_desc}>
+          <p className={styles.showcase_desc}>
             Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor dolor sit
             amet consectetur Lorem ipsum dolor
           </p>
 
-          <div class={styles.price_box}>
-            <p class={styles.price}>$150.00</p>
+          <div className={styles.price_box}>
+            <p className={styles.price}>$150.00</p>
 
             <del>$200.00</del>
           </div>
 
-          <button class={styles.add_cart_btn}>add to cart</button>
+          <button className={styles.add_cart_btn}>add to cart</button>
 
-          <div class={styles.showcase_status}>
-            <div class={styles.wrapper}>
+          <div className={styles.showcase_status}>
+            <div className={styles.wrapper}>
               <p>
                 already sold: <b>20</b>
               </p>
@@ -54,31 +52,31 @@ function ProductSale() {
               </p>
             </div>
 
-            <div class={styles.showcase_status_bar}></div>
+            <div className={styles.showcase_status_bar}></div>
           </div>
 
-          <div class="countdown-box">
-            <p class={styles.countdown_desc}>Hurry Up! Offer ends in:</p>
+          <div className="countdown-box">
+            <p className={styles.countdown_desc}>Hurry Up! Offer ends in:</p>
 
-            <div class={styles.countdown}>
-              <div class={styles.countdown_content}>
-                <p class={styles.display_number}>360</p>
-                <p class={styles.display_text}>Days</p>
+            <div className={styles.countdown}>
+              <div className={styles.countdown_content}>
+                <p className={styles.display_number}>360</p>
+                <p className={styles.display_text}>Days</p>
               </div>
 
-              <div class={styles.countdown_content}>
-                <p class={styles.display_number}>24</p>
-                <p class={styles.display_text}>Hours</p>
+              <div className={styles.countdown_content}>
+                <p className={styles.display_number}>24</p>
+                <p className={styles.display_text}>Hours</p>
               </div>
 
-              <div class={styles.countdown_content}>
-                <p class={styles.display_number}>59</p>
-                <p class={styles.display_text}>Min</p>
+              <div className={styles.countdown_content}>
+                <p className={styles.display_number}>59</p>
+                <p className={styles.display_text}>Min</p>
               </div>
 
-              <div class={styles.countdown_content}>
-                <p class={styles.display_number}>00</p>
-                <p class={styles.display_text}>Sec</p>
+              <div className={styles.countdown_content}>
+                <p className={styles.display_number}>00</p>
+                <p className={styles.display_text}>Sec</p>
               </div>
             </div>
           </div>

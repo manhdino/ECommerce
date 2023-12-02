@@ -24,7 +24,7 @@ import ProductDetail from "./components/Products/ProductDetail/ProductDetail";
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const authData = {
-    isLoggedIn: false,
+    isLoggedIn: true,
   };
 
   // Simulate a 1-second delay

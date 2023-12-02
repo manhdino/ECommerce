@@ -15,51 +15,47 @@ function Product({ state }) {
   };
   return (
     <NavLink to="/product/1" className={styles.showcase}>
-      <div class={styles.showcase_banner}>
+      <div className={styles.showcase_banner}>
         <img
           src={img_jacket3}
           alt="Mens Winter Leathers Jackets"
           width="300"
-          class={`${styles.product_img} ${styles.default}`}
+          className={`${styles.product_img} ${styles.default}`}
         />
         <img
           src={img_jacket4}
           alt="Mens Winter Leathers Jackets"
           width="300"
-          class={`${styles.product_img} ${styles.hover}`}
+          className={`${styles.product_img} ${styles.hover}`}
         />
 
-        {state && <p class={handleStatus(state)}>{state}</p>}
+        {state && <p className={handleStatus(state)}>{state}</p>}
 
-        <div class={styles.showcase_actions}>
-          <button class={styles.btn_action}>
+        <div className={styles.showcase_actions}>
+          <button className={styles.btn_action}>
             <ion-icon name="heart-outline"></ion-icon>
           </button>
 
-          <button class={styles.btn_action}>
+          <button className={styles.btn_action}>
             <ion-icon name="eye-outline"></ion-icon>
           </button>
 
-          <button class={styles.btn_action}>
+          <button className={styles.btn_action}>
             <ion-icon name="repeat-outline"></ion-icon>
           </button>
 
-          <button class={styles.btn_action}>
+          <button className={styles.btn_action}>
             <ion-icon name="bag-add-outline"></ion-icon>
           </button>
         </div>
       </div>
 
-      <div class={styles.showcase_content}>
-        <a href="/" class={styles.showcase_category}>
-          jacket
-        </a>
+      <div className={styles.showcase_content}>
+        <h1 className={styles.showcase_category}>jacket</h1>
 
-        <a href="/">
-          <h3 class={styles.showcase_title}>Mens Winter Leathers Jackets</h3>
-        </a>
+        <h3 className={styles.showcase_title}>Mens Winter Leathers Jackets</h3>
 
-        <div class={styles.showcase_rating}>
+        <div className={styles.showcase_rating}>
           <ion-icon name="star"></ion-icon>
           <ion-icon name="star"></ion-icon>
           <ion-icon name="star"></ion-icon>
@@ -67,8 +63,8 @@ function Product({ state }) {
           <ion-icon name="star-outline"></ion-icon>
         </div>
 
-        <div class={styles.price_box}>
-          <p class={styles.price}>$48.00</p>
+        <div className={styles.price_box}>
+          <p className={styles.price}>$48.00</p>
           <del>$75.00</del>
         </div>
       </div>

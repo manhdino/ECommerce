@@ -6,34 +6,34 @@ import shoe4 from "../../../images/products/shoe_4.jpg";
 import styles from "./ProductDetail.module.css";
 function ProductDetail() {
   return (
-    <div class={styles.container}>
-      <div class={styles.grid}>
-        <div class={styles.product_imgs}>
-          <div class={styles.img_display}>
-            <div class={styles.img_showcase}>
+    <div className={styles.container}>
+      <div className={styles.grid}>
+        <div className={styles.product_imgs}>
+          <div className={styles.img_display}>
+            <div className={styles.img_showcase}>
               <img src={shoe2} alt="shoeimage" />
               <img src={shoe1} alt="shoeimage" />
               <img src={shoe3} alt="shoeimage" />
               <img src={shoe4} alt="shoeimage" />
             </div>
           </div>
-          <div class={styles.img_select}>
-            <div class={styles.img_item}>
+          <div className={styles.img_select}>
+            <div className={styles.img_item}>
               <a href="/">
                 <img src={shoe1} alt="shoeimage" />
               </a>
             </div>
-            <div class={styles.img_item}>
+            <div className={styles.img_item}>
               <a href="/">
                 <img src={shoe2} alt="shoeimage" />
               </a>
             </div>
-            <div class={styles.img_item}>
+            <div className={styles.img_item}>
               <a href="/">
                 <img src={shoe3} alt="shoeimage" />
               </a>
             </div>
-            <div class={styles.img_item}>
+            <div className={styles.img_item}>
               <a href="/">
                 <img src={shoe4} alt="shoeimage" />
               </a>
@@ -41,12 +41,12 @@ function ProductDetail() {
           </div>
         </div>
 
-        <div class={styles.product_content}>
-          <h2 class={styles.product_title}>Nike shoes</h2>
-          <a href="/" class={styles.product_link}>
+        <div className={styles.product_content}>
+          <h2 className={styles.product_title}>Nike shoes</h2>
+          <a href="/" className={styles.product_link}>
             visit nike store
           </a>
-          <div class={styles.product_rating}>
+          <div className={styles.product_rating}>
             <ion-icon name="star"></ion-icon>
             <ion-icon name="star"></ion-icon>
             <ion-icon name="star"></ion-icon>
@@ -55,16 +55,16 @@ function ProductDetail() {
             <span> 4.7(21)</span>
           </div>
 
-          <div class={styles.product_price}>
-            <p class={styles.new_price}>
+          <div className={styles.product_price}>
+            <p className={styles.new_price}>
               <span>$249.00 (5%)</span>
             </p>
-            <p class={styles.last_price}>
+            <p className={styles.last_price}>
               <span>$257.00</span>
             </p>
           </div>
 
-          <div class={styles.product_detail}>
+          <div className={styles.product_detail}>
             <h2>about this item: </h2>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo
@@ -90,46 +90,46 @@ function ProductDetail() {
             </ul>
           </div>
           <h4 className={styles.title}>Size</h4>
-          <ul class={styles.sizes}>
-            <li class={styles.size_active}>37</li>
+          <ul className={styles.sizes}>
+            <li className={styles.size_active}>37</li>
             <li>38</li>
             <li>39</li>
             <li>40</li>
             <li>41</li>
           </ul>
           <h4 className={styles.title}>Color</h4>
-          <ul class={styles.colors}>
-            <li class={styles.color_active}></li>
+          <ul className={styles.colors}>
+            <li className={styles.color_active}></li>
             <li></li>
             <li></li>
             <li></li>
             <li></li>
           </ul>
-          <div class={styles.purchase_info}>
+          <div className={styles.purchase_info}>
             <input type="number" min="0" value="1" />
-            <button type="button" class={styles.btn}>
-              Add to Cart <i class="fas fa-shopping-cart"></i>
+            <button type="button" className={styles.btn}>
+              Add to Cart <i className="fas fa-shopping-cart"></i>
             </button>
-            <button type="button" class={styles.btn}>
+            <button type="button" className={styles.btn}>
               Compare
             </button>
           </div>
 
-          <div class={styles.social_links}>
+          <div className={styles.social_links}>
             <a href="/">
-              <i class="fab fa-facebook-f"></i>
+              <i className="fab fa-facebook-f"></i>
             </a>
             <a href="/">
-              <i class="fab fa-twitter"></i>
+              <i className="fab fa-twitter"></i>
             </a>
             <a href="/">
-              <i class="fab fa-instagram"></i>
+              <i className="fab fa-instagram"></i>
             </a>
             <a href="/">
-              <i class="fab fa-whatsapp"></i>
+              <i className="fab fa-whatsapp"></i>
             </a>
             <a href="/">
-              <i class="fab fa-pinterest"></i>
+              <i className="fab fa-pinterest"></i>
             </a>
           </div>
         </div>
