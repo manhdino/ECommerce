@@ -2,9 +2,10 @@ require("dotenv").config();
 const express = require('express');
 const mongoose = require('mongoose');
 
-const auth = require('./modules/auth/auth.route');
+const auth = require("./modules/auth/auth.route");
 const product = require("./modules/product/product.route");
-const user = require("./modules/user/user.route")
+const user = require("./modules/user/user.route");
+const cart = require("./modules/cart/cart.route")
 
 const app = express();
 
@@ -18,6 +19,7 @@ app.use(
 app.use("/auth", auth);
 app.use("/product", product);
 app.use("/user", user);
+app.use("/cart", cart);
 
 const PORT = process.env.PORT;
 const MONGODB_URI = process.env.MONGODB_URI;

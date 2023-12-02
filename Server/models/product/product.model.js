@@ -9,7 +9,10 @@ const ProductSchema = new mongoose.Schema({
     stockQuantity: { type: Number },
     category: { type: mongoose.Schema.Types.ObjectId, ref: 'Category' },
     supplier: { type: mongoose.Schema.Types.ObjectId, ref: 'Supplier' },
-});
+},{
+    timestamps: true,
+}
+);
 
 const Product = mongoose.model('Product', ProductSchema);
 
