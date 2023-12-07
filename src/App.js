@@ -10,8 +10,6 @@ import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import {
   Home,
-  Login,
-  Register,
   About,
   Account,
   Contact,
@@ -21,12 +19,26 @@ import {
 } from "./views/index";
 import ProductDetail from "./components/Products/ProductDetail/ProductDetail";
 
+import SignUpPage from "./views/account/SignUpPage";
+import SignInPage from "./views/account/SignInPage";
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const authData = {
-    isLoggedIn: true,
+    isLoggedIn: false,
   };
 
+  // Access the client
+
+  // Queries
+
+  // Mutations
+  // const mutation = useMutation({
+  //   mutationFn: fetchAPI,
+  //   onSuccess: () => {
+  //     // Invalidate and refetch
+  //     queryClient.invalidateQueries({ queryKey: ["todos"] });
+  //   },
+  // });
   // Simulate a 1-second delay
   useEffect(() => {
     setTimeout(() => {
@@ -50,8 +62,8 @@ function App() {
           {/* Public routes */}
           <Route element={<PublicRoute />}>
             <Route path="/" element={<Home />}></Route>
-            <Route path="login" element={<Login />}></Route>
-            <Route path="register" element={<Register />}></Route>
+            <Route path="sign-in" element={<SignInPage />}></Route>
+            <Route path="sign-up" element={<SignUpPage />}></Route>
             <Route path="product/:id" element={<ProductDetail />}></Route>
             <Route path="category/:categoryKey" element={<Category />}></Route>
             <Route path="about" element={<About />}></Route>

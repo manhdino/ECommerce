@@ -1,9 +1,9 @@
 export { default as Home } from "./home/HomePage";
-export { default as Login } from "./account/LoginPage";
-export { default as Register } from "./account/RegisterPage";
 export { default as Account } from "./account/AccountPage";
 export { default as About } from "./about/AboutPage";
 export { default as Contact } from "./about/ContactPage";
 export { default as Category } from "./category/ShopPage";
 export { default as Cart } from "./cart/CartPage";
 export { default as Error } from "./error/NotFoundPage";
+export { default as SignInPage } from "./account/SignInPage";
+export { default as SignUpPage } from "./account/SignUpPage";

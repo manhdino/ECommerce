@@ -90,7 +90,7 @@ function Header({ children }) {
 
             <div className={styles.user_actions}>
               <button className={styles.action_btn}>
-                <NavLink to="/account">
+                <NavLink to="/sign-in">
                   <ion-icon name="person-outline"></ion-icon>
                 </NavLink>
               </button>
