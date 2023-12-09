@@ -5,7 +5,11 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setCredentials } from "../slices/AuthSlice";
 import { useLoginMutation } from "../slices/UserApiSlice";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import * as UserServices from "../services/UserServices";
+import { useMutationHooks } from "../hooks/useMutationHook";
+
 const title = "Login";
 const socialTitle = "Login With Social Media";
 const btnText = "Submit Now";
@@ -47,16 +51,49 @@ const Login = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const from = location.state?.from?.pathname || "/";
-  const [login, { isLoading }] = useLoginMutation();
-
   const { userInfo } = useSelector((state) => state.auth);
+  const from = location.state?.from?.pathname || "/";
+  // const [login, { isLoading }] = useLoginMutation();
+  const mutation = useMutationHooks((data) => UserServices.loginUser(data));
+  console.log(mutation);
+  const { data, isPending, isSuccess } = mutation;
+  console.log("data", data);
+  console.log("isPending", isPending);
+  console.log("isSuccess", isSuccess);
 
   useEffect(() => {
-    if (userInfo) {
-      navigate("/");
+    if (isSuccess) {
+      if (data.status === "ERR") {
+        toast.error(data.message, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      } else {
+        if (location?.state) {
+          navigate(location?.state);
+        } else {
+          navigate("/");
+        }
+      }
     }
-  }, [navigate, userInfo]);
+
+    // localStorage.setItem('access_token', JSON.stringify(data?.access_token))
+    // localStorage.setItem('refresh_token', JSON.stringify(data?.refresh_token))
+    // if (data?.access_token) {
+    //   const decoded = jwt_decode(data?.access_token)
+    //   if (decoded?.id) {
+    //     handleGetDetailsUser(decoded?.id, data?.access_token)
+    //   }
+    // }
+    console.log("Login successful");
+  }, [isSuccess, data, location, navigate]);
+
   // login with google
   const handleRegister = () => {
     // signUpWithGmail()
@@ -74,13 +111,30 @@ const Login = () => {
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    try {
-      const res = await login({ email, password }).unwrap();
-      dispatch(setCredentials({ ...res }));
-      navigate("/");
-    } catch (err) {
-      toast.error(err.message);
-    }
+    console.log(email, password);
+    mutation.mutate({
+      email,
+      password,
+    });
+    // const res = await login({ email, password }).unwrap();
+    // console.log(res.status);
+
+    // if (res.status === "ERR") {
+    //   toast.error(res.message, {
+    //     position: "top-right",
+    //     autoClose: 5000,
+    //     hideProgressBar: false,
+    //     closeOnClick: true,
+    //     pauseOnHover: true,
+    //     draggable: true,
+    //     progress: undefined,
+    //     theme: "light",
+    //   });
+    // }
+    // if (res.status === "OK") {
+    //   dispatch(setCredentials({ ...res }));
+    //   navigate("/");
+    // }
   };
 
   return (
@@ -106,14 +160,7 @@ const Login = () => {
                   placeholder="Password *"
                 />
               </div>
-              {/* showing error message */}
-              <div>
-                {errorMessage && (
-                  <div className="error-message text-danger">
-                    {errorMessage}
-                  </div>
-                )}
-              </div>
+
               <div className="form-group">
                 <div className="d-flex justify-content-between flex-wrap pt-sm-2">
                   <div className="checkgroup">
@@ -123,6 +170,7 @@ const Login = () => {
                   <Link to="/forgetpass">Forget Password?</Link>
                 </div>
               </div>
+
               <div className="form-group text-center">
                 <button className="d-block lab-btn">
                   <span>{btnText}</span>
@@ -170,6 +218,7 @@ const Login = () => {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };

@@ -1,9 +1,8 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/images/logo/logo.png";
-// import { AuthContext } from "../contexts/AuthProvider";
 import { NavDropdown } from "react-bootstrap";
-
+import { useSelector, useDispatch } from "react-redux";
 const NavItems = () => {
   const [menuToggle, setMenuToggle] = useState(false);
   const [socialToggle, setSocialToggle] = useState(false);
@@ -12,6 +11,8 @@ const NavItems = () => {
   // check if user is register
   // const { user, logOut } = useContext(AuthContext);
   const { user, logOut } = useState(false);
+  const { userInfo } = useSelector((state) => state.auth);
+  console.log("userInfo in Nav", userInfo);
   const handleLogout = () => {
     // logOut()
     //   .then(() => {
@@ -19,7 +20,7 @@ const NavItems = () => {
     //   })
     //   .catch((error) => {
     //     console.log(error);
-    //   });
+    //   });a
     console.log("Logged out");
   };
 
@@ -90,12 +91,12 @@ const NavItems = () => {
               </div>
 
               {/* users when user available */}
-              {user ? (
+              {userInfo ? (
                 <>
                   <div>
-                    {user?.photoURL ? (
+                    {userInfo?.photoURL ? (
                       <>
-                        <img src={user?.photoURL} className="nav-profile" />
+                        <img src={userInfo?.photoURL} className="nav-profile" />
                       </>
                     ) : (
                       <img

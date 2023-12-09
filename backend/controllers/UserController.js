@@ -45,7 +45,7 @@ const loginUser = async (req, res) => {
     } else if (!isCheckEmail) {
       return res.status(200).json({
         status: "ERR",
-        message: "The input is email",
+        message: "Email is invalid",
       });
     }
     const response = await UserService.loginUser(req.body);
@@ -103,35 +103,6 @@ const deleteUser = async (req, res) => {
   }
 };
 
-// const deleteMany = async (req, res) => {
-//   try {
-//     const ids = req.body.ids;
-//     if (!ids) {
-//       return res.status(200).json({
-//         status: "ERR",
-//         message: "The ids is required",
-//       });
-//     }
-//     const response = await UserService.deleteManyUser(ids);
-//     return res.status(200).json(response);
-//   } catch (e) {
-//     return res.status(404).json({
-//       message: e,
-//     });
-//   }
-// };
-
-// const getAllUser = async (req, res) => {
-//   try {
-//     const response = await UserService.getAllUser();
-//     return res.status(200).json(response);
-//   } catch (e) {
-//     return res.status(404).json({
-//       message: e,
-//     });
-//   }
-// };
-
 const getDetailsUser = async (req, res) => {
   try {
     const userId = req.params.id;
@@ -163,7 +134,8 @@ const getAllUser = async (req, res) => {
 
 const refreshToken = async (req, res) => {
   try {
-    let token = req.headers.token.split(" ")[1];
+    let token = req.cookies.refresh_token;
+    console.log("refresh token cookie", token);
     if (!token) {
       return res.status(200).json({
         status: "ERR",
@@ -171,7 +143,15 @@ const refreshToken = async (req, res) => {
       });
     }
     const response = await JwtService.refreshTokenJwtService(token);
-    return res.status(200).json(response);
+    const { refresh_token, ...newReponse } = response;
+    // refresh_token.push(refresh_token);
+    res.cookie("new_refresh_token", refresh_token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV !== "development",
+      sameSite: "strict", // Prevent CSRF attacks
+      maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
+    });
+    return res.status(200).json({ ...newReponse, refresh_token });
   } catch (e) {
     return res.status(404).json({
       message: e,
@@ -179,19 +159,19 @@ const refreshToken = async (req, res) => {
   }
 };
 
-// const logoutUser = async (req, res) => {
-//   try {
-//     res.clearCookie("refresh_token");
-//     return res.status(200).json({
-//       status: "OK",
-//       message: "Logout successfully",
-//     });
-//   } catch (e) {
-//     return res.status(404).json({
-//       message: e,
-//     });
-//   }
-// };
+const logoutUser = async (req, res) => {
+  try {
+    res.clearCookie("refresh_token");
+    return res.status(200).json({
+      status: "OK",
+      message: "Logout successfully",
+    });
+  } catch (e) {
+    return res.status(404).json({
+      message: e,
+    });
+  }
+};
 module.exports = {
   createUser,
   loginUser,
@@ -200,6 +180,6 @@ module.exports = {
   getAllUser,
   getDetailsUser,
   refreshToken,
-  // logoutUser,
+  logoutUser,
   // deleteMany,
 };

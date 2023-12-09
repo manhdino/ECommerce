@@ -11,6 +11,9 @@ export const userApiSlice = apiSlice.injectEndpoints({
         body: data,
       }),
     }),
+    logout: builder.mutation({
+      query: () => ({}),
+    }),
   }),
 });
 

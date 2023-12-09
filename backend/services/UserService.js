@@ -53,7 +53,7 @@ const loginUser = (userLogin) => {
       if (!comparePassword) {
         resolve({
           status: "ERR",
-          message: "The password or user is incorrect",
+          message: "The password  is incorrect",
         });
       }
       const access_token = await genneralAccessToken({

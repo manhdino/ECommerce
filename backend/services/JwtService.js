@@ -40,10 +40,15 @@ const refreshTokenJwtService = (token) => {
           id: user?.id,
           isAdmin: user?.isAdmin,
         });
+        const refresh_token = await genneralRefreshToken({
+          id: user?.id,
+          isAdmin: user?.isAdmin,
+        });
         resolve({
           status: "OK",
           message: "SUCESS",
           access_token,
+          refresh_token,
         });
       });
     } catch (e) {

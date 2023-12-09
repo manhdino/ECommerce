@@ -31,6 +31,14 @@ import PrivateRoute from "./PrivateRoute/PrivateRoute.jsx";
 
 import store from "./store/store.js";
 import { Provider } from "react-redux";
+import {
+  useQuery,
+  useMutation,
+  useQueryClient,
+  QueryClient,
+  QueryClientProvider,
+} from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -88,11 +96,15 @@ const router = createBrowserRouter([
     element: <CheckoutPage />,
   },
 ]);
-
+// Create a client
+const queryClient = new QueryClient();
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <Provider store={store}>
-    <React.StrictMode>
+  <QueryClientProvider client={queryClient}>
+    <Provider store={store}>
+      {/* <React.StrictMode> */}
       <RouterProvider router={router} />
-    </React.StrictMode>
-  </Provider>
+      {/* </React.StrictMode> */}
+    </Provider>
+    <ReactQueryDevtools initialIsOpen={false} />
+  </QueryClientProvider>
 );
