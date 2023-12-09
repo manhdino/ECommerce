@@ -28,16 +28,11 @@ import Signup from "./components/Signup.jsx";
 import Login from "./components/Login.jsx";
 import ErrorPage from "./components/ErrorPage.jsx";
 import PrivateRoute from "./PrivateRoute/PrivateRoute.jsx";
+import Profile from "./pages/Profile/Profile.jsx";
 
 import store from "./store/store.js";
 import { Provider } from "react-redux";
-import {
-  useQuery,
-  useMutation,
-  useQueryClient,
-  QueryClient,
-  QueryClientProvider,
-} from "@tanstack/react-query";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 const router = createBrowserRouter([
   {
@@ -72,6 +67,10 @@ const router = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+      },
+      {
+        path: "/profile",
+        element: <Profile />,
       },
       {
         path: "/cart-page",

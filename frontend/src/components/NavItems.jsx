@@ -3,25 +3,25 @@ import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/images/logo/logo.png";
 import { NavDropdown } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
+import { resetUser } from "../slices/UserSlice";
+import * as UserServices from "../services/UserServices";
+import { useNavigate } from "react-router-dom";
 const NavItems = () => {
   const [menuToggle, setMenuToggle] = useState(false);
   const [socialToggle, setSocialToggle] = useState(false);
   const [headerFiexd, setHeaderFiexd] = useState(false);
 
-  // check if user is register
-  // const { user, logOut } = useContext(AuthContext);
-  const { user, logOut } = useState(false);
-  const { userInfo } = useSelector((state) => state.auth);
-  console.log("userInfo in Nav", userInfo);
-  const handleLogout = () => {
-    // logOut()
-    //   .then(() => {
-    //     // Sign-out successful.
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });a
-    console.log("Logged out");
+  const user = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    await UserServices.logoutUser();
+    dispatch(resetUser());
+    navigate("/");
+  };
+  const handleProfile = () => {
+    navigate("/profile");
   };
 
   window.addEventListener("scroll", () => {
@@ -91,12 +91,12 @@ const NavItems = () => {
               </div>
 
               {/* users when user available */}
-              {userInfo ? (
+              {user.name ? (
                 <>
                   <div>
-                    {userInfo?.photoURL ? (
+                    {user?.photoURL ? (
                       <>
-                        <img src={userInfo?.photoURL} className="nav-profile" />
+                        <img src={user?.photoURL} className="nav-profile" />
                       </>
                     ) : (
                       <img
@@ -106,13 +106,11 @@ const NavItems = () => {
                     )}
                   </div>
                   <NavDropdown id="basic-nav-dropdown">
-                    <NavDropdown.Item href="#action/3.1" onClick={handleLogout}>
+                    <NavDropdown.Item onClick={handleLogout}>
                       Logout
                     </NavDropdown.Item>
-                    <NavDropdown.Item href="/cart-page">
-                      Shopping Cart
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="#action/3.3">
+                    <NavDropdown.Item>Shopping Cart</NavDropdown.Item>
+                    <NavDropdown.Item onClick={handleProfile}>
                       Profile
                     </NavDropdown.Item>
                     <NavDropdown.Divider />

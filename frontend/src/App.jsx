@@ -2,8 +2,43 @@ import { Outlet } from "react-router-dom";
 import "./App.css";
 import Footer from "./components/Footer";
 import NavItems from "./components/NavItems";
-import "react-toastify/dist/ReactToastify.css";
+import { useEffect } from "react";
+import { isJsonString } from "./utils";
+import { jwtDecode } from "jwt-decode";
+import { updateUser, resetUser } from "./slices/UserSlice";
+import * as UserService from "./services/UserServices";
+import { useDispatch } from "react-redux";
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const { storageData, decoded } = handleDecoded();
+    console.log("storageData in APP", storageData); //access_token
+    console.log("decoded in useEffect in APP", decoded);
+    if (decoded?.id) {
+      handleGetDetailsUser(decoded?.id, storageData); //call get details API
+    }
+  });
+
+  //Get access_token from local storage and decode to indentify id user
+  const handleDecoded = () => {
+    let storageData = localStorage.getItem("access_token");
+    let decoded = {};
+    if (storageData) {
+      storageData = JSON.parse(storageData);
+      decoded = jwtDecode(storageData);
+    }
+    return { decoded, storageData };
+  };
+
+  const handleGetDetailsUser = async (id, token) => {
+    const res = await UserService.getDetailsUser(id, token);
+    dispatch(
+      updateUser({
+        ...res?.data,
+        access_token: token,
+      })
+    );
+  };
   return (
     <>
       <NavItems />

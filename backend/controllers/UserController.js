@@ -1,12 +1,11 @@
 const UserService = require("../services/UserService");
-const JwtService = require("../services/JwtService");
 
 const createUser = async (req, res) => {
   try {
     const { name, email, password, confirmPassword, phone } = req.body;
     const reg = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
     const isCheckEmail = reg.test(email);
-    if (!email || !password || !confirmPassword) {
+    if (!name || !email || !password || !confirmPassword) {
       return res.status(200).json({
         status: "ERR",
         message: "The input is required",
@@ -22,7 +21,6 @@ const createUser = async (req, res) => {
         message: "The password is equal confirmPassword",
       });
     }
-    console.log(req.body);
     const response = await UserService.createUser(req.body);
     return res.status(200).json(response);
   } catch (e) {
@@ -49,15 +47,15 @@ const loginUser = async (req, res) => {
       });
     }
     const response = await UserService.loginUser(req.body);
-    const { refresh_token, ...newReponse } = response;
+    const { access_token } = response;
     // refresh_token.push(refresh_token);
-    res.cookie("refresh_token", refresh_token, {
+    res.cookie("access_token", access_token, {
       httpOnly: true,
       secure: process.env.NODE_ENV !== "development",
       sameSite: "strict", // Prevent CSRF attacks
       maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
     });
-    return res.status(200).json({ ...newReponse, refresh_token });
+    return res.status(200).json(response);
     // return res.status(200).json(response);
   } catch (e) {
     return res.status(404).json({
@@ -132,36 +130,9 @@ const getAllUser = async (req, res) => {
   }
 };
 
-const refreshToken = async (req, res) => {
-  try {
-    let token = req.cookies.refresh_token;
-    console.log("refresh token cookie", token);
-    if (!token) {
-      return res.status(200).json({
-        status: "ERR",
-        message: "The token is required",
-      });
-    }
-    const response = await JwtService.refreshTokenJwtService(token);
-    const { refresh_token, ...newReponse } = response;
-    // refresh_token.push(refresh_token);
-    res.cookie("new_refresh_token", refresh_token, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV !== "development",
-      sameSite: "strict", // Prevent CSRF attacks
-      maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
-    });
-    return res.status(200).json({ ...newReponse, refresh_token });
-  } catch (e) {
-    return res.status(404).json({
-      message: e,
-    });
-  }
-};
-
 const logoutUser = async (req, res) => {
   try {
-    res.clearCookie("refresh_token");
+    res.clearCookie("access_token");
     return res.status(200).json({
       status: "OK",
       message: "Logout successfully",
@@ -179,7 +150,5 @@ module.exports = {
   deleteUser,
   getAllUser,
   getDetailsUser,
-  refreshToken,
   logoutUser,
-  // deleteMany,
 };

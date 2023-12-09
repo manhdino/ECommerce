@@ -1,46 +1,17 @@
-import axios from "axios";
-import React, { useContext, useEffect, useState } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-
+import { jwtDecode } from "jwt-decode";
 import { useDispatch, useSelector } from "react-redux";
-import { setCredentials } from "../slices/AuthSlice";
-import { useLoginMutation } from "../slices/UserApiSlice";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import * as UserServices from "../services/UserServices";
 import { useMutationHooks } from "../hooks/useMutationHook";
+import { updateUser } from "../slices/UserSlice";
 
 const title = "Login";
 const socialTitle = "Login With Social Media";
 const btnText = "Submit Now";
-
-const socialList = [
-  {
-    link: "#",
-    iconName: "icofont-github",
-    className: "github",
-  },
-  {
-    link: "#",
-    iconName: "icofont-facebook",
-    className: "facebook",
-  },
-  {
-    link: "#",
-    iconName: "icofont-twitter",
-    className: "twitter",
-  },
-  {
-    link: "#",
-    iconName: "icofont-linkedin",
-    className: "linkedin",
-  },
-  {
-    link: "#",
-    iconName: "icofont-instagram",
-    className: "instagram",
-  },
-];
 
 const Login = () => {
   const [errorMessage, setErrorMessage] = useState("");
@@ -51,15 +22,9 @@ const Login = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { userInfo } = useSelector((state) => state.auth);
-  const from = location.state?.from?.pathname || "/";
   // const [login, { isLoading }] = useLoginMutation();
   const mutation = useMutationHooks((data) => UserServices.loginUser(data));
-  console.log(mutation);
-  const { data, isPending, isSuccess } = mutation;
-  console.log("data", data);
-  console.log("isPending", isPending);
-  console.log("isSuccess", isSuccess);
+  const { data, isSuccess } = mutation;
 
   useEffect(() => {
     if (isSuccess) {
@@ -79,21 +44,25 @@ const Login = () => {
           navigate(location?.state);
         } else {
           navigate("/");
+          localStorage.setItem(
+            "access_token",
+            JSON.stringify(data?.access_token)
+          );
+          if (data?.access_token) {
+            const decoded = jwtDecode(data?.access_token);
+            if (decoded?.id) {
+              console.log("_id user:", decoded?.id);
+              handleGetDetailsUser(decoded?.id, data?.access_token);
+            }
+          }
         }
       }
     }
-
-    // localStorage.setItem('access_token', JSON.stringify(data?.access_token))
-    // localStorage.setItem('refresh_token', JSON.stringify(data?.refresh_token))
-    // if (data?.access_token) {
-    //   const decoded = jwt_decode(data?.access_token)
-    //   if (decoded?.id) {
-    //     handleGetDetailsUser(decoded?.id, data?.access_token)
-    //   }
-    // }
-    console.log("Login successful");
-  }, [isSuccess, data, location, navigate]);
-
+  }, [isSuccess]);
+  const handleGetDetailsUser = async (id, token) => {
+    const res = await UserServices.getDetailsUser(id, token);
+    dispatch(updateUser({ ...res?.data, access_token: token }));
+  };
   // login with google
   const handleRegister = () => {
     // signUpWithGmail()
@@ -111,30 +80,10 @@ const Login = () => {
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
     mutation.mutate({
       email,
       password,
     });
-    // const res = await login({ email, password }).unwrap();
-    // console.log(res.status);
-
-    // if (res.status === "ERR") {
-    //   toast.error(res.message, {
-    //     position: "top-right",
-    //     autoClose: 5000,
-    //     hideProgressBar: false,
-    //     closeOnClick: true,
-    //     pauseOnHover: true,
-    //     draggable: true,
-    //     progress: undefined,
-    //     theme: "light",
-    //   });
-    // }
-    // if (res.status === "OK") {
-    //   dispatch(setCredentials({ ...res }));
-    //   navigate("/");
-    // }
   };
 
   return (

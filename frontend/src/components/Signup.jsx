@@ -1,68 +1,49 @@
-import React, { useContext, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-// import { AuthContext } from "../contexts/AuthProvider";
-import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import axios from "axios";
 
+import * as UserService from "../services/UserServices";
+import { useMutationHooks } from "../hooks/useMutationHook";
+import { toast, ToastContainer } from "react-toastify";
 const title = "Register Now";
 const socialTitle = "Register With Social Media";
 const btnText = "Get Started Now";
 
-let socialList = [
-  {
-    link: "#",
-    iconName: "icofont-facebook",
-    className: "facebook",
-  },
-  {
-    link: "#",
-    iconName: "icofont-twitter",
-    className: "twitter",
-  },
-  {
-    link: "#",
-    iconName: "icofont-linkedin",
-    className: "linkedin",
-  },
-  {
-    link: "#",
-    iconName: "icofont-instagram",
-    className: "instagram",
-  },
-  {
-    link: "#",
-    iconName: "icofont-pinterest",
-    className: "pinterest",
-  },
-];
-
 const Signup = () => {
   const [errorMessage, setErrorMessage] = useState("");
 
-  // const { signUpWithGmail, createUser } = useContext(AuthContext);
-
   const location = useLocation();
   const navigate = useNavigate();
-  // const mutaion = useMutation({
-  //   mutationFn: (data) => UserServices.loginUser(data),
-  // });
-  // console.log("mutation", mutaion);
-  const from = location.state?.from?.pathname || "/";
 
-  // login with google
-  const handleRegister = () => {
-    // signUpWithGmail()
-    //   .then((result) => {
-    //     const user = result.user;
-    //     navigate(from, { replace: true });
-    //   })
-    //   .catch((error) => console.log(error));
-  };
+  const mutation = useMutationHooks((data) => UserService.signupUser(data));
+  const { data, isSuccess } = mutation;
 
-  // login with email password
+  useEffect(() => {
+    if (isSuccess) {
+      if (data.status === "ERR") {
+        toast.error(data.message, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      } else {
+        if (location?.state) {
+          navigate(location?.state);
+        } else {
+          navigate("/login");
+        }
+      }
+    }
+  }, [isSuccess, data, location, navigate]);
+
   const handleSignup = (event) => {
     event.preventDefault();
     const form = event.target;
+    const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
     const confirmPassword = form.confirmPassword.value; // Get the confirm password field
@@ -73,22 +54,13 @@ const Signup = () => {
         "Passwords doesn't match! Please provide correct password"
       );
     } else {
-      // Passwords match, proceed with signup logic
       setErrorMessage(""); // Clear the error message
-      // createUser(email, password)
-      //   .then((userCredential) => {
-      //     // Signed in successfully
-      //     const user = userCredential.user;
-      //     alert("Account Created Successfully!");
-      //     navigate(from, { replace: true });
-      //   })
-      //   .catch((error) => {
-      //     const errorCode = error.code;
-      //     const errorMessage = error.message;
-      //     console.log(errorMessage);
-      //     alert(`${errorMessage}`);
-      //   });
-      console.log(email, password);
+      mutation.mutate({
+        name,
+        email,
+        password,
+        confirmPassword,
+      });
     }
   };
   return (
@@ -139,7 +111,7 @@ const Signup = () => {
               <h5 className="subtitle">{socialTitle}</h5>
               <ul className="lab-ul social-icons justify-content-center">
                 <li>
-                  <button onClick={handleRegister} className="github">
+                  <button className="github">
                     <i className="icofont-github"></i>
                   </button>
                 </li>
@@ -168,6 +140,7 @@ const Signup = () => {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };
