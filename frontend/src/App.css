@@ -13,6 +13,18 @@
     cursor: pointer;
 }
 
+.btn-shop-home{
+    background-color: transparent;
+    border: 2px solid #ffdf40;
+    color: #101115;
+    padding: 10px 30px;
+    font-weight: bold;
+}
+.btn-shop-home:hover{
+    background-color:#ffdf40 ;
+    transform: translateY(-5px);
+    box-shadow: 0 5px 10px rgba(255, 223, 64, 0.5);
+}
 .page-item{
     width: 46px;
     height: 46px;

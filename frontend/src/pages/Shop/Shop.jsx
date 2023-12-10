@@ -71,12 +71,14 @@ const Shop = () => {
                     </a>
                   </div>
                 </div>
+
                 <div>
                   <ProductCards
                     products={currentProducts}
                     GridList={GridList}
                   />
                 </div>
+
                 <Pagination
                   productsPerPage={productsPerPage}
                   totalProducts={products.length}

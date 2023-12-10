@@ -14,6 +14,7 @@
     "@reduxjs/toolkit": "^2.0.1",
     "@tanstack/react-query": "^5.12.2",
     "@tanstack/react-query-devtools": "^5.13.3",
+    "@tanstack/react-router": "^0.0.1-beta.248",
     "antd": "^5.12.1",
     "axios": "^1.6.2",
     "bootstrap": "^5.3.2",

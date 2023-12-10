@@ -1,26 +1,101 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import * as UserService from "../../services/UserServices";
+import { useMutationHooks } from "../../hooks/useMutationHook";
+import { toast, ToastContainer } from "react-toastify";
+import { updateUser } from "../../slices/UserSlice";
 function Profile() {
   const title = "Update Profile";
   const socialTitle = "Login With Social Media";
   const btnText = "Update Now";
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [phone, setPhoneNumber] = useState("");
   const [address, setAddress] = useState("");
+  const user = useSelector((state) => state.user);
+
+  const mutation = useMutationHooks((data) => {
+    const { id, access_token, ...rests } = data;
+    UserService.updateUser(id, rests, access_token);
+  });
+  const { isSuccess, isError } = mutation;
   const handleUpdate = (event) => {
     event.preventDefault();
-    console.log(name, email, password, phone, address);
+    mutation.mutate({
+      id: user?.id,
+      email,
+      name,
+      phone,
+      address,
+      access_token: user?.access_token,
+    });
+
+    if (isSuccess) {
+      toast.success("Update successfully!", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
+    if (isError) {
+      toast.error("Update fail!", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
   };
-  const user = useSelector((state) => state.user);
+  const dispatch = useDispatch();
   useEffect(() => {
     setName(user?.name);
     setEmail(user?.email);
     setPhoneNumber(user?.phone);
     setAddress(user?.address);
   }, [user]);
-  console.log("user data in profile", user);
+  useEffect(() => {
+    if (isSuccess) {
+      toast.success("Update successfully!", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      handleGetDetailsUser(user?.id, user?.access_token);
+    }
+    if (isError) {
+      toast.error("Update fail!", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isSuccess, isError]);
+  const handleGetDetailsUser = async (id, token) => {
+    const res = await UserService.getDetailsUser(id, token);
+    dispatch(updateUser({ ...res?.data, access_token: token }));
+  };
+
   const handleOnChangeUsername = (e) => {
     setName(e.target.value);
   };
@@ -94,6 +169,7 @@ function Profile() {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 }

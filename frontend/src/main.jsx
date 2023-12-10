@@ -29,6 +29,7 @@ import Login from "./components/Login.jsx";
 import ErrorPage from "./components/ErrorPage.jsx";
 import PrivateRoute from "./PrivateRoute/PrivateRoute.jsx";
 import Profile from "./pages/Profile/Profile.jsx";
+import Admin from "./pages/Admin/Admin.jsx";
 
 import store from "./store/store.js";
 import { Provider } from "react-redux";
@@ -89,6 +90,10 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login />,
+  },
+  {
+    path: "/admin",
+    element: <Admin />,
   },
   {
     path: "/check-out",

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/images/logo/logo.png";
 import { NavDropdown } from "react-bootstrap";
@@ -22,6 +22,9 @@ const NavItems = () => {
   };
   const handleProfile = () => {
     navigate("/profile");
+  };
+  const handleAdmin = () => {
+    navigate("/admin");
   };
 
   window.addEventListener("scroll", () => {
@@ -114,6 +117,11 @@ const NavItems = () => {
                       Profile
                     </NavDropdown.Item>
                     <NavDropdown.Divider />
+                    {user?.isAdmin && (
+                      <NavDropdown.Item onClick={handleAdmin}>
+                        Admin
+                      </NavDropdown.Item>
+                    )}
                     <NavDropdown.Item href="/cart-page">Order</NavDropdown.Item>
                   </NavDropdown>
                 </>

@@ -1,13 +1,15 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import "./App.css";
 import Footer from "./components/Footer";
 import NavItems from "./components/NavItems";
-import { useEffect } from "react";
+import { useLayoutEffect, useEffect } from "react";
 import { isJsonString } from "./utils";
 import { jwtDecode } from "jwt-decode";
 import { updateUser, resetUser } from "./slices/UserSlice";
 import * as UserService from "./services/UserServices";
 import { useDispatch } from "react-redux";
+import ScrollToTop from "./components/ScrollToTop";
+
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -19,6 +21,10 @@ function App() {
     }
   });
 
+  const { pathName } = useLocation();
+  useLayoutEffect(() => {
+    window.scrollTo({ top: 100, behavior: "smooth" });
+  }, [pathName]);
   //Get access_token from local storage and decode to indentify id user
   const handleDecoded = () => {
     let storageData = localStorage.getItem("access_token");
@@ -42,6 +48,7 @@ function App() {
   return (
     <>
       <NavItems />
+      <ScrollToTop />
       <div className="min-vh-100">
         <Outlet />
       </div>

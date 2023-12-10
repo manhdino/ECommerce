@@ -23,3 +23,12 @@ export const logoutUser = async () => {
   const res = await axios.post(`${BASE_URL}/log-out`);
   return res.data;
 };
+
+export const updateUser = async (id, data, access_token) => {
+  const res = await axios.put(`${BASE_URL}/update-user/${id}`, data, {
+    headers: {
+      token: `Bearer ${access_token}`,
+    },
+  });
+  return res.data;
+};
