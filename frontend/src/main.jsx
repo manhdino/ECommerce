@@ -97,7 +97,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/admin",
-    element: <Admin />,
+    element: (
+      <PrivateRoute isAdmin={true}>
+        <Admin />
+      </PrivateRoute>
+    ),
   },
   {
     path: "/check-out",
