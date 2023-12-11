@@ -473,10 +473,10 @@ const CategoryShowCase = () => {
           <div className="course-filter-group">
             <ul className="lab-ul">
               <li onClick={() => setItems(Data)}>All</li>
-              <li onClick={() => filterItem("Shoes")}>Shoes</li>
-              <li onClick={() => filterItem("Bags")}>Bags</li>
-              <li onClick={() => filterItem("Phones")}>Phones</li>
-              <li onClick={() => filterItem("Beauty")}>Beauty</li>
+              <li onClick={() => filterItem("Sneaker")}>Sneaker</li>
+              <li onClick={() => filterItem("Pants")}>Pants</li>
+              <li onClick={() => filterItem("Boot")}>Boot</li>
+              <li onClick={() => filterItem("Bag")}>Bag</li>
             </ul>
           </div>
         </div>
@@ -486,7 +486,7 @@ const CategoryShowCase = () => {
           <div className="row g-4 justify-content-center row-cols-xl-4 row-cols-lg-3 row-cols-md-2 row-cols-1 course-filter">
             {items.slice(0, 8).map((elem) => {
               const { id, img, category, name, seller, price } = elem;
-              console.log("data of product: ", elem);
+
               return (
                 <Link to={`/shop/${id}`} key={id}>
                   <div className="col">

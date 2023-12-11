@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import Rating from "../../components/Sidebar/rating";
 
 const ProductCards = ({ products, GridList }) => {
-  // console.log(products.map(val => console.log(val.id)))
   return (
     <div
       className={`shop-product-wrap row justify-content-center ${
@@ -18,16 +17,16 @@ const ProductCards = ({ products, GridList }) => {
               <div className="pro-thumb">
                 <img src={`${product.img}`} alt={`${product.img}`} />
               </div>
-              <div className="product-action-link">
+              <div className="product-action-link product-action-link-wrap">
                 <Link to={`/shop/${product.id}`}>
                   <i className="icofont-eye"></i>
                 </Link>
                 <a href="#">
                   <i className="icofont-heart"></i>
                 </a>
-                <Link to="/cart-page">
+                <a href="#">
                   <i className="icofont-cart-alt"></i>
-                </Link>
+                </a>
               </div>
             </div>
             <div className="product-content">

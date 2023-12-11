@@ -59,3 +59,8 @@
     font-weight: bold;
     font-size: 15px;
 }
+
+.product-action-link-wrap{
+    flex-direction: column;
+    margin-left: 80%;
+}

@@ -6,15 +6,23 @@ import { useSelector, useDispatch } from "react-redux";
 import { resetUser } from "../slices/UserSlice";
 import * as UserServices from "../services/UserServices";
 import { useNavigate } from "react-router-dom";
+import Loading from "../components/isLoading";
 const NavItems = () => {
   const [menuToggle, setMenuToggle] = useState(false);
   const [socialToggle, setSocialToggle] = useState(false);
   const [headerFiexd, setHeaderFiexd] = useState(false);
-
+  const [name, setName] = useState("");
   const user = useSelector((state) => state.user);
+  // const account = localStorage.getItem("account");
+  // console.log("user nav", user);
+  // console.log("account nav", account);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    setName(user?.name);
+  }, [user]);
   const handleLogout = async () => {
     await UserServices.logoutUser();
     dispatch(resetUser());
@@ -26,7 +34,9 @@ const NavItems = () => {
   const handleAdmin = () => {
     navigate("/admin");
   };
-
+  const handleOrder = () => {
+    navigate("/cart-page");
+  };
   window.addEventListener("scroll", () => {
     if (window.scrollY > 200) {
       setHeaderFiexd(true);
@@ -94,7 +104,7 @@ const NavItems = () => {
               </div>
 
               {/* users when user available */}
-              {user.name ? (
+              {user?.name ? (
                 <>
                   <div>
                     {user?.photoURL ? (
@@ -108,21 +118,31 @@ const NavItems = () => {
                       />
                     )}
                   </div>
-                  <NavDropdown id="basic-nav-dropdown">
-                    <NavDropdown.Item onClick={handleLogout}>
-                      Logout
-                    </NavDropdown.Item>
-                    <NavDropdown.Item>Shopping Cart</NavDropdown.Item>
+                  <NavDropdown>
+                    <Loading isLoading={loading}>
+                      <NavDropdown.Item>
+                        Hi! {name?.length ? name : user?.name}
+                      </NavDropdown.Item>
+                    </Loading>
+                    {/* <NavDropdown.Item>
+                      Hi! {name?.length ? name : user?.name}
+                    </NavDropdown.Item> */}
                     <NavDropdown.Item onClick={handleProfile}>
                       Profile
                     </NavDropdown.Item>
-                    <NavDropdown.Divider />
+
                     {user?.isAdmin && (
                       <NavDropdown.Item onClick={handleAdmin}>
                         Admin
                       </NavDropdown.Item>
                     )}
-                    <NavDropdown.Item href="/cart-page">Order</NavDropdown.Item>
+                    <NavDropdown.Item onClick={handleOrder}>
+                      Order
+                    </NavDropdown.Item>
+                    <NavDropdown.Divider />
+                    <NavDropdown.Item onClick={handleLogout}>
+                      Logout
+                    </NavDropdown.Item>
                   </NavDropdown>
                 </>
               ) : (

@@ -15,10 +15,7 @@ const btnText = "Submit Now";
 
 const Login = () => {
   const [errorMessage, setErrorMessage] = useState("");
-  // const { signUpWithGmail, login } = useContext(AuthContext);
-  // const { signUpWithGmail, login } = useContext(false);
 
-  // console.log(signUpWithGmail);
   const location = useLocation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -51,7 +48,6 @@ const Login = () => {
           if (data?.access_token) {
             const decoded = jwtDecode(data?.access_token);
             if (decoded?.id) {
-              console.log("_id user:", decoded?.id);
               handleGetDetailsUser(decoded?.id, data?.access_token);
             }
           }
@@ -64,15 +60,6 @@ const Login = () => {
     dispatch(updateUser({ ...res?.data, access_token: token }));
   };
   // login with google
-  const handleRegister = () => {
-    // signUpWithGmail()
-    //   .then((result) => {
-    //     const user = result.user;
-    //     navigate(from, { replace: true });
-    //   })
-    //   .catch((error) => console.log(error));
-    console.log("Login with google gmail");
-  };
 
   // login with email password
   const handleLogin = async (event) => {
@@ -138,7 +125,7 @@ const Login = () => {
               <h5 className="subtitle">{socialTitle}</h5>
               <ul className="lab-ul social-icons justify-content-center">
                 <li>
-                  <button onClick={handleRegister} className="github">
+                  <button className="github">
                     <i className="icofont-github"></i>
                   </button>
                 </li>

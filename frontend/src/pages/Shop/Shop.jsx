@@ -43,7 +43,6 @@ const Shop = () => {
     });
     setSelectedCategory(curcat);
     setProducts(newItem);
-    // console.log(selectedCategory)
   };
 
   return (

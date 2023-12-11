@@ -28,7 +28,7 @@ export const userSlide = createSlice({
         isAdmin,
         city = "",
       } = action.payload;
-      console.log("action.payload: ", action.payload);
+      state.user = action.payload;
       state.name = name ? name : state.name;
       state.email = email ? email : state.email;
       state.address = address ? address : state.address;
@@ -38,6 +38,7 @@ export const userSlide = createSlice({
       state.access_token = access_token ? access_token : state.access_token;
       state.isAdmin = isAdmin ? isAdmin : state.isAdmin;
       state.city = city ? city : state.city;
+      console.log("state.user", state.user);
     },
 
     resetUser: (state) => {
@@ -50,6 +51,7 @@ export const userSlide = createSlice({
       state.access_token = "";
       state.isAdmin = false;
       state.city = "";
+      localStorage.removeItem("user");
     },
   },
 });

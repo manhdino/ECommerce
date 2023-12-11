@@ -4,23 +4,58 @@ import * as UserService from "../../services/UserServices";
 import { useMutationHooks } from "../../hooks/useMutationHook";
 import { toast, ToastContainer } from "react-toastify";
 import { updateUser } from "../../slices/UserSlice";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 function Profile() {
   const title = "Update Profile";
   const socialTitle = "Login With Social Media";
   const btnText = "Update Now";
+  const [data, setData] = useState({});
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [phone, setPhoneNumber] = useState("");
   const [address, setAddress] = useState("");
   const user = useSelector((state) => state.user);
-
-  const mutation = useMutationHooks((data) => {
-    const { id, access_token, ...rests } = data;
-    UserService.updateUser(id, rests, access_token);
+  const queryClient = useQueryClient();
+  const { data: profileData } = useQuery({
+    queryFn: () => {
+      return UserService.getDetailsUser(user?.id, user?.access_token);
+    },
+    queryKey: ["profile"],
   });
-  const { isSuccess, isError } = mutation;
-  const handleUpdate = (event) => {
+  console.log("data profile", profileData);
+  const mutation = useMutation({
+    mutationFn: (data) => {
+      console.log(data);
+      const { id, access_token, ...rests } = data;
+      UserService.updateUser(id, rests, access_token);
+    },
+    onSuccess: () => {
+      dispatch(updateUser(data));
+      queryClient.invalidateQueries(["profile"]);
+      toast.success("Profile is updated", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+    },
+  });
+  const handleUpdate = async (event) => {
     event.preventDefault();
+    console.log(
+      user?.id,
+      email,
+      name,
+      phone,
+      address,
+      address,
+      user?.access_token
+    );
+    setData({ email: email, name: name, phone: phone, address: address });
     mutation.mutate({
       id: user?.id,
       email,
@@ -29,32 +64,8 @@ function Profile() {
       address,
       access_token: user?.access_token,
     });
-
-    if (isSuccess) {
-      toast.success("Update successfully!", {
-        position: "top-right",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
-    }
-    if (isError) {
-      toast.error("Update fail!", {
-        position: "top-right",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
-    }
   };
+
   const dispatch = useDispatch();
   useEffect(() => {
     setName(user?.name);
@@ -62,39 +73,6 @@ function Profile() {
     setPhoneNumber(user?.phone);
     setAddress(user?.address);
   }, [user]);
-  useEffect(() => {
-    if (isSuccess) {
-      toast.success("Update successfully!", {
-        position: "top-right",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
-      handleGetDetailsUser(user?.id, user?.access_token);
-    }
-    if (isError) {
-      toast.error("Update fail!", {
-        position: "top-right",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
-    }
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isSuccess, isError]);
-  const handleGetDetailsUser = async (id, token) => {
-    const res = await UserService.getDetailsUser(id, token);
-    dispatch(updateUser({ ...res?.data, access_token: token }));
-  };
 
   const handleOnChangeUsername = (e) => {
     setName(e.target.value);

@@ -1,20 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import PageHeader from "../../components/PageHeader";
-import PopularPost from "./PopularPost";
 import Tags from "./Tags";
-import Rating from "../../components/Sidebar/rating";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
 
 // import required modules
-import { Autoplay } from "swiper/modules";
+import { Navigation } from "swiper/modules";
 import Review from "../../components/Review";
 import MostPopularPost from "../../components/Sidebar/MostPopularPost";
 import ProductDisplay from "./ProductDisplay";
-const reviwtitle = "Add a Review";
 
 const SingleProduct = () => {
   const [product, setProduct] = useState([]);
@@ -42,17 +39,19 @@ const SingleProduct = () => {
                           <Swiper
                             spaceBetween={30}
                             slidesPerView={1}
-                            loop={"true"}
-                            autoplay={{
-                              delay: 2000,
-                              disableOnInteraction: false,
-                            }}
-                            modules={[Autoplay]}
+                            modules={[Navigation]}
                             navigation={{
                               prevEl: ".pro-single-prev",
                               nextEl: ".pro-single-next",
                             }}
                           >
+                            {result.map((item, i) => (
+                              <SwiperSlide key={i}>
+                                <div className="single-thumb">
+                                  <img src={item.img} alt="" />
+                                </div>
+                              </SwiperSlide>
+                            ))}
                             {result.map((item, i) => (
                               <SwiperSlide key={i}>
                                 <div className="single-thumb">
