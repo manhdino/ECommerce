@@ -1,16 +1,17 @@
 .nav-profile{
     width: 40px;
     height: 40px;
-    border-radius: 50%;
-    background: indigo;
+    /* border-radius: 50%;
+    background: indigo; */
     cursor: pointer;
+    background-color: #fdfdfd73;
+    
 }
 .avatar-profile{
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background: indigo;
+    width: 120px;
+    height: 120px;
     cursor: pointer;
+    background-color: transparent;
 }
 .edit-profile{
     margin-top: 75px;

@@ -11,6 +11,7 @@ function Profile() {
   const socialTitle = "Login With Social Media";
   const btnText = "Update Now";
   const [file, setFile] = useState("");
+  const [avatar, setAvatar] = useState("");
   const [data, setData] = useState({});
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
@@ -46,10 +47,12 @@ function Profile() {
       });
     },
   });
+
   const handleUpdate = async (event) => {
     event.preventDefault();
     console.log(
       user?.id,
+      avatar,
       email,
       name,
       phone,
@@ -57,9 +60,16 @@ function Profile() {
       address,
       user?.access_token
     );
-    setData({ email: email, name: name, phone: phone, address: address });
+    setData({
+      email: email,
+      name: name,
+      phone: phone,
+      address: address,
+      avatar: avatar,
+    });
     mutation.mutate({
       id: user?.id,
+      avatar,
       email,
       name,
       phone,
@@ -70,6 +80,7 @@ function Profile() {
 
   const dispatch = useDispatch();
   useEffect(() => {
+    setAvatar(user?.avatar);
     setName(user?.name);
     setEmail(user?.email);
     setPhoneNumber(user?.phone);
@@ -88,27 +99,50 @@ function Profile() {
   const handleOnChangeAdress = (e) => {
     setAddress(e.target.value);
   };
+  const convertToBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+      fileReader.onload = () => {
+        resolve(fileReader.result);
+      };
+      fileReader.onerror = (error) => {
+        reject(error);
+      };
+    });
+  };
+  const handleFileUpload = async (e) => {
+    const file = e.target.files[0];
+    setFile(file);
+    console.log("file info:", file);
+    const base64 = await convertToBase64(file);
+    console.log("base64", base64);
+    setAvatar(base64);
+  };
   return (
     <div>
       <div className="login-section padding-tb section-bg">
         <div className="container">
           <div className="account-wrapper">
             <h3 className="title">{title}</h3>
-            <img
-              // src="/src/assets/images/author/01.jpg"
-              src={
-                file
-                  ? URL.createObjectURL(file)
-                  : // : user?.img
-                    "/src/assets/images/author/01.jpg"
-              }
-              className="avatar-profile"
-              alt="Avatar"
-            />
+
+            {avatar ? (
+              <img
+                src={file ? URL.createObjectURL(file) : avatar}
+                alt="Avatar"
+              />
+            ) : (
+              <img
+                src="https://icons.iconarchive.com/icons/papirus-team/papirus-status/512/avatar-default-icon.png"
+                className="avatar-profile"
+                alt="Avatar"
+              />
+            )}
+
             <input
               id="file"
               type="file"
-              onChange={(e) => setFile(e.target.files[0])}
+              onChange={(e) => handleFileUpload(e)}
               style={{ display: "none" }}
             />
             <label htmlFor="file">

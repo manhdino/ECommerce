@@ -12,6 +12,7 @@ const NavItems = () => {
   const [socialToggle, setSocialToggle] = useState(false);
   const [headerFiexd, setHeaderFiexd] = useState(false);
   const [name, setName] = useState("");
+  const [avatar, setAvatar] = useState("");
   const user = useSelector((state) => state.user);
   // const account = localStorage.getItem("account");
   // console.log("user nav", user);
@@ -22,6 +23,7 @@ const NavItems = () => {
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     setName(user?.name);
+    setAvatar(user?.avatar);
   }, [user]);
   const handleLogout = async () => {
     await UserServices.logoutUser();
@@ -107,13 +109,13 @@ const NavItems = () => {
               {user?.name ? (
                 <>
                   <div>
-                    {user?.photoURL ? (
+                    {user?.avatar ? (
                       <>
-                        <img src={user?.photoURL} className="nav-profile" />
+                        <img src={avatar} className="nav-profile" />
                       </>
                     ) : (
                       <img
-                        src="/src/assets/images/author/01.jpg"
+                        src="https://icons.iconarchive.com/icons/papirus-team/papirus-status/512/avatar-default-icon.png"
                         className="nav-profile"
                       />
                     )}
