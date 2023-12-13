@@ -1,13 +1,14 @@
+// .container {
+//   background-color: red;
+// }
+
 .table {
-   background-color: red;
-
-   .title{
-     font-size: 16px;
-
-   }
-   .title-id{
+  .title {
+    font-size: 16px;
+  }
+  .title-id {
     font-size: 15px;
-   }
+  }
   .cellWrapper {
     display: flex;
     align-items: center;
@@ -19,7 +20,6 @@
       margin-right: 10px;
       object-fit: cover;
     }
-  
   }
 
   .status {

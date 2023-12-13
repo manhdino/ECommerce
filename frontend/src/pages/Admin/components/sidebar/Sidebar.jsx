@@ -29,41 +29,45 @@ const Sidebar = () => {
           {/* MAIN */}
           <div className="dashboard">
             <p className="title">MAIN</p>
-            <li>
-              <DashboardIcon className="icon" />
-              <span>Dashboard</span>
-            </li>
+            <Link to="">
+              <li>
+                <DashboardIcon className="icon" />
+                <span>Dashboard</span>
+              </li>
+            </Link>
           </div>
 
           {/* LISTS */}
           <div className="lists">
             <p className="title">LISTS</p>
-            {/* <Link to="/users" style={{ textDecoration: "none" }}> */}
-            <li>
-              <PersonOutlineIcon className="icon" />
-              <span>Users</span>
-            </li>
-            {/* </Link> */}
+            <Link
+              to="users"
+              style={{ textDecoration: "none" }}
+              className="link"
+            >
+              <li>
+                <PersonOutlineIcon className="icon" />
+                <span>Users</span>
+              </li>
+            </Link>
+            <Link to="products" style={{ textDecoration: "none" }}>
+              <li>
+                <StoreIcon className="icon" />
+                <span>Products</span>
+              </li>
+            </Link>
 
-            {/* <Link to="/products" style={{ textDecoration: "none" }}> */}
-            <li>
-              <StoreIcon className="icon" />
-              <span>Products</span>
-            </li>
-            {/* </Link> */}
+            <Link to="orders" style={{ textDecoration: "none" }}>
+              <li>
+                <CreditCardIcon className="icon" />
+                <span>Orders</span>
+              </li>
+            </Link>
 
-            {/* <Link to="/order"> */}
-            <li>
-              <CreditCardIcon className="icon" />
-              <span>Orders</span>
-            </li>
-            {/* </Link> */}
-            {/* <Link to="/ship"> */}
             <li>
               <LocalShippingIcon className="icon" />
               <span>Delivery</span>
             </li>
-            {/* </Link> */}
           </div>
 
           {/* USEFUL */}

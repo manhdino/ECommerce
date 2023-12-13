@@ -30,11 +30,20 @@ import ErrorPage from "./components/ErrorPage.jsx";
 import PrivateRoute from "./PrivateRoute/PrivateRoute.jsx";
 import Profile from "./pages/Profile/Profile.jsx";
 import Admin from "./pages/Admin/Admin.jsx";
-
+import ListProduct from "./pages/Admin/screens/product/ListProduct.jsx";
+import ListUser from "./pages/Admin/screens/user/ListUser.jsx";
+import Table from "./pages/Admin/components/table/Table.jsx";
 import store from "./store/store.js";
 import { Provider } from "react-redux";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+import AdminLayout from "./pages/Admin/AdminLayout.jsx";
+import AddNewUser from "./pages/Admin/screens/user/AddNewUser.jsx";
+import DetailUser from "./pages/Admin/screens/user/DetailUser.jsx";
+import UpdateProduct from "./pages/Admin/screens/product/UpdateProduct.jsx";
+import AddNewProduct from "./pages/Admin/screens/product/AddNewProduct.jsx";
+import { userInputs, productInputs } from "./pages/Admin/formSource.js";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -85,6 +94,14 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+      {
+        path: "/check-out",
+        element: (
+          <PrivateRoute>
+            <CheckoutPage />
+          </PrivateRoute>
+        ),
+      },
     ],
   },
   {
@@ -98,14 +115,46 @@ const router = createBrowserRouter([
   {
     path: "/admin",
     element: (
-      <PrivateRoute isAdmin={true}>
-        <Admin />
-      </PrivateRoute>
+      // <PrivateRoute isAdmin={true}>
+      <AdminLayout />
+      // </PrivateRoute>
     ),
-  },
-  {
-    path: "/check-out",
-    element: <CheckoutPage />,
+    children: [
+      {
+        path: "",
+        element: <Admin />,
+      },
+      {
+        path: "users",
+        element: <ListUser />,
+      },
+      {
+        path: "users/create",
+        element: <AddNewUser inputs={userInputs} title="Add New User" />,
+      },
+      {
+        path: "orders",
+        element: <Table />,
+      },
+      {
+        path: "users/:id",
+        element: <DetailUser />,
+      },
+      {
+        path: "products",
+        element: <ListProduct />,
+      },
+      {
+        path: "products/create",
+        element: (
+          <AddNewProduct inputs={productInputs} title="Add New Product" />
+        ),
+      },
+      {
+        path: "products/update",
+        element: <UpdateProduct inputs={productInputs} />,
+      },
+    ],
   },
 ]);
 // Create a client

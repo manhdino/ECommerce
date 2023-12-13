@@ -1,10 +1,10 @@
 import "./datatable.scss";
+import * as React from "react";
 import { DataGrid } from "@mui/x-data-grid";
-import { userColumns, userRows } from "../../datatablesource";
+import { userColumns, userRows } from "../../../datatablesource.jsx";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-
-const Datatable = () => {
+export default function DataGridDemo() {
   const [data, setData] = useState(userRows);
 
   const handleDelete = (id) => {
@@ -19,7 +19,20 @@ const Datatable = () => {
       renderCell: (params) => {
         return (
           <div className="cellAction">
-            <Link to="/users/test" style={{ textDecoration: "none" }}>
+            <Link
+              to="details"
+              style={{ textDecoration: "none" }}
+              state={{
+                username: params.row.username,
+                fullname: params.row.fullname,
+                img: params.row.img,
+                status: params.row.status,
+                email: params.row.email,
+                phone: params.row.phone,
+                address: params.row.address,
+                country: params.row.country,
+              }}
+            >
               <div className="viewButton">View</div>
             </Link>
             <div
@@ -37,7 +50,7 @@ const Datatable = () => {
     <div className="datatable">
       <div className="datatableTitle">
         Add New User
-        <Link to="/users/new" className="link">
+        <Link to="create" className="link">
           Add New
         </Link>
       </div>
@@ -45,12 +58,19 @@ const Datatable = () => {
         className="datagrid"
         rows={data}
         columns={userColumns.concat(actionColumn)}
-        pageSize={9}
-        rowsPerPageOptions={[9]}
+        initialState={{
+          pagination: {
+            paginationModel: {
+              pageSize: 10,
+            },
+          },
+        }}
+        pageSizeOptions={[10]}
+        // pageSize={9}
+        // rowsPerPageOptions={[9]}
         checkboxSelection
+        disableRowSelectionOnClick
       />
     </div>
   );
-};
-
-export default Datatable;
+}

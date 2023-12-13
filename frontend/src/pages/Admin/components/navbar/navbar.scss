@@ -1,20 +1,21 @@
 .navbar {
-  height: 50px;
-
+  // height: 100px;
   display: flex;
   align-items: center;
   font-size: 14px;
-  color: #555; margin-bottom: 20px;
-
+  color: #555;
+  margin-bottom: 25px;
+  border-bottom: 1px solid rgb(231, 228, 228);
   .wrapper {
     width: 100%;
     padding: 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid rgb(231, 228, 228);
-    // background-color: red;
+
     margin-left: 25px;
+    border: none;
+    outline: none;
     .search {
       display: flex;
       align-items: center;
