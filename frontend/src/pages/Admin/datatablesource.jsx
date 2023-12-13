@@ -1,28 +1,34 @@
 export const userColumns = [
   { field: "id", headerName: "ID", width: 50 },
   {
-    field: "user",
-    headerName: "User",
-    width: 160,
+    field: "username",
+    headerName: "UserName",
+    width: 120,
     renderCell: (params) => {
       return (
         <div className="cellWithImg">
-          <img className="cellImg" src={params.row.img} alt="avatar" />
+          <img className="cellImg" src={params.row.avatar} alt="avatar" />
           {params.row.username}
         </div>
       );
     },
   },
   {
-    field: "email",
-    headerName: "Email",
-    width: 230,
-  },
-  {
     field: "fullname",
     headerName: "Full Name",
-    width: 160,
+    width: 100,
   },
+  {
+    field: "email",
+    headerName: "Email",
+    width: 200,
+  },
+  {
+    field: "password",
+    headerName: "Password",
+    width: 120,
+  },
+
   {
     field: "phone",
     headerName: "Phone",
@@ -31,11 +37,11 @@ export const userColumns = [
   {
     field: "address",
     headerName: "Address",
-    width: 300,
+    width: 280,
   },
   {
-    field: "country",
-    headerName: "Country",
+    field: "city",
+    headerName: "City",
     width: 120,
   },
 
@@ -58,111 +64,131 @@ export const userRows = [
     id: 1,
     username: "Snow",
     fullname: "Jon Snow",
-    img: "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+    avatar:
+      "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     status: "active",
     email: "1snow@gmail.com",
     phone: "224321243",
     address: "Truong Dinh HN",
-    country: "VN",
+    password: "12345",
+    city: "VN",
   },
   {
     id: 2,
     username: "Snow",
     fullname: "Jon Snow",
-    img: "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+    avatar:
+      "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     status: "passive",
     email: "1snow@gmail.com",
     phone: "224321243",
-    address: "Truong Dinh HN",
-    country: "VN",
+    address: "134 Truong Dinh, Hai Ba Truong, HN",
+    city: "VN",
+    password: "12345",
   },
   {
     id: 3,
     username: "Snow",
     fullname: "Jon Snow",
-    img: "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+    avatar:
+      "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     status: "pending",
     email: "1snow@gmail.com",
     phone: "224321243",
     address: "Truong Dinh HN",
-    country: "VN",
+    password: "12345",
+    city: "VN",
   },
   {
     id: 4,
     username: "Snow",
     fullname: "Jon Snow",
-    img: "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+    avatar:
+      "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     status: "active",
     email: "1snow@gmail.com",
     phone: "224321243",
+    password: "12345",
     address: "Truong Dinh HN",
-    country: "VN",
+    city: "VN",
   },
   {
     id: 5,
     username: "Snow",
     fullname: "Jon Snow",
-    img: "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+    avatar:
+      "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     status: "active",
     email: "1snow@gmail.com",
     phone: "224321243",
+    password: "12345",
     address: "Truong Dinh HN",
-    country: "VN",
+    city: "VN",
   },
   {
     id: 6,
     username: "Snow",
     fullname: "Jon Snow",
-    img: "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+    avatar:
+      "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     status: "passive",
+    password: "12345",
     email: "1snow@gmail.com",
     phone: "224321243",
     address: "Truong Dinh HN",
-    country: "VN",
+    city: "VN",
   },
   {
     id: 7,
     username: "Snow",
     fullname: "Jon Snow",
-    img: "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+    avatar:
+      "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     status: "pending",
     email: "1snow@gmail.com",
     phone: "224321243",
+    password: "12345",
     address: "Truong Dinh HN",
-    country: "VN",
+    city: "VN",
   },
   {
     id: 8,
     username: "Snow",
     fullname: "Jon Snow",
-    img: "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+    avatar:
+      "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     status: "active",
     email: "1snow@gmail.com",
     phone: "224321243",
+    password: "12345",
     address: "Truong Dinh HN",
-    country: "VN",
+    city: "VN",
   },
   {
     id: 9,
     username: "Snow",
     fullname: "Jon Snow",
-    img: "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+    avatar:
+      "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     status: "pending",
     email: "1snow@gmail.com",
     phone: "224321243",
+    password: "12345",
     address: "Truong Dinh HN",
-    country: "VN",
+    city: "VN",
   },
   {
     id: 10,
     username: "Snow",
     fullname: "Jon Snow",
-    img: "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
+    avatar:
+      "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
     status: "active",
     email: "1snow@gmail.com",
     phone: "224321243",
+    password: "12345",
     address: "Truong Dinh HN",
-    country: "VN",
+    city: "VN",
   },
 ];
 

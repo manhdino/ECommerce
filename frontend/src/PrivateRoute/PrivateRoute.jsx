@@ -6,8 +6,6 @@ import { useState } from "react";
 const PrivateRoute = ({ children, isAdmin = false }) => {
   const user = useSelector((state) => state.user);
   const location = useLocation();
-  console.log("user private route", user, user?.isAdmin);
-  console.log("isAdmin", isAdmin);
   if (isAdmin && user?.isAdmin && user.acccess_token) {
     return children;
   }

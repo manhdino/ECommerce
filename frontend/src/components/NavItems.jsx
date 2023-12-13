@@ -11,18 +11,13 @@ const NavItems = () => {
   const [menuToggle, setMenuToggle] = useState(false);
   const [socialToggle, setSocialToggle] = useState(false);
   const [headerFiexd, setHeaderFiexd] = useState(false);
-  const [name, setName] = useState("");
+  const [username, setUserName] = useState("");
   const [avatar, setAvatar] = useState("");
   const user = useSelector((state) => state.user);
-  // const account = localStorage.getItem("account");
-  // console.log("user nav", user);
-  // console.log("account nav", account);
-
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [loading, setLoading] = useState(false);
   useEffect(() => {
-    setName(user?.name);
+    setUserName(user?.username);
     setAvatar(user?.avatar);
   }, [user]);
   const handleLogout = async () => {
@@ -106,7 +101,7 @@ const NavItems = () => {
               </div>
 
               {/* users when user available */}
-              {user?.name ? (
+              {user.access_token ? (
                 <>
                   <div>
                     {user?.avatar ? (
@@ -121,14 +116,7 @@ const NavItems = () => {
                     )}
                   </div>
                   <NavDropdown>
-                    <Loading isLoading={loading}>
-                      <NavDropdown.Item>
-                        Hi! {name?.length ? name : user?.name}
-                      </NavDropdown.Item>
-                    </Loading>
-                    {/* <NavDropdown.Item>
-                      Hi! {name?.length ? name : user?.name}
-                    </NavDropdown.Item> */}
+                    <NavDropdown.Item>Hi! {user?.username}</NavDropdown.Item>
                     <NavDropdown.Item onClick={handleProfile}>
                       Profile
                     </NavDropdown.Item>

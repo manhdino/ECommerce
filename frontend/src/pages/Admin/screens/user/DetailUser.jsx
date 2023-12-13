@@ -5,7 +5,7 @@ import "./DetailUser.scss";
 import { useLocation } from "react-router-dom";
 function DetailUser() {
   let { state } = useLocation();
-  console.log("state.user", state);
+
   return (
     <div className="singleContainer">
       <div className="top">
@@ -13,7 +13,7 @@ function DetailUser() {
           <div className="editButton">Edit</div>
           <h1 className="title">Information</h1>
           <div className="item">
-            <img src={state?.img} alt="Avatar" className="itemImg" />
+            <img src={state?.avatar} alt="Avatar" className="itemImg" />
             <div className="details">
               <h1 className="itemTitle">{state?.username}</h1>
               <div className="detailItem">
@@ -33,8 +33,8 @@ function DetailUser() {
                 <span className="itemValue">{state?.address}</span>
               </div>
               <div className="detailItem">
-                <span className="itemKey">Country:</span>
-                <span className="itemValue">{state?.country}</span>
+                <span className="itemKey">City:</span>
+                <span className="itemValue">{state?.city}</span>
               </div>
             </div>
           </div>

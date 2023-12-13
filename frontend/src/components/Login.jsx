@@ -14,8 +14,6 @@ const socialTitle = "Login With Social Media";
 const btnText = "Submit Now";
 
 const Login = () => {
-  const [errorMessage, setErrorMessage] = useState("");
-
   const location = useLocation();
   const navigate = useNavigate();
   const dispatch = useDispatch();

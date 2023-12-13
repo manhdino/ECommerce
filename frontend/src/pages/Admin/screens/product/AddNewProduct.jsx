@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import "../AddNew.scss";
 function AddNewProduct({ inputs, title }) {
-  console.log("input product", inputs);
   const [file, setFile] = useState("");
   const handleAddNewProduct = (event) => {
     event.preventDefault();

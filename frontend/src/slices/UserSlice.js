@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  name: "",
+  username: "",
   email: "",
   phone: "",
   address: "",
@@ -10,6 +10,7 @@ const initialState = {
   id: "",
   isAdmin: false,
   city: "",
+  fullname: "",
 };
 
 export const userSlide = createSlice({
@@ -18,7 +19,7 @@ export const userSlide = createSlice({
   reducers: {
     updateUser: (state, action) => {
       const {
-        name = "",
+        username = "",
         email = "",
         access_token = "",
         address = "",
@@ -27,9 +28,11 @@ export const userSlide = createSlice({
         _id = "",
         isAdmin,
         city = "",
+        fullname = "",
       } = action.payload;
       state.user = action.payload;
-      state.name = name ? name : state.name;
+      state.fullname = fullname ? fullname : state.fullname;
+      state.username = username ? username : state.username;
       state.email = email ? email : state.email;
       state.address = address ? address : state.address;
       state.phone = phone ? phone : state.phone;
@@ -38,7 +41,7 @@ export const userSlide = createSlice({
       state.access_token = access_token ? access_token : state.access_token;
       state.isAdmin = isAdmin ? isAdmin : state.isAdmin;
       state.city = city ? city : state.city;
-      console.log("state.user", state.user);
+      localStorage.setItem("user", state.user);
     },
 
     resetUser: (state) => {
@@ -48,6 +51,7 @@ export const userSlide = createSlice({
       state.phone = "";
       state.avatar = "";
       state.id = "";
+      state.fullname = "";
       state.access_token = "";
       state.isAdmin = false;
       state.city = "";

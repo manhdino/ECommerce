@@ -8,16 +8,17 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import BorderColorIcon from "@mui/icons-material/BorderColor";
 function Profile() {
   const title = "Update Profile";
-  const socialTitle = "Login With Social Media";
   const btnText = "Update Now";
   const [file, setFile] = useState("");
   const [avatar, setAvatar] = useState("");
   const [data, setData] = useState({});
   const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
+  const [username, setUserName] = useState("");
   const [phone, setPhoneNumber] = useState("");
   const [address, setAddress] = useState("");
+  const [fullname, setFullName] = useState("");
   const user = useSelector((state) => state.user);
+
   const queryClient = useQueryClient();
   const { data: profileData } = useQuery({
     queryFn: () => {
@@ -25,10 +26,8 @@ function Profile() {
     },
     queryKey: ["profile"],
   });
-  console.log("data profile", profileData);
   const mutation = useMutation({
     mutationFn: (data) => {
-      console.log(data);
       const { id, access_token, ...rests } = data;
       UserService.updateUser(id, rests, access_token);
     },
@@ -50,19 +49,10 @@ function Profile() {
 
   const handleUpdate = async (event) => {
     event.preventDefault();
-    console.log(
-      user?.id,
-      avatar,
-      email,
-      name,
-      phone,
-      address,
-      address,
-      user?.access_token
-    );
     setData({
       email: email,
-      name: name,
+      fullname: fullname,
+      username: username,
       phone: phone,
       address: address,
       avatar: avatar,
@@ -71,7 +61,8 @@ function Profile() {
       id: user?.id,
       avatar,
       email,
-      name,
+      username,
+      fullname,
       phone,
       address,
       access_token: user?.access_token,
@@ -80,15 +71,16 @@ function Profile() {
 
   const dispatch = useDispatch();
   useEffect(() => {
-    setAvatar(user?.avatar);
-    setName(user?.name);
-    setEmail(user?.email);
-    setPhoneNumber(user?.phone);
-    setAddress(user?.address);
+    setAvatar(user.avatar);
+    setUserName(user.username);
+    setEmail(user.email);
+    setPhoneNumber(user.phone);
+    setAddress(user.address);
+    setFullName(user.fullname);
   }, [user]);
 
   const handleOnChangeUsername = (e) => {
-    setName(e.target.value);
+    setUserName(e.target.value);
   };
   const handleOnChangeEmail = (e) => {
     setEmail(e.target.value);
@@ -98,6 +90,10 @@ function Profile() {
   };
   const handleOnChangeAdress = (e) => {
     setAddress(e.target.value);
+  };
+
+  const handleOnChangeFullName = (e) => {
+    setFullName(e.target.value);
   };
   const convertToBase64 = (file) => {
     return new Promise((resolve, reject) => {
@@ -114,9 +110,7 @@ function Profile() {
   const handleFileUpload = async (e) => {
     const file = e.target.files[0];
     setFile(file);
-    console.log("file info:", file);
     const base64 = await convertToBase64(file);
-    console.log("base64", base64);
     setAvatar(base64);
   };
   return (
@@ -130,6 +124,7 @@ function Profile() {
               <img
                 src={file ? URL.createObjectURL(file) : avatar}
                 alt="Avatar"
+                className="avatar-profile"
               />
             ) : (
               <img
@@ -155,9 +150,19 @@ function Profile() {
                 <input
                   type="text"
                   name="name"
-                  value={name}
+                  value={username}
                   required
                   onChange={handleOnChangeUsername}
+                />
+              </div>
+              <div className="form-group">
+                <label className="label-profile">FullName:</label>
+                <input
+                  type="text"
+                  name="name"
+                  value={fullname}
+                  required
+                  onChange={handleOnChangeFullName}
                 />
               </div>
               <div className="form-group">

@@ -25,12 +25,12 @@ export default function DataGridDemo() {
               state={{
                 username: params.row.username,
                 fullname: params.row.fullname,
-                img: params.row.img,
+                avatar: params.row.avatar,
                 status: params.row.status,
                 email: params.row.email,
                 phone: params.row.phone,
                 address: params.row.address,
-                country: params.row.country,
+                city: params.row.city,
               }}
             >
               <div className="viewButton">View</div>

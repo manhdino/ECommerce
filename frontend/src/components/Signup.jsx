@@ -43,7 +43,7 @@ const Signup = () => {
   const handleSignup = (event) => {
     event.preventDefault();
     const form = event.target;
-    const name = form.name.value;
+    const username = form.username.value;
     const email = form.email.value;
     const password = form.password.value;
     const confirmPassword = form.confirmPassword.value; // Get the confirm password field
@@ -56,7 +56,7 @@ const Signup = () => {
     } else {
       setErrorMessage(""); // Clear the error message
       mutation.mutate({
-        name,
+        username,
         email,
         password,
         confirmPassword,
@@ -71,7 +71,7 @@ const Signup = () => {
             <h3 className="title">{title}</h3>
             <form className="account-form" onSubmit={handleSignup}>
               <div className="form-group">
-                <input type="text" name="name" placeholder="User Name" />
+                <input type="text" name="username" placeholder="UserName" />
               </div>
               <div className="form-group">
                 <input type="email" name="email" placeholder="Email" />
