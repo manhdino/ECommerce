@@ -5,10 +5,12 @@ import { useMutationHooks } from "../../hooks/useMutationHook";
 import { toast, ToastContainer } from "react-toastify";
 import { updateUser } from "../../slices/UserSlice";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import BorderColorIcon from "@mui/icons-material/BorderColor";
 function Profile() {
   const title = "Update Profile";
   const socialTitle = "Login With Social Media";
   const btnText = "Update Now";
+  const [file, setFile] = useState("");
   const [data, setData] = useState({});
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
@@ -93,9 +95,26 @@ function Profile() {
           <div className="account-wrapper">
             <h3 className="title">{title}</h3>
             <img
-              src="/src/assets/images/author/01.jpg"
+              // src="/src/assets/images/author/01.jpg"
+              src={
+                file
+                  ? URL.createObjectURL(file)
+                  : // : user?.img
+                    "/src/assets/images/author/01.jpg"
+              }
               className="avatar-profile"
+              alt="Avatar"
             />
+            <input
+              id="file"
+              type="file"
+              onChange={(e) => setFile(e.target.files[0])}
+              style={{ display: "none" }}
+            />
+            <label htmlFor="file">
+              {" "}
+              <BorderColorIcon sx={{ fontSize: 18 }} className="edit-profile" />
+            </label>
             <form className="account-form" onSubmit={handleUpdate}>
               <div className="form-group">
                 <label className="label-profile">Username:</label>

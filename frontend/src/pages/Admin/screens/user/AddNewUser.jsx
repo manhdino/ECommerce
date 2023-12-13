@@ -1,7 +1,7 @@
 import { useState } from "react";
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import React from "react";
-import "./AddNewUser.scss";
+import "../AddNew.scss";
 function AddNewUser({ inputs, title }) {
   const [file, setFile] = useState("");
   const handleAddNewUser = (event) => {

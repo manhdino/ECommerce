@@ -30,8 +30,8 @@ import ErrorPage from "./components/ErrorPage.jsx";
 import PrivateRoute from "./PrivateRoute/PrivateRoute.jsx";
 import Profile from "./pages/Profile/Profile.jsx";
 import Admin from "./pages/Admin/Admin.jsx";
-import ListProduct from "./pages/Admin/screens/product/ListProduct.jsx";
-import ListUser from "./pages/Admin/screens/user/ListUser.jsx";
+import DatabaseProduct from "./pages/Admin/components/datatable/product/DatatableProduct.jsx";
+import DatabaseUser from "./pages/Admin/components/datatable/user/DatatableUser.jsx";
 import Table from "./pages/Admin/components/table/Table.jsx";
 import store from "./store/store.js";
 import { Provider } from "react-redux";
@@ -126,7 +126,7 @@ const router = createBrowserRouter([
       },
       {
         path: "users",
-        element: <ListUser />,
+        element: <DatabaseUser />,
       },
       {
         path: "users/create",
@@ -142,7 +142,7 @@ const router = createBrowserRouter([
       },
       {
         path: "products",
-        element: <ListProduct />,
+        element: <DatabaseProduct />,
       },
       {
         path: "products/create",

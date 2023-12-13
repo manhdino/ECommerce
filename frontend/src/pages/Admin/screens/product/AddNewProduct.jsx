@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
-import "../user/AddNewUser.scss";
+import "../AddNew.scss";
 function AddNewProduct({ inputs, title }) {
   console.log("input product", inputs);
   const [file, setFile] = useState("");

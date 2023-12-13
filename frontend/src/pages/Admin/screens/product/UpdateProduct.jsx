@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
-import "../user/AddNewUser.scss";
+import "../AddNew.scss";
 import { useLocation } from "react-router-dom";
 function UpdateProduct({ inputs }) {
   let { state } = useLocation();

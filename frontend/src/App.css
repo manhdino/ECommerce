@@ -12,7 +12,9 @@
     background: indigo;
     cursor: pointer;
 }
-
+.edit-profile{
+    margin-top: 75px;
+}
 .btn-shop-home{
     background-color: transparent;
     border: 2px solid #ffdf40;
@@ -55,7 +57,6 @@
 .label-profile{
     margin-right: 89%;
     margin-bottom: 5px;
-    /* background-color: red; */
     font-weight: bold;
     font-size: 15px;
 }
