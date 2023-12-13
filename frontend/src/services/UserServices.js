@@ -32,3 +32,21 @@ export const updateUser = async (id, data, access_token) => {
   });
   return res.data;
 };
+
+export const getAllUser = async (access_token) => {
+  const res = await axios.get(`${BASE_URL}/getAll`, {
+    headers: {
+      token: `Bearer ${access_token}`,
+    },
+  });
+  return res.data;
+};
+
+export const deleteUser = async (id, access_token) => {
+  const res = await axios.delete(`${BASE_URL}/delete-user/${id}`, {
+    headers: {
+      token: `Bearer ${access_token}`,
+    },
+  });
+  return res.data;
+};

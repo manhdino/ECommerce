@@ -32,10 +32,6 @@ function DetailUser() {
                 <span className="itemKey">Address:</span>
                 <span className="itemValue">{state?.address}</span>
               </div>
-              <div className="detailItem">
-                <span className="itemKey">City:</span>
-                <span className="itemValue">{state?.city}</span>
-              </div>
             </div>
           </div>
         </div>

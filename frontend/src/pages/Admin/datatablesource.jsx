@@ -3,7 +3,7 @@ export const userColumns = [
   {
     field: "username",
     headerName: "UserName",
-    width: 120,
+    width: 180,
     renderCell: (params) => {
       return (
         <div className="cellWithImg">
@@ -16,17 +16,17 @@ export const userColumns = [
   {
     field: "fullname",
     headerName: "Full Name",
-    width: 100,
+    width: 180,
   },
   {
     field: "email",
     headerName: "Email",
-    width: 200,
+    width: 220,
   },
   {
     field: "password",
     headerName: "Password",
-    width: 120,
+    width: 300,
   },
 
   {
@@ -38,157 +38,6 @@ export const userColumns = [
     field: "address",
     headerName: "Address",
     width: 280,
-  },
-  {
-    field: "city",
-    headerName: "City",
-    width: 120,
-  },
-
-  {
-    field: "status",
-    headerName: "Status",
-    width: 120,
-    renderCell: (params) => {
-      return (
-        <div className={`cellWithStatus ${params.row.status}`}>
-          {params.row.status}
-        </div>
-      );
-    },
-  },
-];
-
-export const userRows = [
-  {
-    id: 1,
-    username: "Snow",
-    fullname: "Jon Snow",
-    avatar:
-      "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    status: "active",
-    email: "1snow@gmail.com",
-    phone: "224321243",
-    address: "Truong Dinh HN",
-    password: "12345",
-    city: "VN",
-  },
-  {
-    id: 2,
-    username: "Snow",
-    fullname: "Jon Snow",
-    avatar:
-      "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    status: "passive",
-    email: "1snow@gmail.com",
-    phone: "224321243",
-    address: "134 Truong Dinh, Hai Ba Truong, HN",
-    city: "VN",
-    password: "12345",
-  },
-  {
-    id: 3,
-    username: "Snow",
-    fullname: "Jon Snow",
-    avatar:
-      "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    status: "pending",
-    email: "1snow@gmail.com",
-    phone: "224321243",
-    address: "Truong Dinh HN",
-    password: "12345",
-    city: "VN",
-  },
-  {
-    id: 4,
-    username: "Snow",
-    fullname: "Jon Snow",
-    avatar:
-      "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    status: "active",
-    email: "1snow@gmail.com",
-    phone: "224321243",
-    password: "12345",
-    address: "Truong Dinh HN",
-    city: "VN",
-  },
-  {
-    id: 5,
-    username: "Snow",
-    fullname: "Jon Snow",
-    avatar:
-      "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    status: "active",
-    email: "1snow@gmail.com",
-    phone: "224321243",
-    password: "12345",
-    address: "Truong Dinh HN",
-    city: "VN",
-  },
-  {
-    id: 6,
-    username: "Snow",
-    fullname: "Jon Snow",
-    avatar:
-      "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    status: "passive",
-    password: "12345",
-    email: "1snow@gmail.com",
-    phone: "224321243",
-    address: "Truong Dinh HN",
-    city: "VN",
-  },
-  {
-    id: 7,
-    username: "Snow",
-    fullname: "Jon Snow",
-    avatar:
-      "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    status: "pending",
-    email: "1snow@gmail.com",
-    phone: "224321243",
-    password: "12345",
-    address: "Truong Dinh HN",
-    city: "VN",
-  },
-  {
-    id: 8,
-    username: "Snow",
-    fullname: "Jon Snow",
-    avatar:
-      "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    status: "active",
-    email: "1snow@gmail.com",
-    phone: "224321243",
-    password: "12345",
-    address: "Truong Dinh HN",
-    city: "VN",
-  },
-  {
-    id: 9,
-    username: "Snow",
-    fullname: "Jon Snow",
-    avatar:
-      "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    status: "pending",
-    email: "1snow@gmail.com",
-    phone: "224321243",
-    password: "12345",
-    address: "Truong Dinh HN",
-    city: "VN",
-  },
-  {
-    id: 10,
-    username: "Snow",
-    fullname: "Jon Snow",
-    avatar:
-      "https://images.pexels.com/photos/1820770/pexels-photo-1820770.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-    status: "active",
-    email: "1snow@gmail.com",
-    phone: "224321243",
-    password: "12345",
-    address: "Truong Dinh HN",
-    city: "VN",
   },
 ];
 

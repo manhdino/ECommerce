@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { resetUser } from "../slices/UserSlice";
 import * as UserServices from "../services/UserServices";
 import { useNavigate } from "react-router-dom";
-import Loading from "../components/isLoading";
+
 const NavItems = () => {
   const [menuToggle, setMenuToggle] = useState(false);
   const [socialToggle, setSocialToggle] = useState(false);

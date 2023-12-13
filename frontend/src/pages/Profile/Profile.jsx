@@ -20,7 +20,7 @@ function Profile() {
   const user = useSelector((state) => state.user);
 
   const queryClient = useQueryClient();
-  const { data: profileData } = useQuery({
+  useQuery({
     queryFn: () => {
       return UserService.getDetailsUser(user?.id, user?.access_token);
     },

@@ -1,9 +1,8 @@
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import "./App.css";
 import Footer from "./components/Footer";
 import NavItems from "./components/NavItems";
-import { useLayoutEffect, useEffect } from "react";
-import { isJsonString } from "./utils";
+import { useEffect } from "react";
 import { jwtDecode } from "jwt-decode";
 import { updateUser, resetUser } from "./slices/UserSlice";
 import * as UserService from "./services/UserServices";
