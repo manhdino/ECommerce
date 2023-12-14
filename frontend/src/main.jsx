@@ -38,7 +38,7 @@ import { Provider } from "react-redux";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import AdminLayout from "./pages/Admin/AdminLayout.jsx";
-import AddNewUser from "./pages/Admin/screens/user/AddNewUser.jsx";
+import UpdateUser from "./pages/Admin/screens/user/UpdateUser.jsx";
 import DetailUser from "./pages/Admin/screens/user/DetailUser.jsx";
 import UpdateProduct from "./pages/Admin/screens/product/UpdateProduct.jsx";
 import AddNewProduct from "./pages/Admin/screens/product/AddNewProduct.jsx";
@@ -129,8 +129,8 @@ const router = createBrowserRouter([
         element: <DatabaseUser />,
       },
       {
-        path: "users/create",
-        element: <AddNewUser inputs={userInputs} title="Add New User" />,
+        path: "users/update/:id",
+        element: <UpdateUser />,
       },
       {
         path: "orders",

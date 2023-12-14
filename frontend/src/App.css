@@ -15,6 +15,9 @@
     cursor: pointer;
     background-color: transparent;
 }
+.w-full{
+    margin-right: 380px;
+}
 .edit-profile{
     margin-top: 75px;
 }

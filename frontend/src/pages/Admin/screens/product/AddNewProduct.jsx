@@ -12,7 +12,6 @@ function AddNewProduct({ inputs, title }) {
     const phone = form.phone.value;
     const address = form.address.value;
     const country = form.country.value;
-    console.log(email, username, password, phone, address, country);
   };
   return (
     <div className="newContainer">

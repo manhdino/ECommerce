@@ -9,9 +9,6 @@ function UpdateProduct({ inputs }) {
   const [category, setCategory] = useState("");
   const [price, setPrice] = useState("");
   const [stock, setStock] = useState("");
-  console.log("state:", state);
-
-  console.log("input product", inputs);
   const [file, setFile] = useState("");
   const handleUpdateProduct = (event) => {
     event.preventDefault();

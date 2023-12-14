@@ -7,6 +7,7 @@ import { useState } from "react";
 import { useQuery, useQueryClient, useMutation } from "@tanstack/react-query";
 import * as UserService from "../../../../../services/UserServices.js";
 import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
 
 export default function DataGridDemo() {
   const user = useSelector((state) => state.user);
@@ -31,6 +32,16 @@ export default function DataGridDemo() {
     },
     onSuccess: () => {
       queryClient.invalidateQueries(["getAllUsers"]);
+      toast.success("User deleted", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
     },
   });
   const handleDelete = (id) => {
@@ -46,7 +57,7 @@ export default function DataGridDemo() {
     {
       field: "action",
       headerName: "Action",
-      width: 200,
+      width: 240,
       renderCell: (params) => {
         return (
           <div className="cellAction">
@@ -65,6 +76,23 @@ export default function DataGridDemo() {
             >
               <div className="viewButton">View</div>
             </Link>
+            <Link
+              to={`update/${params.row._id}`}
+              style={{ textDecoration: "none" }}
+              state={{
+                id: params.row._id,
+                username: params.row.username,
+                fullname: params.row.fullname,
+                avatar: params.row.avatar,
+                status: params.row.status,
+                email: params.row.email,
+                phone: params.row.phone,
+                address: params.row.address,
+                password: params.row.password,
+              }}
+            >
+              <div className="updateButton">Update</div>
+            </Link>
             <div
               className="deleteButton"
               onClick={() => handleDelete(params.row.id)}
@@ -78,12 +106,7 @@ export default function DataGridDemo() {
   ];
   return (
     <div className="datatable">
-      <div className="datatableTitle">
-        Add New User
-        <Link to="create" className="link">
-          Add New
-        </Link>
-      </div>
+      <div className="datatableTitle">Database Users</div>
       {DataFilter ? (
         <DataGrid
           className="datagrid"

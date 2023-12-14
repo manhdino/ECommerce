@@ -38,14 +38,7 @@ export const userInputs = [
     label: "Address",
     name: "address",
     type: "text",
-    placeholder: "Elton St. 216 NewYork",
-  },
-  {
-    id: 7,
-    label: "Country",
-    name: "country",
-    type: "text",
-    placeholder: "USA",
+    placeholder: "",
   },
 ];
 
