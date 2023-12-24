@@ -10,7 +10,7 @@ const Search = ({ products, GridList }) => {
   );
   return (
     <div className="widget widget-search">
-      <form className="search-wrapper mb-3">
+      <form className="search-wrapper mb-3 form-search">
         <input
           type="text"
           name="s"

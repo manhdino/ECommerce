@@ -12,8 +12,6 @@
     top: 0;
     left: 0;
     animation: fadeInDown 0.5s;
-    -webkit-animation: fadeInDown 0.5s;
-    -moz-animation: fadeInDown 0.5s;
     box-shadow: 0 0 10px rgba($color: $title-color, $alpha: 0.1);
     z-index: 999;
 
@@ -27,8 +25,6 @@
 
     .header-bottom {
       backdrop-filter: blur(20px);
-
-      -webkit-backdrop-filter: blur(20px);
     }
   }
   &.style-2 {

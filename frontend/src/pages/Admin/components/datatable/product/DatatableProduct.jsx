@@ -64,8 +64,6 @@ export default function DataGridDemo() {
           },
         }}
         pageSizeOptions={[10]}
-        // pageSize={9}
-        // rowsPerPageOptions={[9]}
         checkboxSelection
         disableRowSelectionOnClick
       />
