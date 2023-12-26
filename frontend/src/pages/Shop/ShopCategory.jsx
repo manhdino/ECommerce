@@ -11,12 +11,11 @@ const ShopCategory = ({
 }) => {
   return (
     <>
-      <div className="widget-header">
-        <h5 className="ms-2">{title}</h5>
-      </div>
-      <div className="">
+      <div className="tags-category">
+        <h5 className="title">{title}</h5>
+
         <button
-          className={`m-2 ${selectedCategory === "All" ? "bg-warning" : ""}`}
+          className={` ${selectedCategory === "All" ? "bg-warning" : ""}`}
           onClick={() => setProducts(Data)}
         >
           All

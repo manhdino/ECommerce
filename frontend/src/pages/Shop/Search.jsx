@@ -9,8 +9,8 @@ const Search = ({ products, GridList }) => {
     product.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
   return (
-    <div className="widget widget-search">
-      <form className="search-wrapper mb-3 form-search">
+    <div className="search-shop">
+      <form className="mb-3 search-form">
         <input
           type="text"
           name="s"

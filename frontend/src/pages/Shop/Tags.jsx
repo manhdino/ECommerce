@@ -27,25 +27,30 @@ const tagsList = [
   },
   {
     link: "#",
-    text: "envato",
+    text: "3docean",
   },
   {
     link: "#",
-    text: "themeforest",
+    text: "gsan",
   },
   {
     link: "#",
-    text: "codecanyon",
+    text: "gadean",
+  },
+  {
+    link: "#",
+    text: "gasdfavan",
   },
 ];
 
 const Tags = () => {
   return (
-    <div className="widget widget-tags">
-      <div className="widget-header">
-        <h5 className="title">{title}</h5>
-      </div>
-      <ul className="widget-wrapper">
+    // <div className="widget widget-tags">
+    <div className="tags-category">
+      {/* <div className="widget-header"> */}
+      <h5 className="title">{title}</h5>
+      {/* </div> */}
+      <ul>
         {tagsList.map((val, i) => (
           <li key={i}>
             <a href={val.link}>{val.text}</a>

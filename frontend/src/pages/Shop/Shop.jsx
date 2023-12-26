@@ -8,6 +8,7 @@ import PopularPost from "./PopularPost";
 import Tags from "./Tags";
 import ProductCards from "./ProductCards";
 const showResult = "Showing 01 - 12 of 139 Results";
+import MostPopularPost from "../../components/Sidebar/MostPopularPost";
 import Data from "/src/products.json";
 
 const Shop = () => {
@@ -97,7 +98,7 @@ const Shop = () => {
                   setProducts={setProducts}
                   selectedCategory={selectedCategory}
                 />
-                <PopularPost />
+                <MostPopularPost />
                 <Tags />
               </aside>
             </div>

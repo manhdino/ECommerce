@@ -12,14 +12,16 @@ import { Navigation } from "swiper/modules";
 import Review from "../../components/Review";
 import MostPopularPost from "../../components/Sidebar/MostPopularPost";
 import ProductDisplay from "./ProductDisplay";
-
+import Data from "../../products.json";
 const SingleProduct = () => {
   const [product, setProduct] = useState([]);
   const { id } = useParams();
+  console.log("Data", Data);
+  // if(Data){
+  //   setProduct(Data);
+  // }
   useEffect(() => {
-    fetch("/src/products.json")
-      .then((res) => res.json())
-      .then((data) => setProduct(data));
+    setProduct(Data);
   }, []);
 
   const result = product.filter((p) => p.id === id);
