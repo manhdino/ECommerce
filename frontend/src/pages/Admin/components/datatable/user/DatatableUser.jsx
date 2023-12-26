@@ -9,9 +9,8 @@ import * as UserService from "../../../../../services/UserServices.js";
 import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
 
-export default function DataGridDemo() {
+export default function DatabaseUser() {
   const user = useSelector((state) => state.user);
-  // const [data, setData] = useState("");
   const [userId, setUserId] = useState(0);
   const queryClient = useQueryClient();
   const DataAllUsers = useQuery({

@@ -29,8 +29,8 @@ const CategoryShowCase = () => {
           <div className="course-filter-group">
             <ul className="lab-ul">
               <li onClick={() => setItems(Data)}>All</li>
-              <li onClick={() => filterItem("Sneaker")}>Sneaker</li>
-              <li onClick={() => filterItem("Pants")}>Pants</li>
+              <li onClick={() => filterItem("Adidas")}>Adidas</li>
+              <li onClick={() => filterItem("Nike")}>Nike</li>
               <li onClick={() => filterItem("Boot")}>Boot</li>
               <li onClick={() => filterItem("Bag")}>Bag</li>
             </ul>
@@ -69,7 +69,7 @@ const CategoryShowCase = () => {
                               <h1 className="ca-name">{seller}</h1>
                               {/* </Link> */}
                             </div>
-                            <div className="course-price">{price}</div>
+                            <div className="course-price">${price}</div>
                           </div>
                         </div>
                       </div>

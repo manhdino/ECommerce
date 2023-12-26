@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import DriveFolderUploadOutlinedIcon from "@mui/icons-material/DriveFolderUploadOutlined";
 import React from "react";
 import * as UserService from "../../../../services/UserServices";
-import { useQuery, useQueryClient, useMutation } from "@tanstack/react-query";
+import { useQueryClient, useMutation } from "@tanstack/react-query";
 import { useSelector } from "react-redux";
 import "../AddNew.scss";
 import { toast, ToastContainer } from "react-toastify";

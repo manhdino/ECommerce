@@ -5,7 +5,7 @@ const desc =
   "Energistia an deliver atactica metrcs after avsionary Apropria trnsition enterpris an sources applications emerging 	psd template.";
 
 const ProductDisplay = ({ item }) => {
-  const { id, img, price, name, quantity, seller } = item;
+  const { id, img, price, name, seller, quantity, description } = item;
   const [prequantity, setQuantity] = useState(quantity);
   const [coupon, setCoupon] = useState("");
   const [size, setSize] = useState("Select Size");
@@ -86,33 +86,11 @@ const ProductDisplay = ({ item }) => {
         </p>
         <h4>${price}</h4>
         <h6>{seller}</h6>
-        <p>{desc}</p>
+        <p>{description || desc}</p>
       </div>
       {/* Single Product Cart Component here */}
       <div>
         <form onSubmit={handleSubmit}>
-          <div className="select-product size">
-            <select value={size} onChange={handleSizeChange}>
-              <option>Select Size</option>
-              <option>SM</option>
-              <option>MD</option>
-              <option>LG</option>
-              <option>XL</option>
-              <option>XXL</option>
-            </select>
-            <i className="icofont-rounded-down"></i>
-          </div>
-          <div className="select-product color">
-            <select value={color} onChange={handleColorChange}>
-              <option>Select Color</option>
-              <option>Pink</option>
-              <option>Ash</option>
-              <option>Red</option>
-              <option>White</option>
-              <option>Blue</option>
-            </select>
-            <i className="icofont-rounded-down"></i>
-          </div>
           <div className="cart-plus-minus">
             <div onClick={handleDecrease} className="dec qtybutton">
               -
@@ -128,13 +106,37 @@ const ProductDisplay = ({ item }) => {
               +
             </div>
           </div>
-          <div className="discount-code mb-2">
+          <div className="select-product size">
+            <select value={size} onChange={handleSizeChange}>
+              <option>Select Size</option>
+              <option>37</option>
+              <option>38</option>
+              <option>39</option>
+              <option>40</option>
+              <option>41</option>
+              <option>42</option>
+            </select>
+            <i className="icofont-rounded-down"></i>
+          </div>
+          {/* <div className="select-product color">
+            <select value={color} onChange={handleColorChange}>
+              <option>Select Color</option>
+              <option>Pink</option>
+              <option>Ash</option>
+              <option>Red</option>
+              <option>White</option>
+              <option>Blue</option>
+            </select>
+            <i className="icofont-rounded-down"></i>
+          </div> */}
+
+          {/* <div className="discount-code mb-2">
             <input
               type="text"
               placeholder="Enter Discount Code"
               onChange={(e) => setCoupon(e.target.value)}
             />
-          </div>
+          </div> */}
           <button type="submit" className="lab-btn">
             <span>Add To Cart</span>
           </button>

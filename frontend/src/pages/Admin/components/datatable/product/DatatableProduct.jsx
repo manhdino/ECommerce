@@ -4,7 +4,7 @@ import { DataGrid } from "@mui/x-data-grid";
 import { productColumns, productRows } from "../../../datatablesource.jsx";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-export default function DataGridDemo() {
+export default function DatabaseProduct() {
   const [data, setData] = useState(productRows);
 
   const handleDelete = (id) => {

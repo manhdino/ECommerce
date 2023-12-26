@@ -3,15 +3,27 @@ const ProductService = require("../services/ProductService");
 const createProduct = async (req, res) => {
   try {
     console.log(req.body);
-    const { name, img, stock, price, rating, description, category } = req.body;
+    const {
+      name,
+      img,
+      stock,
+      price,
+      ratings,
+      description,
+      category,
+      seller,
+      quantity,
+    } = req.body;
     if (
       !name ||
       !img ||
       !stock ||
       !price ||
-      !rating ||
+      !ratings ||
       !description ||
-      !category
+      !category ||
+      !quantity ||
+      !seller
     ) {
       return res.status(200).json({
         status: "ERR",
@@ -102,13 +114,7 @@ const deleteMany = async (req, res) => {
 
 const getAllProduct = async (req, res) => {
   try {
-    const { limit, page, sort, filter } = req.query;
-    const response = await ProductService.getAllProduct(
-      Number(limit) || null,
-      Number(page) || 0,
-      sort,
-      filter
-    );
+    const response = await ProductService.getAllProduct();
     return res.status(200).json(response);
   } catch (e) {
     return res.status(404).json({
