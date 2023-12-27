@@ -14,8 +14,12 @@ const ProductCards = ({ products, GridList }) => {
         <div className="col-lg-4 col-md-6 col-12" key={i}>
           <div className="product-item">
             <div className="product-thumb">
-              <div className="pro-thumb">
-                <img src={`${product.img}`} alt={`${product.img}`} />
+              <div className="pro-thumb ">
+                <img
+                  src={`${product.img}`}
+                  alt={`${product.img}`}
+                  className="img-card"
+                />
               </div>
               <div className="product-action-link product-action-link-wrap">
                 <Link to={`/shop/${product.id}`}>

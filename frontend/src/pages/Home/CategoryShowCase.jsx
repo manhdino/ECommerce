@@ -31,8 +31,8 @@ const CategoryShowCase = () => {
               <li onClick={() => setItems(Data)}>All</li>
               <li onClick={() => filterItem("Adidas")}>Adidas</li>
               <li onClick={() => filterItem("Nike")}>Nike</li>
-              <li onClick={() => filterItem("Boot")}>Boot</li>
-              <li onClick={() => filterItem("Bag")}>Bag</li>
+              <li onClick={() => filterItem("Oxford")}>Oxford</li>
+              <li onClick={() => filterItem("Loafer")}>Loafer</li>
             </ul>
           </div>
         </div>
@@ -49,7 +49,7 @@ const CategoryShowCase = () => {
                     <div className="course-item style-4">
                       <div className="course-inner">
                         <div className="course-thumb">
-                          <img src={img} alt="" />
+                          <img src={img} alt="" className="img-card-2" />
                           <div className="course-category">
                             <div className="course-cate">{category}</div>
                             <div className="course-reiew">
