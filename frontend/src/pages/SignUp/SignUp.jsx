@@ -49,7 +49,7 @@ const SignUp = () => {
             </form>
             <div className="account-bottom">
               <span className="d-block cate pt-10">
-                Are you a member? <Link to="/login">Login</Link>
+                Are you a member? <Link to="/sign-in">Login</Link>
               </span>
               <span className="or">
                 <span>or</span>
