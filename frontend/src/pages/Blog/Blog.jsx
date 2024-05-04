@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import PageHeader from "../../components/PageHeader";
+import BreadCrumb from "../../components/Breadcrumb/BreadCrumb";
 
 import blogList from "../../utilis/blogdata";
 
 const Blog = () => {
   return (
     <div>
-      <PageHeader title={"Our Blog Posts"} curPage={"Blog"} />
+      <BreadCrumb title={"Our Blog Posts"} curPage={"Blog"} />
       <div className="blog-section padding-tb section-bg">
         <div className="container">
           <div className="section-wrapper">

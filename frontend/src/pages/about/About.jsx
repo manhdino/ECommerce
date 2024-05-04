@@ -1,5 +1,5 @@
 import React from "react";
-import PageHeader from "../../components/PageHeader";
+import BreadCrumb from "../../components/Breadcrumb/BreadCrumb";
 const subTitle = "About Our Brand";
 const title = "Good Qualification Services And Better Expriences";
 const desc =
@@ -32,7 +32,7 @@ const aboutList = [
 const About = () => {
   return (
     <div>
-      <PageHeader title={"About Our Brand"} curPage={"About"} />
+      <BreadCrumb title={"About Our Brand"} curPage={"About"} />
       <div className="about-section style-3 padding-tb section-bg">
         <div className="container">
           <div className="row justify-content-center row-cols-xl-2 row-cols-1 align-items-center">

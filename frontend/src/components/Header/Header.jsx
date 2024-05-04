@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import logo from "../assets/images/logo/logo.png";
+import logo from "../../assets/images/logo/logo.png";
 import { NavDropdown } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 

@@ -1,10 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import * as UserService from "../../services/UserServices";
-import { useMutationHooks } from "../../hooks/useMutationHook";
-import { toast, ToastContainer } from "react-toastify";
-import { updateUser } from "../../slices/UserSlice";
-import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import BorderColorIcon from "@mui/icons-material/BorderColor";
 function Profile() {
   const title = "Update Profile";
@@ -17,67 +11,6 @@ function Profile() {
   const [phone, setPhoneNumber] = useState("");
   const [address, setAddress] = useState("");
   const [fullname, setFullName] = useState("");
-  const user = useSelector((state) => state.user);
-
-  const queryClient = useQueryClient();
-  useQuery({
-    queryFn: () => {
-      return UserService.getDetailsUser(user?.id, user?.access_token);
-    },
-    queryKey: ["profile"],
-  });
-  const mutation = useMutation({
-    mutationFn: (data) => {
-      const { id, access_token, ...rests } = data;
-      UserService.updateUser(id, rests, access_token);
-    },
-    onSuccess: () => {
-      dispatch(updateUser(data));
-      queryClient.invalidateQueries(["profile"]);
-      toast.success("Profile is updated", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
-    },
-  });
-
-  const handleUpdate = async (event) => {
-    event.preventDefault();
-    setData({
-      email: email,
-      fullname: fullname,
-      username: username,
-      phone: phone,
-      address: address,
-      avatar: avatar,
-    });
-    mutation.mutate({
-      id: user?.id,
-      avatar,
-      email,
-      username,
-      fullname,
-      phone,
-      address,
-      access_token: user?.access_token,
-    });
-  };
-
-  const dispatch = useDispatch();
-  useEffect(() => {
-    setAvatar(user.avatar);
-    setUserName(user.username);
-    setEmail(user.email);
-    setPhoneNumber(user.phone);
-    setAddress(user.address);
-    setFullName(user.fullname);
-  }, [user]);
 
   const handleOnChangeUsername = (e) => {
     setUserName(e.target.value);
@@ -144,7 +77,7 @@ function Profile() {
               {" "}
               <BorderColorIcon sx={{ fontSize: 18 }} className="edit-profile" />
             </label>
-            <form className="account-form" onSubmit={handleUpdate}>
+            <form className="account-form">
               <div className="form-group">
                 <label className="label-profile">Username:</label>
                 <input
@@ -197,7 +130,7 @@ function Profile() {
               </div>
 
               <div className="form-group text-center">
-                <button className="d-block lab-btn" onClick={handleUpdate}>
+                <button className="d-block lab-btn">
                   <span>{btnText}</span>
                 </button>
               </div>
@@ -205,7 +138,6 @@ function Profile() {
           </div>
         </div>
       </div>
-      <ToastContainer />
     </div>
   );
 }
