@@ -4,7 +4,7 @@ const title = "Register Now";
 const socialTitle = "Register With Social Media";
 const btnText = "Get Started Now";
 
-const Signup = () => {
+const SignUp = () => {
   const [errorMessage, setErrorMessage] = useState("");
 
   const location = useLocation();
@@ -91,4 +91,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default SignUp;

@@ -1,5 +1,5 @@
 import React from "react";
-import PageHeader from "../../components/PageHeader";
+import BreadCrumb from "../../components/Breadcrumb/BreadCrumb";
 import { useState } from "react";
 import Search from "./Search";
 import Pagination from "./Pagination";
@@ -8,8 +8,8 @@ import PopularPost from "./PopularPost";
 import Tags from "./Tags";
 import ProductCards from "./ProductCards";
 const showResult = "Showing 01 - 12 of 139 Results";
-import MostPopularPost from "../blog/MostPopularPost";
-import Data from "/src/products.json";
+import MostPopularPost from "../Blog/MostPopularPost";
+import Data from "../../data/products.json";
 
 const Shop = () => {
   const [GridList, setGridList] = useState(true);
@@ -48,7 +48,7 @@ const Shop = () => {
 
   return (
     <div>
-      <PageHeader title={"Our Shop Pages"} curPage={"Shop"} />
+      <BreadCrumb title={"Our Shop Pages"} curPage={"Shop"} />
 
       {/* shop page */}
       <div className="shop-page padding-tb">

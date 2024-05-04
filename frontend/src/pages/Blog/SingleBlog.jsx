@@ -1,10 +1,9 @@
-// /* eslint-disable react/jsx-no-target-blank */
-import React, { useEffect, useState } from "react";
-import Tags from "../shop/Tags";
-import PageHeader from "../../components/PageHeader";
+import React, { useState } from "react";
 import { useParams } from "react-router-dom";
-import blogList from "../../utilis/blogdata";
+import blogList from "../../data/blog.json";
 import MostPopularPost from "./MostPopularPost";
+import BreadCrumb from "../../components/Breadcrumb/BreadCrumb";
+import Tags from "../Shop/Tags";
 const socialList = [
   {
     link: "#",
@@ -40,7 +39,7 @@ const SingleBlog = () => {
 
   return (
     <div>
-      <PageHeader title={"Single Blog Pages"} curPage={"Blog / Blog Details"} />
+      <BreadCrumb title={"Single Blog Pages"} curPage={"Blog / Blog Details"} />
       <div className="blog-section blog-single padding-tb section-bg">
         <div className="container">
           <div className="row justify-content-center">

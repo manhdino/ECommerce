@@ -2,11 +2,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const title = "Login";
+const title = "Sign In";
 const socialTitle = "Login With Social Media";
 const btnText = "Submit Now";
 
-const Login = () => {
+const SignIn = () => {
   return (
     <div>
       <div className="login-section padding-tb section-bg">
@@ -92,4 +92,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignIn;

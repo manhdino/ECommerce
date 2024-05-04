@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Rating from "./Sidebar/rating";
+import Rating from "../Rating/Rating";
 
 const reviwtitle = "Add a Review";
 let ReviewList = [
@@ -50,7 +50,6 @@ const Review = () => {
           Reviews 4
         </li>
       </ul>
-      
       <div
         className={`review-content ${
           reviewShow ? "review-content-show" : "description-show"

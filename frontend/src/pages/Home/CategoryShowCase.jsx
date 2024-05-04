@@ -1,9 +1,9 @@
 // import { useState } from "react";
 import { Link } from "react-router-dom";
-import Rating from "../../components/Sidebar/rating";
+import Rating from "../../components/Rating/Rating";
 import { useState } from "react";
 const title = "Our Products";
-import Data from "../../products.json";
+import Data from "../../data/products.json";
 
 const CategoryShowCase = () => {
   const btnText = "Shop Now";

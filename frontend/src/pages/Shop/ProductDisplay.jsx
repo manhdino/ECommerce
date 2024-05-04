@@ -118,25 +118,6 @@ const ProductDisplay = ({ item }) => {
             </select>
             <i className="icofont-rounded-down"></i>
           </div>
-          {/* <div className="select-product color">
-            <select value={color} onChange={handleColorChange}>
-              <option>Select Color</option>
-              <option>Pink</option>
-              <option>Ash</option>
-              <option>Red</option>
-              <option>White</option>
-              <option>Blue</option>
-            </select>
-            <i className="icofont-rounded-down"></i>
-          </div> */}
-
-          {/* <div className="discount-code mb-2">
-            <input
-              type="text"
-              placeholder="Enter Discount Code"
-              onChange={(e) => setCoupon(e.target.value)}
-            />
-          </div> */}
           <button type="submit" className="lab-btn">
             <span>Add To Cart</span>
           </button>

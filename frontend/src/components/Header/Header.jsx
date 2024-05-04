@@ -128,7 +128,7 @@ const NavItems = () => {
                   >
                     <span>Create Account</span>
                   </Link>
-                  <Link to="/login" className="d-none d-md-block">
+                  <Link to="/sign-in" className="d-none d-md-block">
                     Log In
                   </Link>
                 </>

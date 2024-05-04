@@ -1,25 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import PageHeader from "../../components/PageHeader";
 import Tags from "./Tags";
-
+import BreadCrumb from "../../components/Breadcrumb/BreadCrumb";
 import { Swiper, SwiperSlide } from "swiper/react";
-// Import Swiper styles
 import "swiper/css";
-
-// import required modules
 import { Navigation } from "swiper/modules";
-import Review from "../../components/Review";
+import Review from "../../components/Review/Review";
 import MostPopularPost from "../blog/MostPopularPost";
 import ProductDisplay from "./ProductDisplay";
-import Data from "../../products.json";
+import Data from "../../data/products.json";
 const SingleProduct = () => {
   const [product, setProduct] = useState([]);
   const { id } = useParams();
-  console.log("Data", Data);
-  // if(Data){
-  //   setProduct(Data);
-  // }
   useEffect(() => {
     setProduct(Data);
   }, []);
@@ -27,7 +19,7 @@ const SingleProduct = () => {
   const result = product.filter((p) => p.id === id);
   return (
     <div>
-      <PageHeader title={"OUR SHOP SINGLE"} curPage={"Shop / Single Product"} />
+      <BreadCrumb title={"OUR SHOP SINGLE"} curPage={"Shop / Single Product"} />
       <div className="shop-single padding-tb aside-bg">
         <div className="container">
           <div className="row justify-content-center">

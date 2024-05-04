@@ -14,25 +14,25 @@ import "././assets/css/icofont.min.css";
 import "././assets/css/animate.css";
 import "././assets/css/style.min.css";
 
-import Home from "./pages/home/index.jsx";
-import Shop from "./pages/shop/Shop.jsx";
-import SingleProduct from "./pages/shop/SingleProduct.jsx";
-import Blog from "./pages/blog/Blog.jsx";
-import SingleBlog from "./pages/blog/SingleBlog.jsx";
-import About from "./pages/about/About.jsx";
-import Contact from "./pages/contact/Contact.jsx";
-import CartPage from "./pages/shop/CartPage.jsx";
-import CheckoutPage from "./pages/shop/CheckoutPage.jsx";
-import Signup from "./components/Signup.jsx";
-import Login from "./pages/auth/login/Login.jsx";
+import Home from "./pages/Home/index.jsx";
+import Shop from "./pages/Shop/Shop.jsx";
+import SingleProduct from "./pages/Shop/SingleProduct.jsx";
+import Blog from "./pages/Blog/Blog.jsx";
+import SingleBlog from "./pages/Blog/SingleBlog.jsx";
+import About from "./pages/About/About.jsx";
+import Contact from "./pages/Contact/Contact.jsx";
+import CartPage from "./pages/Shop/CartPage.jsx";
+import CheckoutPage from "./pages/Shop/CheckoutPage.jsx";
+import Signup from "./pages/SignUp/SignUp.jsx";
 import Profile from "./pages/Profile/Profile.jsx";
-import store from "./store/store.js";
-import { Provider } from "react-redux";
+import Error from "./components/Error/Error.jsx";
+import SignIn from "./pages/SignIn/SignIn.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <Error />,
     children: [
       {
         path: "/",
@@ -81,13 +81,11 @@ const router = createBrowserRouter([
     element: <Signup />,
   },
   {
-    path: "/login",
-    element: <Login />,
+    path: "/sign-in",
+    element: <SignIn />,
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <Provider store={store}>
-    <RouterProvider router={router} />
-  </Provider>
+  <RouterProvider router={router} />
 );

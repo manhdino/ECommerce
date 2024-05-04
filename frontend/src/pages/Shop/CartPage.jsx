@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import PageHeader from "../../components/PageHeader";
+import BreadCrumb from "../../components/Breadcrumb/BreadCrumb";
 import { Link } from "react-router-dom";
 import delImgUrl from "../../assets/images/shop/del.png";
 import CheckoutPage from "./CheckoutPage";
@@ -62,7 +62,7 @@ const CartPage = () => {
 
   return (
     <div>
-      <PageHeader title={"Shop Cart"} curPage={"Cart Page"} />
+      <BreadCrumb title={"Shop Cart"} curPage={"Cart Page"} />
       <div className="shop-cart padding-tb">
         <div className="container">
           <div className="section-wrapper">

@@ -1,8 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import BreadCrumb from "../../components/Breadcrumb/BreadCrumb";
-
-import blogList from "../../utilis/blogdata";
+import blogList from "../../data/blog.json";
 
 const Blog = () => {
   return (

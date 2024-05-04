@@ -1,6 +1,6 @@
 import React from "react";
 import GoogleMap from "../../components/GoogleMap/GoogleMap";
-import PageHeader from "../../components/PageHeader";
+import BreadCrumb from "../../components/Breadcrumb/BreadCrumb";
 
 const subTitle = "Get in touch with us";
 const title = "We're Always Eager To Hear From You!";
@@ -39,7 +39,7 @@ const contactList = [
 const Contact = () => {
   return (
     <div>
-      <PageHeader title={"Get In Touch With Us"} curPage={"Contact Us"} />
+      <BreadCrumb title={"Get In Touch With Us"} curPage={"Contact Us"} />
       <div className="map-address-section padding-tb section-bg">
         <div className="container">
           <div className="section-header text-center">
