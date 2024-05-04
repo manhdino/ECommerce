@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import SelectCategory from "../Shop/SelectCategory";
+import SelectCategory from "../shop/SelectCategory";
 import productData from "../../products.json";
 import { Link } from "react-router-dom";
 

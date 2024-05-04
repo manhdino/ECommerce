@@ -1,76 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { jwtDecode } from "jwt-decode";
-import { useDispatch, useSelector } from "react-redux";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import * as UserServices from "../services/UserServices";
-import { useMutationHooks } from "../hooks/useMutationHook";
-import { updateUser } from "../slices/UserSlice";
+import React from "react";
+import { Link } from "react-router-dom";
 
 const title = "Login";
 const socialTitle = "Login With Social Media";
 const btnText = "Submit Now";
 
 const Login = () => {
-  const location = useLocation();
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-  // const [login, { isLoading }] = useLoginMutation();
-  const mutation = useMutationHooks((data) => UserServices.loginUser(data));
-  const { data, isSuccess } = mutation;
-
-  useEffect(() => {
-    if (isSuccess) {
-      if (data.status === "ERR") {
-        toast.error(data.message, {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
-      } else {
-        if (location?.state) {
-          navigate(location?.state);
-        } else {
-          navigate("/");
-          localStorage.setItem(
-            "access_token",
-            JSON.stringify(data?.access_token)
-          );
-          if (data?.access_token) {
-            const decoded = jwtDecode(data?.access_token);
-            if (decoded?.id) {
-              handleGetDetailsUser(decoded?.id, data?.access_token);
-            }
-          }
-        }
-      }
-    }
-  }, [isSuccess]);
-  const handleGetDetailsUser = async (id, token) => {
-    const res = await UserServices.getDetailsUser(id, token);
-    dispatch(updateUser({ ...res?.data, access_token: token }));
-  };
-  // login with google
-
-  // login with email password
-  const handleLogin = async (event) => {
-    event.preventDefault();
-    const form = event.target;
-    const email = form.email.value;
-    const password = form.password.value;
-    mutation.mutate({
-      email,
-      password,
-    });
-  };
-
   return (
     <div>
       <div className="login-section padding-tb section-bg">
@@ -78,7 +14,7 @@ const Login = () => {
           <div className="account-wrapper">
             <h3 className="title">{title}</h3>
 
-            <form className="account-form" onSubmit={handleLogin}>
+            <form className="account-form">
               <div className="form-group">
                 <input
                   type="email"
@@ -152,7 +88,6 @@ const Login = () => {
           </div>
         </div>
       </div>
-      <ToastContainer />
     </div>
   );
 };

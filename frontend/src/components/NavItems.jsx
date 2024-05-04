@@ -1,10 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/images/logo/logo.png";
 import { NavDropdown } from "react-bootstrap";
-import { useSelector, useDispatch } from "react-redux";
-import { resetUser } from "../slices/UserSlice";
-import * as UserServices from "../services/UserServices";
 import { useNavigate } from "react-router-dom";
 
 const NavItems = () => {
@@ -13,18 +10,8 @@ const NavItems = () => {
   const [headerFiexd, setHeaderFiexd] = useState(false);
   const [username, setUserName] = useState("");
   const [avatar, setAvatar] = useState("");
-  const user = useSelector((state) => state.user);
-  const dispatch = useDispatch();
   const navigate = useNavigate();
-  useEffect(() => {
-    setUserName(user?.username);
-    setAvatar(user?.avatar);
-  }, [user]);
-  const handleLogout = async () => {
-    await UserServices.logoutUser();
-    dispatch(resetUser());
-    navigate("/");
-  };
+  const [user, setUser] = useState("");
   const handleProfile = () => {
     navigate("/profile");
   };
@@ -130,9 +117,7 @@ const NavItems = () => {
                       Order
                     </NavDropdown.Item>
                     <NavDropdown.Divider />
-                    <NavDropdown.Item onClick={handleLogout}>
-                      Logout
-                    </NavDropdown.Item>
+                    <NavDropdown.Item>Logout</NavDropdown.Item>
                   </NavDropdown>
                 </>
               ) : (

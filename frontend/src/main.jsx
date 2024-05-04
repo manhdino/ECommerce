@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
-import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import "swiper/css";
@@ -15,34 +14,21 @@ import "././assets/css/icofont.min.css";
 import "././assets/css/animate.css";
 import "././assets/css/style.min.css";
 
-import Home from "./pages/Home/Home.jsx";
-import Shop from "./pages/Shop/Shop.jsx";
-import SingleProduct from "./pages/Shop/SingleProduct.jsx";
-import Blog from "./pages/Blog/Blog.jsx";
-import SingleBlog from "./pages/Blog/SingleBlog.jsx";
-import About from "./pages/AboutPage/About.jsx";
-import Contact from "./pages/ContactPage/Contact.jsx";
-import CartPage from "./pages/Shop/CartPage.jsx";
-import CheckoutPage from "./pages/Shop/CheckoutPage.jsx";
+import Home from "./pages/home/index.jsx";
+import Shop from "./pages/shop/Shop.jsx";
+import SingleProduct from "./pages/shop/SingleProduct.jsx";
+import Blog from "./pages/blog/Blog.jsx";
+import SingleBlog from "./pages/blog/SingleBlog.jsx";
+import About from "./pages/about/About.jsx";
+import Contact from "./pages/contact/Contact.jsx";
+import CartPage from "./pages/shop/CartPage.jsx";
+import CheckoutPage from "./pages/shop/CheckoutPage.jsx";
 import Signup from "./components/Signup.jsx";
-import Login from "./components/Login.jsx";
+import Login from "./pages/auth/login/Login.jsx";
 import ErrorPage from "./components/ErrorPage.jsx";
-import PrivateRoute from "./PrivateRoute/PrivateRoute.jsx";
 import Profile from "./pages/Profile/Profile.jsx";
-import Admin from "./pages/Admin/Admin.jsx";
-import DatabaseProduct from "./pages/Admin/components/datatable/product/DatatableProduct.jsx";
-import DatabaseUser from "./pages/Admin/components/datatable/user/DatatableUser.jsx";
-import Table from "./pages/Admin/components/table/Table.jsx";
 import store from "./store/store.js";
 import { Provider } from "react-redux";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import AdminLayout from "./pages/Admin/AdminLayout.jsx";
-import UpdateUser from "./pages/Admin/screens/user/UpdateUser.jsx";
-import DetailUser from "./pages/Admin/screens/user/DetailUser.jsx";
-import UpdateProduct from "./pages/Admin/screens/product/UpdateProduct.jsx";
-import AddNewProduct from "./pages/Admin/screens/product/AddNewProduct.jsx";
-import { userInputs, productInputs } from "./pages/Admin/formSource.js";
 
 const router = createBrowserRouter([
   {
@@ -80,27 +66,15 @@ const router = createBrowserRouter([
       },
       {
         path: "/profile",
-        element: (
-          <PrivateRoute>
-            <Profile />
-          </PrivateRoute>
-        ),
+        element: <Profile />,
       },
       {
         path: "/cart-page",
-        element: (
-          <PrivateRoute>
-            <CartPage />
-          </PrivateRoute>
-        ),
+        element: <CartPage />,
       },
       {
         path: "/check-out",
-        element: (
-          <PrivateRoute>
-            <CheckoutPage />
-          </PrivateRoute>
-        ),
+        element: <CheckoutPage />,
       },
     ],
   },
@@ -112,61 +86,10 @@ const router = createBrowserRouter([
     path: "/login",
     element: <Login />,
   },
-  {
-    path: "/admin",
-    element: (
-      // <PrivateRoute isAdmin={true}>
-      <AdminLayout />
-      // </PrivateRoute>
-    ),
-    children: [
-      {
-        path: "",
-        element: <Admin />,
-      },
-      {
-        path: "users",
-        element: <DatabaseUser />,
-      },
-      {
-        path: "users/update/:id",
-        element: <UpdateUser />,
-      },
-      {
-        path: "orders",
-        element: <Table />,
-      },
-      {
-        path: "users/:id",
-        element: <DetailUser />,
-      },
-      {
-        path: "products",
-        element: <DatabaseProduct />,
-      },
-      {
-        path: "products/create",
-        element: (
-          <AddNewProduct inputs={productInputs} title="Add New Product" />
-        ),
-      },
-      {
-        path: "products/update",
-        element: <UpdateProduct inputs={productInputs} />,
-      },
-    ],
-  },
 ]);
-// Create a client
-const queryClient = new QueryClient();
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <QueryClientProvider client={queryClient}>
-    <Provider store={store}>
-      {/* <React.StrictMode> */}
-      <RouterProvider router={router} />
-      {/* </React.StrictMode> */}
-    </Provider>
-    <ReactQueryDevtools initialIsOpen={false} />
-  </QueryClientProvider>
+  <Provider store={store}>
+    <RouterProvider router={router} />
+  </Provider>
 );

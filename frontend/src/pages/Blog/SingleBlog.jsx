@@ -1,10 +1,10 @@
 // /* eslint-disable react/jsx-no-target-blank */
 import React, { useEffect, useState } from "react";
-import Tags from "../Shop/Tags";
+import Tags from "../shop/Tags";
 import PageHeader from "../../components/PageHeader";
 import { useParams } from "react-router-dom";
 import blogList from "../../utilis/blogdata";
-import MostPopularPost from "../../components/Sidebar/MostPopularPost";
+import MostPopularPost from "./MostPopularPost";
 const socialList = [
   {
     link: "#",

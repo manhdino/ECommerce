@@ -10,7 +10,7 @@ import "swiper/css";
 // import required modules
 import { Navigation } from "swiper/modules";
 import Review from "../../components/Review";
-import MostPopularPost from "../../components/Sidebar/MostPopularPost";
+import MostPopularPost from "../blog/MostPopularPost";
 import ProductDisplay from "./ProductDisplay";
 import Data from "../../products.json";
 const SingleProduct = () => {
